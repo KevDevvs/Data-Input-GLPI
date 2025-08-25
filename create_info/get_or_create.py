@@ -2,9 +2,9 @@ from helper.read_config import APP_TOKEN, USER_TOKEN, GLPI_URL
 import requests
 from helper.colors import c
 
-def get_or_create_computer_model(session_token, model_name):
+def get_or_create_phone_model(session_token, model_name):
     """
-    Busca ou cria um modelo de computador no GLPI.
+    Busca ou cria um modelo de telefone no GLPI.
     
     Args:
         session_token: Token da sessão GLPI
@@ -14,7 +14,7 @@ def get_or_create_computer_model(session_token, model_name):
         int: ID do modelo encontrado ou criado
         None: Se não foi possível encontrar ou criar o modelo
     """
-    print(c(f"🔍 [BUSCA] Procurando modelo de computador: '{model_name}'...", 'cyan'))
+    print(c(f"🔍 [BUSCA] Procurando modelo de telefone: '{model_name}'...", 'cyan'))
     headers = {
         "App-Token": APP_TOKEN,
         "Authorization": f"user_token {USER_TOKEN}",
@@ -23,7 +23,7 @@ def get_or_create_computer_model(session_token, model_name):
     
     try:
         # Primeiro tenta buscar diretamente todos os modelos
-        models_response = requests.get(f"{GLPI_URL}/ComputerModel", headers=headers)
+        models_response = requests.get(f"{GLPI_URL}/PhoneModel", headers=headers)
         models_list = models_response.json()
         
         # Procura na lista de modelos
@@ -41,7 +41,7 @@ def get_or_create_computer_model(session_token, model_name):
             "criteria[0][value]": model_name
         }
         
-        search = requests.get(f"{GLPI_URL}/search/ComputerModel", headers=headers, params=search_params)
+        search = requests.get(f"{GLPI_URL}/search/PhoneModel", headers=headers, params=search_params)
         resp = search.json()
         
         if isinstance(resp, dict) and resp.get("totalcount", 0) > 0:
@@ -50,14 +50,14 @@ def get_or_create_computer_model(session_token, model_name):
             return model_id
             
         # Se não encontrou, cria novo modelo
-        print(c(f"🆕 [CRIANDO] Novo modelo de computador: '{model_name}'...", 'blue'))
+        print(c(f"🆕 [CRIANDO] Novo modelo de telefone: '{model_name}'...", 'blue'))
         payload = {
             "input": {
                 "name": model_name
             }
         }
         
-        r = requests.post(f"{GLPI_URL}/ComputerModel", headers=headers, json=payload)
+        r = requests.post(f"{GLPI_URL}/PhoneModel", headers=headers, json=payload)
         r.raise_for_status()
         
         response_data = r.json()
@@ -66,6 +66,152 @@ def get_or_create_computer_model(session_token, model_name):
             if model_id:
                 print(c(f"✅ [OK] Modelo '{model_name}' criado com sucesso (ID: {model_id})", 'green'))
                 return model_id
+        
+        print(c(f"❌ [ERRO] Resposta inesperada ao criar modelo: {r.text}", 'red'))
+        return None
+        
+    except Exception as e:
+        print(c(f"❌ [ERRO] Falha ao buscar/criar modelo '{model_name}': {str(e)}", 'red'))
+        return None
+
+def get_or_create_manufacturer(session_token, manufacturer_name):
+    """
+    Busca ou cria um fabricante no GLPI.
+    
+    Args:
+        session_token: Token da sessão GLPI
+        manufacturer_name: Nome do fabricante a ser buscado/criado
+        
+    Returns:
+        int: ID do fabricante encontrado ou criado
+        None: Se não foi possível encontrar ou criar o fabricante
+    """
+    print(c(f"🔍 [BUSCA] Procurando fabricante: '{manufacturer_name}'...", 'cyan'))
+    headers = {
+        "App-Token": APP_TOKEN,
+        "Authorization": f"user_token {USER_TOKEN}",
+        "Session-Token": session_token
+    }
+    
+    try:
+        # Primeiro tenta buscar diretamente todos os fabricantes
+        response = requests.get(f"{GLPI_URL}/Manufacturer", headers=headers)
+        items_list = response.json()
+        
+        # Procura na lista
+        if isinstance(items_list, list):
+            for item in items_list:
+                if item.get("name") == manufacturer_name:
+                    item_id = int(item["id"])
+                    print(c(f"✅ [OK] Fabricante '{manufacturer_name}' encontrado (ID: {item_id})", 'green'))
+                    return item_id
+        
+        # Se não encontrou, tenta via search
+        search_params = {
+            "criteria[0][field]": "name",
+            "criteria[0][searchtype]": "equals",
+            "criteria[0][value]": manufacturer_name
+        }
+        
+        search = requests.get(f"{GLPI_URL}/search/Manufacturer", headers=headers, params=search_params)
+        resp = search.json()
+        
+        if isinstance(resp, dict) and resp.get("totalcount", 0) > 0:
+            item_id = int(resp["data"][0].get("2", 0))
+            print(c(f"✅ [OK] Fabricante '{manufacturer_name}' encontrado via busca (ID: {item_id})", 'green'))
+            return item_id
+            
+        # Se não encontrou, cria novo
+        print(c(f"🆕 [CRIANDO] Novo fabricante: '{manufacturer_name}'...", 'blue'))
+        payload = {
+            "input": {
+                "name": manufacturer_name
+            }
+        }
+        
+        r = requests.post(f"{GLPI_URL}/Manufacturer", headers=headers, json=payload)
+        r.raise_for_status()
+        
+        response_data = r.json()
+        if isinstance(response_data, dict):
+            item_id = response_data.get("id")
+            if item_id:
+                print(c(f"✅ [OK] Fabricante '{manufacturer_name}' criado com sucesso (ID: {item_id})", 'green'))
+                return item_id
+        
+        print(c(f"❌ [ERRO] Resposta inesperada ao criar fabricante: {r.text}", 'red'))
+        return None
+        
+    except Exception as e:
+        print(c(f"❌ [ERRO] Falha ao buscar/criar fabricante '{manufacturer_name}': {str(e)}", 'red'))
+        return None
+
+def get_or_create_model(session_token, model_name, model_type):
+    """
+    Busca ou cria um modelo no GLPI.
+    
+    Args:
+        session_token: Token da sessão GLPI
+        model_name: Nome do modelo a ser buscado/criado
+        model_type: Tipo do modelo ('Phone' ou 'Computer')
+        
+    Returns:
+        int: ID do modelo encontrado ou criado
+        None: Se não foi possível encontrar ou criar o modelo
+    """
+    model_endpoint = f"{model_type}Model"  # PhoneModel ou ComputerModel
+    print(c(f"🔍 [BUSCA] Procurando modelo de {model_type}: '{model_name}'...", 'cyan'))
+    headers = {
+        "App-Token": APP_TOKEN,
+        "Authorization": f"user_token {USER_TOKEN}",
+        "Session-Token": session_token
+    }
+    
+    try:
+        # Primeiro tenta buscar diretamente todos os modelos
+        response = requests.get(f"{GLPI_URL}/{model_endpoint}", headers=headers)
+        items_list = response.json()
+        
+        # Procura na lista
+        if isinstance(items_list, list):
+            for item in items_list:
+                if item.get("name") == model_name:
+                    item_id = int(item["id"])
+                    print(c(f"✅ [OK] Modelo '{model_name}' encontrado (ID: {item_id})", 'green'))
+                    return item_id
+        
+        # Se não encontrou, tenta via search
+        search_params = {
+            "criteria[0][field]": "name",
+            "criteria[0][searchtype]": "equals",
+            "criteria[0][value]": model_name
+        }
+        
+        search = requests.get(f"{GLPI_URL}/search/{model_endpoint}", headers=headers, params=search_params)
+        resp = search.json()
+        
+        if isinstance(resp, dict) and resp.get("totalcount", 0) > 0:
+            item_id = int(resp["data"][0].get("2", 0))
+            print(c(f"✅ [OK] Modelo '{model_name}' encontrado via busca (ID: {item_id})", 'green'))
+            return item_id
+            
+        # Se não encontrou, cria novo
+        print(c(f"🆕 [CRIANDO] Novo modelo de {model_type}: '{model_name}'...", 'blue'))
+        payload = {
+            "input": {
+                "name": model_name
+            }
+        }
+        
+        r = requests.post(f"{GLPI_URL}/{model_endpoint}", headers=headers, json=payload)
+        r.raise_for_status()
+        
+        response_data = r.json()
+        if isinstance(response_data, dict):
+            item_id = response_data.get("id")
+            if item_id:
+                print(c(f"✅ [OK] Modelo '{model_name}' criado com sucesso (ID: {item_id})", 'green'))
+                return item_id
         
         print(c(f"❌ [ERRO] Resposta inesperada ao criar modelo: {r.text}", 'red'))
         return None

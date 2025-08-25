@@ -5,7 +5,7 @@ from create_info.create_entity_hierarchy import create_entity_hierarchy
 from create_info.create_users import create_user
 from glpi_session.glpi_session import init_session, kill_session
 from create_info.create_asset import create_asset
-from create_info.get_or_create import get_or_create_computer_model
+from create_info.get_or_create import get_or_create_manufacturer, get_or_create_model
 import openpyxl
 import openpyxl
 import os
@@ -43,8 +43,8 @@ def main():
     for idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
         print(c(f"\n📄 [LINHA {idx}] Processando dados...", 'blue'))
         try:
-            # Desempacota os campos da linha (nova ordem com email)
-            nome, email, ent_a, ent_b, ent_c, linha, cel_modelo, cel_imei, nb_marca, nb_modelo, nb_serial = row
+            # Desempacota os campos da linha (nova ordem com email e marca do celular)
+            nome, email, ent_a, ent_b, ent_c, linha, cel_marca, cel_modelo, cel_imei, nb_marca, nb_modelo, nb_serial = row
 
             # Validação de campos obrigatórios
             if not ent_a:
@@ -86,13 +86,40 @@ def main():
                 })
 
             if cel_modelo:
+                # Format phone name to include brand and IMEI
+                phone_name = cel_modelo
+                if cel_marca and cel_imei and str(cel_imei).strip():
+                    phone_name = f"Celular {str(cel_marca).strip()} - {str(cel_imei).strip()}"
+                elif cel_imei and str(cel_imei).strip():
+                    phone_name = f"Celular - {str(cel_imei).strip()}"
+                
+                # Prepara os dados do telefone
                 phone_data = {
-                    "name": cel_modelo,
+                    "name": phone_name,
                     "entities_id": entidade_final_id,
-                    "users_id": user_id if user_id else 0  # Usa 0 como fallback
+                    "users_id": user_id if user_id else 0,  # Usa 0 como fallback
                 }
-                if cel_imei and str(cel_imei).strip():  # Só adiciona IMEI se for válido
-                    phone_data["imei"] = str(cel_imei).strip()
+
+                # Busca ou cria o modelo
+                if cel_modelo:
+                    model_id = get_or_create_model(session, cel_modelo, "Phone")
+                    if model_id:
+                        phone_data["phonemodels_id"] = model_id
+                    else:
+                        print(c(f"⚠️ [AVISO] Não foi possível criar/encontrar o modelo '{cel_modelo}'", 'yellow'))
+
+                # Busca ou cria o fabricante
+                if cel_marca and str(cel_marca).strip():
+                    manufacturer_id = get_or_create_manufacturer(session, str(cel_marca).strip())
+                    if manufacturer_id:
+                        phone_data["manufacturers_id"] = manufacturer_id
+                    else:
+                        print(c(f"⚠️ [AVISO] Não foi possível criar/encontrar o fabricante '{cel_marca}'", 'yellow'))
+
+                # Adiciona IMEI como número serial
+                if cel_imei and str(cel_imei).strip():
+                    phone_data["serial"] = str(cel_imei).strip()
+
                 create_asset(session, "Phone", phone_data)
 
             if nb_modelo:
@@ -103,29 +130,33 @@ def main():
                 elif nb_serial and str(nb_serial).strip():
                     computer_name = f"Notebook - {str(nb_serial).strip()}"
                 
-                # Format model field to include manufacturer and model
-                model_name = nb_modelo
-                if nb_marca and str(nb_marca).strip():
-                    model_name = f"{str(nb_marca).strip()} - {nb_modelo}"
-                
-                # Get or create the computer model
-                model_id = get_or_create_computer_model(session, model_name)
-                
-                if model_id is None:
-                    print(c(f"❌ [ERRO] Não foi possível criar/encontrar o modelo '{model_name}'. Pulando criação do computador.", 'red'))
-                    continue
-                
                 computer_data = {
                     "name": computer_name,
                     "entities_id": entidade_final_id,
                     "users_id": user_id if user_id else 0,  # Usa 0 como fallback
-                    "computermodels_id": model_id,  # Set the model ID after creating/finding it
                     "is_dynamic": 0  # Garantir que não é um computador dinâmico
                 }
-                if nb_serial and str(nb_serial).strip():  # Adiciona serial se for válido
+
+                # Busca ou cria o modelo
+                if nb_modelo:
+                    model_id = get_or_create_model(session, nb_modelo, "Computer")
+                    if model_id:
+                        computer_data["computermodels_id"] = model_id
+                    else:
+                        print(c(f"⚠️ [AVISO] Não foi possível criar/encontrar o modelo '{nb_modelo}'", 'yellow'))
+
+                # Busca ou cria o fabricante
+                if nb_marca and str(nb_marca).strip():
+                    manufacturer_id = get_or_create_manufacturer(session, str(nb_marca).strip())
+                    if manufacturer_id:
+                        computer_data["manufacturers_id"] = manufacturer_id
+                    else:
+                        print(c(f"⚠️ [AVISO] Não foi possível criar/encontrar o fabricante '{nb_marca}'", 'yellow'))
+
+                # Adiciona serial se for válido
+                if nb_serial and str(nb_serial).strip():
                     computer_data["serial"] = str(nb_serial).strip()
-                if nb_marca and str(nb_marca).strip():  # Adiciona marca se for válida
-                    computer_data["manufacturers_id"] = str(nb_marca).strip()
+
                 create_asset(session, "Computer", computer_data)
 
             print(c(f"✅ [OK] Linha {idx} processada!", 'green'))

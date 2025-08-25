@@ -13,6 +13,7 @@
         - Entidade B (opcional)
         - Entidade C (opcional)
         - Linha telefônica
+        - Marca do celular
         - Celular modelo
         - Celular IMEI
         - Notebook modelo
