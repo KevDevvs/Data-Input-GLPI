@@ -33,22 +33,24 @@ def create_user(session_token, name, group, profile_id, entity_id):
 
     headers = {**HEADERS, "Session-Token": session_token}
 
-    # Processa o nome e gera o login
+    # Processa o nome para firstname e realname
     name_parts = name.strip().split(' ')
     if not name_parts:
         print(c(f"❌ [ERRO] Nome do usuário inválido: {name}", 'red'))
         return None
+
+    # Verifica se temos um email válido para usar como login
+    if not group or not group.startswith("@"):
+        print(c(f"❌ [ERRO] Email não fornecido para o usuário: {name}", 'red'))
+        return None
     
-    # Remove acentos para o login
-    import unicodedata
-    def remove_accents(input_str):
-        nfkd_form = unicodedata.normalize('NFKD', input_str)
-        return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
-    
-    # Gera o login baseado no nome
-    login_base = (name_parts[0][0] + (name_parts[-1] if len(name_parts) > 1 else name_parts[0])).lower()
-    login = remove_accents(login_base).replace(' ', '').replace('-', '')
-    print(c(f"🔑 [INFO] Login gerado: {login}", 'cyan'))
+    # Usa o email completo como login
+    login = group.lstrip("@")
+    if not login or '@' not in login:
+        print(c(f"❌ [ERRO] Email inválido fornecido para o usuário: {name}", 'red'))
+        return None
+        
+    print(c(f"🔑 [INFO] Login definido como email: {login}", 'cyan'))
 
     # Busca se o usuário já existe
     print(c(f"🔎 Verificando usuário: {login}", 'cyan'))

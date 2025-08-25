@@ -4,7 +4,6 @@ from helper.colors import c
 from create_info.create_entity_hierarchy import create_entity_hierarchy
 from create_info.create_users import create_user
 from glpi_session.glpi_session import init_session, kill_session
-from create_info.get_or_create import get_or_create
 from create_info.create_asset import create_asset
 import openpyxl
 import openpyxl
@@ -60,6 +59,9 @@ def main():
         if session:
             kill_session(session)
         return
+
+
+    
 
     for idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
         print(c(f"\n📄 [LINHA {idx}] Processando dados...", 'blue'))
