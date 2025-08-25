@@ -458,31 +458,134 @@ def create_user(session_token, name, group, profile_id, entity_id):
             "groups_id": GROUP_ID
         }
 
-        # Adiciona email se fornecido
-        if group and group.startswith("@"):
-            email = group.lstrip("@")
-            if email and "@" in email:
-                user_data["_useremails"] = [{"email": email}]
-                print(c(f"📧 [INFO] Email configurado: {email}", 'cyan'))
-
-        # Cria o usuário
+        # Cria o usuário primeiro sem o email
         try:
             print(c(f"🆕 [CRIANDO] Novo usuário com dados: {user_data}", 'blue'))
+            
+            # Primeira tentativa: criar usuário com dados básicos
             r = requests.post(f"{GLPI_URL}/User", headers=headers, json={"input": user_data})
+            print(c(f"[DEBUG] Status code: {r.status_code}", 'yellow'))
+            print(c(f"[DEBUG] Resposta: {r.text}", 'yellow'))
+            
+            # Se o usuário foi criado com sucesso e temos um email para adicionar
+            if r.status_code in [200, 201] and group and group.startswith("@"):
+                email = group.lstrip("@")
+                if email and "@" in email:
+                    user_id = r.json().get("id")
+                    if user_id:
+                        # Adiciona o email em uma requisição separada
+                        email_data = {
+                            "input": {
+                                "users_id": user_id,
+                                "email": email,
+                                "is_default": 1
+                            }
+                        }
+                        email_r = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_data)
+                        if email_r.status_code in [200, 201]:
+                            print(c(f"📧 [OK] Email {email} adicionado com sucesso", 'green'))
+                        else:
+                            print(c(f"⚠️ [AVISO] Falha ao adicionar email: {email_r.text}", 'yellow'))
             
             if r.status_code in [200, 201]:
-                response_data = r.json()
-                if isinstance(response_data, dict) and "id" in response_data:
-                    user_id = response_data["id"]
-                    print(c(f"✅ [OK] Usuário criado com sucesso (ID: {user_id})", 'green'))
-                else:
-                    print(c(f"❌ [ERRO] Resposta inesperada ao criar usuário: {response_data}", 'red'))
+                try:
+                    # Primeiro tenta pegar o ID da resposta direta
+                    user_id = None
+                    if r.text.strip():
+                        try:
+                            response_data = r.json()
+                            if isinstance(response_data, dict) and "id" in response_data:
+                                user_id = response_data["id"]
+                                print(c(f"✅ [OK] ID obtido da resposta: {user_id}", 'green'))
+                        except:
+                            pass
+                    
+                    # Se não conseguiu o ID da resposta, tenta várias abordagens de busca
+                    if not user_id:
+                        print(c(f"🔍 [DEBUG] Buscando ID do usuário por diferentes métodos...", 'yellow'))
+                        
+                        # Método 1: Busca direta por lista de usuários
+                        print(c(f"[DEBUG] Método 1: Busca direta...", 'yellow'))
+                        users_response = requests.get(f"{GLPI_URL}/User", headers=headers)
+                        if users_response.status_code == 200:
+                            users = users_response.json()
+                            if isinstance(users, list):
+                                for user in users:
+                                    if user.get("name") == login:
+                                        user_id = int(user["id"])
+                                        print(c(f"✅ [OK] ID encontrado via busca direta: {user_id}", 'green'))
+                                        break
+                        
+                        # Método 2: Busca via endpoint de pesquisa
+                        if not user_id:
+                            print(c(f"[DEBUG] Método 2: Busca via search...", 'yellow'))
+                            search_params = {
+                                "criteria[0][field]": "1",
+                                "criteria[0][searchtype]": "equals",
+                                "criteria[0][value]": login
+                            }
+                            search_response = requests.get(
+                                f"{GLPI_URL}/search/User",
+                                headers=headers,
+                                params=search_params
+                            )
+                            
+                            if search_response.status_code in [200, 206]:
+                                try:
+                                    search_data = search_response.json()
+                                    if isinstance(search_data, dict) and search_data.get("totalcount", 0) > 0:
+                                        user_id = int(search_data["data"][0].get("2", search_data["data"][0].get("id")))
+                                        print(c(f"✅ [OK] ID encontrado via search: {user_id}", 'green'))
+                                except Exception as e:
+                                    print(c(f"[DEBUG] Erro ao processar resposta search: {str(e)}", 'yellow'))
+                        
+                        # Método 3: Busca pelo nome completo
+                        if not user_id:
+                            print(c(f"[DEBUG] Método 3: Busca por nome completo...", 'yellow'))
+                            search_params = {
+                                "criteria[0][field]": "firstname",
+                                "criteria[0][searchtype]": "equals",
+                                "criteria[0][value]": user_data["firstname"],
+                                "criteria[1][link]": "AND",
+                                "criteria[1][field]": "realname",
+                                "criteria[1][searchtype]": "equals",
+                                "criteria[1][value]": user_data["realname"]
+                            }
+                            name_search = requests.get(
+                                f"{GLPI_URL}/search/User",
+                                headers=headers,
+                                params=search_params
+                            )
+                            
+                            if name_search.status_code in [200, 206]:
+                                try:
+                                    name_data = name_search.json()
+                                    if isinstance(name_data, dict) and name_data.get("totalcount", 0) > 0:
+                                        user_id = int(name_data["data"][0].get("2", name_data["data"][0].get("id")))
+                                        print(c(f"✅ [OK] ID encontrado via nome completo: {user_id}", 'green'))
+                                except Exception as e:
+                                    print(c(f"[DEBUG] Erro ao processar resposta nome: {str(e)}", 'yellow'))
+                    
+                    if user_id:
+                        print(c(f"✅ [OK] Usuário criado com sucesso (ID: {user_id})", 'green'))
+                    else:
+                        print(c(f"❌ [ERRO] Não foi possível obter o ID do usuário criado", 'red'))
+                        return None
+                except Exception as e:
+                    print(c(f"❌ [ERRO] Falha ao processar resposta: {str(e)}", 'red'))
+                    print(c(f"[DEBUG] Resposta completa: {r.text}", 'yellow'))
                     return None
             else:
                 print(c(f"❌ [ERRO] Falha ao criar usuário: {r.text}", 'red'))
                 return None
         except Exception as e:
             print(c(f"❌ [ERRO] Exceção ao criar usuário: {str(e)}", 'red'))
+            print(c(f"[DEBUG] Tentando identificar o problema...", 'yellow'))
+            try:
+                print(c(f"[DEBUG] Status code: {r.status_code}", 'yellow'))
+                print(c(f"[DEBUG] Resposta completa: {r.text}", 'yellow'))
+            except:
+                pass
             return None
 
     if user_id:
@@ -519,18 +622,131 @@ def create_user(session_token, name, group, profile_id, entity_id):
         if group and group.startswith("@"):
             email = group.lstrip("@")
             if email and "@" in email:
-                email_payload = {"input": {"users_id": user_id, "email": email}}
-                r_email = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_payload)
+                print(c(f"📧 [DEBUG] Iniciando processo de vinculação de email '{email}' para usuário {user_id}...", 'cyan'))
                 
-                if r_email.status_code in [200, 201]:
-                    print(c(f"✅ [OK] Email adicionado com sucesso!", 'green'))
+                # Tenta todas as abordagens possíveis
+                
+                # 1. Atualização direta no usuário
+                print(c(f"🔄 [DEBUG] Tentativa 1: Atualização direta do usuário...", 'cyan'))
+                email_update = {
+                    "input": {
+                        "id": user_id,
+                        "email": email
+                    }
+                }
+                r_email_direct = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=email_update)
+                print(c(f"[DEBUG] Status (direto): {r_email_direct.status_code}", 'yellow'))
+                print(c(f"[DEBUG] Resposta (direto): {r_email_direct.text}", 'yellow'))
+                
+                # 2. Vinculação via UserEmail
+                print(c(f"🔄 [DEBUG] Tentativa 2: Vinculação via UserEmail...", 'cyan'))
+                email_payload = {
+                    "input": {
+                        "users_id": user_id,
+                        "email": email,
+                        "is_default": 1
+                    }
+                }
+                r_email = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_payload)
+                print(c(f"[DEBUG] Status (UserEmail): {r_email.status_code}", 'yellow'))
+                print(c(f"[DEBUG] Resposta (UserEmail): {r_email.text}", 'yellow'))
+                
+                # 3. Atualização com array de emails
+                print(c(f"🔄 [DEBUG] Tentativa 3: Atualização com array de emails...", 'cyan'))
+                email_array_update = {
+                    "input": {
+                        "id": user_id,
+                        "_useremails": [{"email": email}]
+                    }
+                }
+                r_email_array = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=email_array_update)
+                print(c(f"[DEBUG] Status (array): {r_email_array.status_code}", 'yellow'))
+                print(c(f"[DEBUG] Resposta (array): {r_email_array.text}", 'yellow'))
+                
+                # Verifica o resultado
+                if r_email_direct.status_code == 200 or r_email.status_code in [200, 201] or r_email_array.status_code == 200:
+                    print(c(f"✅ [OK] Email vinculado com sucesso!", 'green'))
                 elif "Duplicate entry" in str(r_email.text):
                     print(c(f"ℹ️ [INFO] Email já existe para este usuário", 'blue'))
                 else:
-                    print(c(f"⚠️ [AVISO] Erro ao adicionar email: {r_email.text}", 'yellow'))
+                    print(c(f"⚠️ [AVISO] Todas as tentativas de vincular email falharam!", 'yellow'))
 
     return user_id
 
+
+def update_user_info(session_token, user_id, user_data, entity_id, profile_id, email=None):
+    """
+    Função auxiliar para atualizar as informações do usuário após a criação
+    """
+    headers = {**HEADERS, "Session-Token": session_token}
+    
+    # 1. Atualiza dados básicos
+    basic_update = {
+        "input": {
+            "id": user_id,
+            "firstname": user_data.get("firstname"),
+            "realname": user_data.get("realname"),
+            "entities_id": entity_id,
+            "is_active": 1
+        }
+    }
+    
+    if email:
+        basic_update["input"]["email"] = email
+    
+    r_basic = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=basic_update)
+    print(c(f"[DEBUG] Status atualização básica: {r_basic.status_code}", 'yellow'))
+    print(c(f"[DEBUG] Resposta atualização básica: {r_basic.text}", 'yellow'))
+    
+    # 2. Vincula o perfil
+    profile_payload = {
+        "input": {
+            "users_id": user_id,
+            "profiles_id": profile_id,
+            "entities_id": entity_id,
+            "is_recursive": 0
+        }
+    }
+    r_profile = requests.post(f"{GLPI_URL}/Profile_User", headers=headers, json=profile_payload)
+    print(c(f"[DEBUG] Status vinculação perfil: {r_profile.status_code}", 'yellow'))
+    
+    # 3. Vincula o grupo
+    if GROUP_ID:
+        group_payload = {
+            "input": {
+                "users_id": user_id,
+                "groups_id": GROUP_ID,
+                "entities_id": entity_id
+            }
+        }
+        r_group = requests.post(f"{GLPI_URL}/Group_User", headers=headers, json=group_payload)
+        print(c(f"[DEBUG] Status vinculação grupo: {r_group.status_code}", 'yellow'))
+    
+    # 4. Adiciona email via UserEmail se fornecido
+    if email:
+        email_payload = {
+            "input": {
+                "users_id": user_id,
+                "email": email,
+                "is_default": 1
+            }
+        }
+        r_email = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_payload)
+        print(c(f"[DEBUG] Status adição email: {r_email.status_code}", 'yellow'))
+        print(c(f"[DEBUG] Resposta adição email: {r_email.text}", 'yellow'))
+        
+        # Se falhar, tenta atualizar email diretamente
+        if r_email.status_code not in [200, 201]:
+            email_update = {
+                "input": {
+                    "id": user_id,
+                    "_useremails": [{"email": email}]
+                }
+            }
+            r_email_alt = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=email_update)
+            print(c(f"[DEBUG] Status atualização email alternativa: {r_email_alt.status_code}", 'yellow'))
+    
+    return True
 
 def create_asset(session_token, asset_type, payload):
     """
