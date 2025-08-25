@@ -12,10 +12,27 @@ def create_asset(session_token, asset_type, payload):
     print(c("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", 'yellow'))
     print(c(f"💻 [ETAPA] Criando ativo do tipo {asset_type}...", 'yellow'))
     search_value = payload.get("name")
-    search = requests.get(f"{GLPI_URL}/search/{asset_type}", headers=headers,
-                         params={"criteria[0][field]": 1,
-                                 "criteria[0][searchtype]": "equals",
-                                 "criteria[0][value]": search_value})
+    
+    # Parâmetros de busca específicos para Lines
+    if asset_type == "Line":
+        users_id = payload.get("users_id", 0)
+        search_params = {
+            "criteria[0][field]": 1,  # name
+            "criteria[0][searchtype]": "equals",
+            "criteria[0][value]": search_value,
+            "criteria[1][link]": "AND",
+            "criteria[1][field]": 70,  # users_id
+            "criteria[1][searchtype]": "equals",
+            "criteria[1][value]": users_id
+        }
+    else:
+        search_params = {
+            "criteria[0][field]": 1,
+            "criteria[0][searchtype]": "equals",
+            "criteria[0][value]": search_value
+        }
+    
+    search = requests.get(f"{GLPI_URL}/search/{asset_type}", headers=headers, params=search_params)
     resp = search.json()
     if resp.get("totalcount", 0) > 0:
         asset_id = int(resp["data"][0].get("id", resp["data"][0].get("2", 0)))
