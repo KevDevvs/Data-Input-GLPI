@@ -5,6 +5,7 @@ from create_info.create_entity_hierarchy import create_entity_hierarchy
 from create_info.create_users import create_user
 from glpi_session.glpi_session import init_session, kill_session
 from create_info.create_asset import create_asset
+from create_info.get_or_create import get_or_create_computer_model
 import openpyxl
 import openpyxl
 import os
@@ -95,14 +96,35 @@ def main():
                 create_asset(session, "Phone", phone_data)
 
             if nb_modelo:
+                # Format computer name to include manufacturer and serial number
+                computer_name = nb_modelo
+                if nb_marca and nb_serial and str(nb_serial).strip():
+                    computer_name = f"Notebook {str(nb_marca).strip()} - {str(nb_serial).strip()}"
+                elif nb_serial and str(nb_serial).strip():
+                    computer_name = f"Notebook - {str(nb_serial).strip()}"
+                
+                # Format model field to include manufacturer and model
+                model_name = nb_modelo
+                if nb_marca and str(nb_marca).strip():
+                    model_name = f"{str(nb_marca).strip()} - {nb_modelo}"
+                
+                # Get or create the computer model
+                model_id = get_or_create_computer_model(session, model_name)
+                
+                if model_id is None:
+                    print(c(f"❌ [ERRO] Não foi possível criar/encontrar o modelo '{model_name}'. Pulando criação do computador.", 'red'))
+                    continue
+                
                 computer_data = {
-                    "name": nb_modelo,
+                    "name": computer_name,
                     "entities_id": entidade_final_id,
-                    "users_id": user_id if user_id else 0  # Usa 0 como fallback
+                    "users_id": user_id if user_id else 0,  # Usa 0 como fallback
+                    "computermodels_id": model_id,  # Set the model ID after creating/finding it
+                    "is_dynamic": 0  # Garantir que não é um computador dinâmico
                 }
-                if nb_serial and str(nb_serial).strip():  # Só adiciona serial se for válido
+                if nb_serial and str(nb_serial).strip():  # Adiciona serial se for válido
                     computer_data["serial"] = str(nb_serial).strip()
-                if nb_marca and str(nb_marca).strip():  # Só adiciona marca se for válida
+                if nb_marca and str(nb_marca).strip():  # Adiciona marca se for válida
                     computer_data["manufacturers_id"] = str(nb_marca).strip()
                 create_asset(session, "Computer", computer_data)
 
