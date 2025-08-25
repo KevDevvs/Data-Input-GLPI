@@ -5,7 +5,7 @@ Utiliza uma planilha XLSX como fonte de dados e realiza operações de criação
 Principais funções:
 - Criação de entidades em cascata (até 4 níveis)
 - Criação de grupos na entidade raiz 'GI Group'
-    # Prepara os dados do usuário com First Name e Last Name
+    # Prepara o    print(c("\n👤 Processando usuário '{name}'...", 'yellow'))dados do usuário com First Name e Last Name
     user_data = {"entities_id": entity_id}
     
     # Divide o nome completo em primeiro nome e sobrenome
@@ -111,14 +111,11 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
         None: Se não foi possível encontrar ou criar o item
     """
     headers = {**HEADERS, "Session-Token": session_token}
-    print(c(f"🔎 [BUSCA] Procurando {endpoint} '{search_value}'...", 'cyan'))
-    
-    # Para grupos, tenta busca direta primeiro
+        # Para grupos, tenta busca direta primeiro
     if endpoint == "Group":
         try:
             groups = requests.get(f"{GLPI_URL}/Group", headers=headers).json()
             if isinstance(groups, list):
-                print(c(f"[DEBUG] Verificando na lista de {len(groups)} grupos...", 'yellow'))
                 for group in groups:
                     if group.get("name") == search_value:
                         entity_id = group.get("entities_id")
@@ -127,7 +124,7 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
                             print(c(f"✅ [OK] {endpoint} '{search_value}' encontrado (ID: {found_id})", 'green'))
                             return found_id
         except Exception as e:
-            print(c(f"[DEBUG] Erro na busca direta de grupos: {e}", 'yellow'))
+            pass
 
     # Busca via API de busca
     params = {"criteria[0][field]": 1, "criteria[0][searchtype]": "equals", "criteria[0][value]": search_value}
@@ -254,8 +251,7 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
                 try:
                     all_entities = requests.get(f"{GLPI_URL}/Entity", headers=headers).json()
                     if isinstance(all_entities, list):
-                        print(c(f"[DEBUG] Encontradas {len(all_entities)} entidades, procurando '{search_value}'...", 'yellow'))
-                        # Primeiro procura por correspondência exata de nome e parent
+                                    # Primeiro procura por correspondência exata de nome e parent
                         for entity in all_entities:
                             nome = entity.get("name", "")
                             eid = entity.get("id", "")
@@ -265,12 +261,7 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
                                     print(c(f"✅ [OK] Entity '{search_value}' encontrado via API direta (ID: {eid})", 'green'))
                                     return int(eid)
                         # Se não encontrou, imprime todas para debug
-                        print(c(f"[DEBUG] Listando todas entidades:", 'yellow'))
-                        for entity in all_entities:
-                            nome = entity.get("name", "")
-                            eid = entity.get("id", "")
-                            parent = entity.get("entities_id", "") or entity.get("parent_id", "") or entity.get("4", "")
-                            print(c(f"  - Nome: {nome} | ID: {eid} | Parent: {parent}", 'yellow'))
+                                    # Debug listing removed for cleaner output
                 except Exception as e:
                     print(c(f"[DEBUG] Erro na busca direta: {e}", 'yellow'))
 
@@ -326,12 +317,12 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
             print(c(f"❌ [ERRO] {endpoint} '{search_value}' não encontrado após erro de duplicidade.", 'red'))
             return None
 
+
 def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade_c=None, entidade_d=None):
     """
     Cria entidades em cascata (até 4 níveis) e retorna o ID da entidade mais profunda criada.
     """
-    print(c("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", 'yellow'))
-    print(c("🏢 [ETAPA] Criando hierarquia de entidades...", 'yellow'))
+    print(c("\n🏢 Processando hierarquia de entidades...", 'yellow'))
     eid_a = get_or_create(session_token, "Entity", "name", entidade_a)
     if eid_a is None:
         print(c(f"❌ [ERRO] Não foi possível criar ou encontrar a entidade A '{entidade_a}'. Hierarquia abortada.", 'red'))
@@ -377,6 +368,7 @@ def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade
             return eid_c if eid_c is not None else (eid_b if eid_b is not None else eid_a)
     # Retorna o ID da entidade mais profunda criada
     return eid_d or eid_c or eid_b or eid_a
+
 
 def create_user(session_token, name, group, profile_id, entity_id):
     """
@@ -425,7 +417,7 @@ def create_user(session_token, name, group, profile_id, entity_id):
     print(c(f"🔑 [INFO] Login gerado: {login}", 'cyan'))
 
     # Busca se o usuário já existe
-    print(c(f"🔎 [DEBUG] Verificando se usuário já existe: {login}", 'cyan'))
+    print(c(f"🔎 Verificando usuário: {login}", 'cyan'))
     search_params = {
         "criteria[0][field]": "1",  # campo name
         "criteria[0][searchtype]": "equals",
@@ -460,12 +452,11 @@ def create_user(session_token, name, group, profile_id, entity_id):
 
         # Cria o usuário primeiro sem o email
         try:
-            print(c(f"🆕 [CRIANDO] Novo usuário com dados: {user_data}", 'blue'))
+            print(c(f"🆕 Criando novo usuário...", 'blue'))
             
             # Primeira tentativa: criar usuário com dados básicos
             r = requests.post(f"{GLPI_URL}/User", headers=headers, json={"input": user_data})
-            print(c(f"[DEBUG] Status code: {r.status_code}", 'yellow'))
-            print(c(f"[DEBUG] Resposta: {r.text}", 'yellow'))
+                    # Verifica status da criação)
             
             # Se o usuário foi criado com sucesso e temos um email para adicionar
             if r.status_code in [200, 201] and group and group.startswith("@"):
@@ -483,9 +474,9 @@ def create_user(session_token, name, group, profile_id, entity_id):
                         }
                         email_r = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_data)
                         if email_r.status_code in [200, 201]:
-                            print(c(f"📧 [OK] Email {email} adicionado com sucesso", 'green'))
+                            print(c(f"📧 Email configurado: {email}", 'green'))
                         else:
-                            print(c(f"⚠️ [AVISO] Falha ao adicionar email: {email_r.text}", 'yellow'))
+                            print(c(f"⚠️ Não foi possível configurar o email", 'yellow'))
             
             if r.status_code in [200, 201]:
                 try:
@@ -502,10 +493,6 @@ def create_user(session_token, name, group, profile_id, entity_id):
                     
                     # Se não conseguiu o ID da resposta, tenta várias abordagens de busca
                     if not user_id:
-                        print(c(f"🔍 [DEBUG] Buscando ID do usuário por diferentes métodos...", 'yellow'))
-                        
-                        # Método 1: Busca direta por lista de usuários
-                        print(c(f"[DEBUG] Método 1: Busca direta...", 'yellow'))
                         users_response = requests.get(f"{GLPI_URL}/User", headers=headers)
                         if users_response.status_code == 200:
                             users = users_response.json()
@@ -513,7 +500,7 @@ def create_user(session_token, name, group, profile_id, entity_id):
                                 for user in users:
                                     if user.get("name") == login:
                                         user_id = int(user["id"])
-                                        print(c(f"✅ [OK] ID encontrado via busca direta: {user_id}", 'green'))
+                                        print(c(f"✅ [OK] Usuário encontrado (ID: {user_id})", 'green'))
                                         break
                         
                         # Método 2: Busca via endpoint de pesquisa
@@ -635,11 +622,7 @@ def create_user(session_token, name, group, profile_id, entity_id):
                     }
                 }
                 r_email_direct = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=email_update)
-                print(c(f"[DEBUG] Status (direto): {r_email_direct.status_code}", 'yellow'))
-                print(c(f"[DEBUG] Resposta (direto): {r_email_direct.text}", 'yellow'))
-                
                 # 2. Vinculação via UserEmail
-                print(c(f"🔄 [DEBUG] Tentativa 2: Vinculação via UserEmail...", 'cyan'))
                 email_payload = {
                     "input": {
                         "users_id": user_id,
@@ -648,11 +631,7 @@ def create_user(session_token, name, group, profile_id, entity_id):
                     }
                 }
                 r_email = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_payload)
-                print(c(f"[DEBUG] Status (UserEmail): {r_email.status_code}", 'yellow'))
-                print(c(f"[DEBUG] Resposta (UserEmail): {r_email.text}", 'yellow'))
-                
-                # 3. Atualização com array de emails
-                print(c(f"🔄 [DEBUG] Tentativa 3: Atualização com array de emails...", 'cyan'))
+                # 3. Atualização com array de emails se necessário
                 email_array_update = {
                     "input": {
                         "id": user_id,
@@ -660,8 +639,6 @@ def create_user(session_token, name, group, profile_id, entity_id):
                     }
                 }
                 r_email_array = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=email_array_update)
-                print(c(f"[DEBUG] Status (array): {r_email_array.status_code}", 'yellow'))
-                print(c(f"[DEBUG] Resposta (array): {r_email_array.text}", 'yellow'))
                 
                 # Verifica o resultado
                 if r_email_direct.status_code == 200 or r_email.status_code in [200, 201] or r_email_array.status_code == 200:
@@ -695,9 +672,6 @@ def update_user_info(session_token, user_id, user_data, entity_id, profile_id, e
         basic_update["input"]["email"] = email
     
     r_basic = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=basic_update)
-    print(c(f"[DEBUG] Status atualização básica: {r_basic.status_code}", 'yellow'))
-    print(c(f"[DEBUG] Resposta atualização básica: {r_basic.text}", 'yellow'))
-    
     # 2. Vincula o perfil
     profile_payload = {
         "input": {
@@ -708,7 +682,6 @@ def update_user_info(session_token, user_id, user_data, entity_id, profile_id, e
         }
     }
     r_profile = requests.post(f"{GLPI_URL}/Profile_User", headers=headers, json=profile_payload)
-    print(c(f"[DEBUG] Status vinculação perfil: {r_profile.status_code}", 'yellow'))
     
     # 3. Vincula o grupo
     if GROUP_ID:
@@ -720,8 +693,7 @@ def update_user_info(session_token, user_id, user_data, entity_id, profile_id, e
             }
         }
         r_group = requests.post(f"{GLPI_URL}/Group_User", headers=headers, json=group_payload)
-        print(c(f"[DEBUG] Status vinculação grupo: {r_group.status_code}", 'yellow'))
-    
+        
     # 4. Adiciona email via UserEmail se fornecido
     if email:
         email_payload = {
@@ -732,8 +704,8 @@ def update_user_info(session_token, user_id, user_data, entity_id, profile_id, e
             }
         }
         r_email = requests.post(f"{GLPI_URL}/UserEmail", headers=headers, json=email_payload)
-        print(c(f"[DEBUG] Status adição email: {r_email.status_code}", 'yellow'))
-        print(c(f"[DEBUG] Resposta adição email: {r_email.text}", 'yellow'))
+        if r_email.status_code in [200, 201]:
+            print(c(f"✅ Email vinculado com sucesso: {email}", 'green'))
         
         # Se falhar, tenta atualizar email diretamente
         if r_email.status_code not in [200, 201]:
@@ -744,9 +716,11 @@ def update_user_info(session_token, user_id, user_data, entity_id, profile_id, e
                 }
             }
             r_email_alt = requests.put(f"{GLPI_URL}/User/{user_id}", headers=headers, json=email_update)
-            print(c(f"[DEBUG] Status atualização email alternativa: {r_email_alt.status_code}", 'yellow'))
+            if r_email_alt.status_code == 200:
+                print(c(f"✅ Email atualizado com sucesso através do método alternativo", 'green'))
     
     return True
+
 
 def create_asset(session_token, asset_type, payload):
     """
@@ -778,6 +752,7 @@ def create_asset(session_token, asset_type, payload):
         print(c(f"❌ [ERRO] Não foi possível criar {asset_type} '{search_value}'. Resposta da API:", 'red'))
         print(r.text)
         raise
+
 
 ###############################
 # LEITURA DA PLANILHA E PROCESSAMENTO
