@@ -27,6 +27,7 @@ DELETE FROM glpi_printers;
 DELETE FROM glpi_networkequipments;
 DELETE FROM glpi_phones;
 DELETE FROM glpi_peripherals;
+DELETE FROM glpi_lines;
 DELETE FROM glpi_softwarelicenses;
 DELETE FROM glpi_softwareversions;
 DELETE FROM glpi_softwares;

@@ -12,28 +12,6 @@ from helper.read_config import FILE_PATH
 
 
 def main():
-    def process_excel():
-        """
-        Processa a planilha XLSX e realiza input dos dados no GLPI via API.
-        
-        Args:
-            FILE_PATH: Caminho para o arquivo XLSX com os dados
-            
-        Returns:
-            tuple: (total_processado, total_sucesso, total_erro) contagem de registros
-            
-        A planilha deve conter as seguintes colunas:
-        - Nome do usuário
-        - Entidade A (obrigatória)
-        - Entidade B (opcional)
-        - Entidade C (opcional)
-        - Linha telefônica
-        - Celular modelo
-        - Celular IMEI
-        - Notebook modelo
-        - Notebook marca
-        - Notebook serial
-        """
     
     print(c("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", 'yellow'))
     print(c("🚀 [INICIANDO] Processamento da planilha XLSX...", 'yellow'))
@@ -60,8 +38,6 @@ def main():
             kill_session(session)
         return
 
-
-    
 
     for idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
         print(c(f"\n📄 [LINHA {idx}] Processando dados...", 'blue'))
