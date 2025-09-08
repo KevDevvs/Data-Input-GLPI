@@ -220,7 +220,7 @@ def get_or_create_model(session_token, model_name, model_type):
         print(c(f"❌ [ERRO] Falha ao buscar/criar modelo '{model_name}': {str(e)}", 'red'))
         return None
 
-def get_or_create(session_token, endpoint, search_field, search_value, payload_extra=None):
+def get_or_create(session_token, endpoint, search_field, search_value, payload_extra=None, search_options=None):
     """
     Busca um item pelo campo especificado. Se não existir, cria o item.
     Retorna o ID do item encontrado ou criado.
@@ -230,7 +230,8 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
         endpoint: Endpoint da API (Entity, Group, User, etc)
         search_field: Campo a ser usado na busca
         search_value: Valor a ser buscado
-        payload_extra: Dados adicionais para criação/busca (ex: entities_id)
+        payload_extra: Dados adicionais para criação/busca (ex: entities_id, is_recursive)
+        search_options: Opções adicionais para busca (ex: is_recursive, parent_entities)
     
     Returns:
         int: ID do item encontrado ou criado
@@ -260,11 +261,23 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
 
     # Busca via API de busca
     params = {"criteria[0][field]": 1, "criteria[0][searchtype]": "equals", "criteria[0][value]": search_value}
-    # Para entidades/grupos, busca também por entities_id se fornecido
-    if endpoint in ["Entity", "Group"] and payload_extra and "entities_id" in payload_extra:
-        params["criteria[1][field]"] = 4
+    
+    # Adiciona parâmetros de busca recursiva se necessário
+    if search_options and search_options.get("is_recursive"):
+        params["is_recursive"] = 1
+    
+    # Para entidades/grupos/operadoras, busca também por entities_id se fornecido
+    if endpoint in ["Entity", "Group", "LineOperator"] and payload_extra and "entities_id" in payload_extra:
+        params["criteria[1][field]"] = 80  # entities_id
         params["criteria[1][searchtype]"] = "equals"
         params["criteria[1][value]"] = payload_extra["entities_id"]
+        
+    # Se necessário buscar em entidades pai
+    if search_options and search_options.get("parent_entities"):
+        params["criteria[2][link]"] = "OR"
+        params["criteria[2][criteria][0][field]"] = 80  # entities_id
+        params["criteria[2][criteria][0][searchtype]"] = "equals"
+        params["criteria[2][criteria][0][value]"] = 0  # Root entity
     search = requests.get(f"{GLPI_URL}/search/{endpoint}", headers=headers, params=params)
     resp = search.json()
     # Corrige caso a resposta seja uma lista inesperada
