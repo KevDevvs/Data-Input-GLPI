@@ -41,14 +41,17 @@ def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade
     final_entity_id = eid_d or eid_c or eid_b or eid_a
     
     if comment and final_entity_id:
-        comment_data = {"comment": comment}
+        comment_data = {"input": {"comment": comment}}
         response = requests.put(
             f"{GLPI_URL}/Entity/{final_entity_id}",
             headers={**HEADERS, "Session-Token": session_token},
             json=comment_data
         )
-        if not response.status_code == 200:
-            print(c("⚠️ Não foi possível adicionar o comentário à entidade", 'yellow'))
+        if response.status_code == 200:
+            print(c(f"✅ Comentário adicionado à entidade com sucesso", 'green'))
+        else:
+            print(c(f"⚠️ Não foi possível adicionar o comentário à entidade - Status: {response.status_code}", 'yellow'))
+            print(c(f"⚠️ Resposta: {response.text}", 'yellow'))
 
     return final_entity_id
 

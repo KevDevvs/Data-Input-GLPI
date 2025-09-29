@@ -43,19 +43,24 @@ def get_or_create_contract(session_token, contract_name, entities_id=0, supplier
 
     headers = {**HEADERS, "Session-Token": session_token}
     
+    print(c(f"🔍 Função get_or_create_contract chamada para '{contract_name}' com supplier_id={supplier_id}", 'blue'))
+    
     try:
         
         # Busca todos os contratos
+        print(c(f"🔍 Buscando contrato '{contract_name}'...", 'blue'))
         get_all_response = requests.get(f"{GLPI_URL}/Contract", headers=headers)
         
         if get_all_response.status_code == 200:
             all_contracts = get_all_response.json()
+            print(c(f"🔍 Encontrados {len(all_contracts) if isinstance(all_contracts, list) else 0} contratos no total", 'yellow'))
             
             # Procura pelo nome exato
             if isinstance(all_contracts, list):
                 for contract in all_contracts:
                     if isinstance(contract, dict) and contract.get("name") == contract_name:
                         contract_id = contract.get("id")
+                        print(c(f"✅ Contrato '{contract_name}' encontrado (ID: {contract_id})", 'green'))
                         
                         # Se foi fornecido um supplier_id, verificar se já está vinculado
                         if supplier_id:
@@ -83,13 +88,17 @@ def get_or_create_contract(session_token, contract_name, entities_id=0, supplier
                         return contract_id
         
         # Se não encontrou, cria um novo contrato na entidade raiz
+        print(c(f"🔍 Contrato '{contract_name}' não encontrado na lista", 'yellow'))
+        print(c(f"⚠️ Contrato '{contract_name}' não encontrado, criando novo...", 'yellow'))
         contract_data = {
             "name": contract_name,
             "entities_id": 0,  # Sempre entidade raiz
             "is_recursive": 1
         }
         
-        if not supplier_id:
+        if supplier_id:
+            print(c(f"📋 Criando contrato '{contract_name}' na entidade raiz (ID: 0) com supplier {supplier_id}", 'blue'))
+        else:
             print(c(f"📋 Criando contrato '{contract_name}' na entidade raiz (ID: 0) sem supplier", 'blue'))
         
         create_response = requests.post(f"{GLPI_URL}/Contract", headers=headers, json={"input": contract_data})
