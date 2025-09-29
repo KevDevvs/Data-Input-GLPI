@@ -47,7 +47,7 @@ def main():
         print(c(f"\n📄 Processando linha {idx}...", 'blue'))
         try:
             # Desempacota os campos da linha (incluindo componentes do notebook)
-            nome, email, cpf, ent_a, ent_b, ent_c, ent_d, linha, linha_operadora, line_type, line_status, cel_marca, cel_modelo, cel_imei, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria = row
+            nome, email, cpf, status_user, ent_a, ent_b, ent_c, ent_d, linha, linha_operadora, line_type, line_status, cel_type, cel_marca, cel_modelo, cel_imei, cel_coment, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria, nb_coment = row
 
             
             # Cria entidades em cascata e pega o ID do último nível preenchido
@@ -84,7 +84,7 @@ def main():
                 
                 # Tratamento de CPF
                 cpf_formatado = str(cpf).zfill(11)
-                user_id = create_user(session, nome, email_param, perfil_id, entidade_final_id, cpf_formatado)
+                user_id = create_user(session, nome, email_param, perfil_id, entidade_final_id, cpf_formatado, status_user)
 
             # Cria ativos vinculados à entidade/usuário (apenas se campo preenchido)
             if linha:
@@ -131,6 +131,7 @@ def main():
                     "name": phone_name,
                     "entities_id": entidade_final_id,
                     "users_id": user_id if user_id else 0,  # Usa 0 como fallback
+                    "phonetypes_id": cel_type
                 }
 
                 # Busca ou cria o modelo
@@ -152,6 +153,9 @@ def main():
                 # Adiciona IMEI como número serial
                 if cel_imei and str(cel_imei).strip():
                     phone_data["serial"] = str(cel_imei).strip()
+
+                if cel_coment and str(cel_coment).strip():
+                    phone_data["comment"] = str(cel_coment).strip()
 
                 create_asset(session, "Phone", phone_data)
 
@@ -182,6 +186,9 @@ def main():
                 "otherserial": nb_ativo,
                 "computertypes_id": nb_type
                 }
+
+                if nb_coment and str(nb_coment).strip():
+                    computer_data["comment"] = str(nb_coment).strip()
 
                 # Cria o computador
                 computer_id = create_asset(session, "Computer", computer_data)

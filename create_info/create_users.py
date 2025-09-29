@@ -4,31 +4,9 @@ from helper.read_config import GLPI_URL, APP_TOKEN, USER_TOKEN, GROUP_ID, HEADER
 from helper.colors import c
 
 
-def create_user(session_token, name, group, profile_id, entity_id, cpf=None):
-    """
-    Cria usuário e configura suas permissões.
-    
-    Args:
-        session_token: Token da sessão GLPI
-        name: Nome do usuário
-        group: Nome do grupo ou email (se começar com @)
-        profile_id: ID do perfil a ser associado
-        entity_id: ID da entidade onde o usuário será criado
-        cpf: CPF do usuário (opcional)
-    
-    Returns:
-        int: ID do usuário criado/encontrado
-        None: Se houve erro na criação
-    """
-    print(c(f"\n👤 Processando usuário '{name}'", 'yellow'))
+def create_user(session_token, name, email, profile_id, entity_id, status_user, cpf=None):
 
-    # Validações iniciais
-    if not profile_id:
-        profile_id = 1  # Perfil Self-Service como fallback
-    
-    if not GROUP_ID:
-        print(c("❌ GROUP_ID não definido", 'red'))
-        return None
+    print(c(f"\n👤 Processando usuário '{name}'", 'yellow'))
 
     headers = {**HEADERS, "Session-Token": session_token}
 
@@ -38,13 +16,12 @@ def create_user(session_token, name, group, profile_id, entity_id, cpf=None):
         print(c("❌ Nome inválido", 'red'))
         return None
 
-    # Verifica se temos um email válido para usar como login
-    if not group or not group.startswith("@"):
+    if not email or not email.startswith("@"):
         print(c("❌ Email não fornecido", 'red'))
         return None
     
     # Usa o email completo como login
-    login = group.lstrip("@")
+    login = email.lstrip("@")
     if not login or '@' not in login:
         print(c("❌ Email inválido", 'red'))
         return None
@@ -59,13 +36,12 @@ def create_user(session_token, name, group, profile_id, entity_id, cpf=None):
     
     user_id = None
     if search_response.status_code in [200, 206]:
-        try:
-            search_data = search_response.json()
-            if isinstance(search_data, dict) and search_data.get("totalcount", 0) > 0:
-                user_id = int(search_data["data"][0].get("2", search_data["data"][0].get("id")))
-                print(c(f"✅ [OK] Usuário encontrado (ID: {user_id})", 'green'))
-        except Exception as e:
-            print(c(f"⚠️ [AVISO] Erro ao processar resposta da busca: {e}", 'yellow'))
+        search_data = search_response.json()
+        if isinstance(search_data, dict) and search_data.get("totalcount", 0) > 0:
+            user_id = int(search_data["data"][0].get("2", search_data["data"][0].get("id")))
+            print(c(f"✅ [OK] Usuário encontrado (ID: {user_id})", 'green'))
+    else:
+        print(c(f"⚠️ [AVISO] Erro ao processar resposta da busca: {e}", 'yellow'))
     
     if not user_id:
         # Prepara os dados do usuário
@@ -80,47 +56,21 @@ def create_user(session_token, name, group, profile_id, entity_id, cpf=None):
             "is_active": 1,
             "authtype": 1,
             "groups_id": GROUP_ID,
-            "usercategories_id": 1,  # Categoria "Ativo"
+            "usercategories_id": status_user,  # Categoria "Ativo"
             "registration_number": cpf if cpf else ""  # Campo Administrative Number
         }
 
-        try:
-            # Cria usuário com dados básicos
-            r = requests.post(f"{GLPI_URL}/User", headers=headers, json={"input": user_data})
-            
-            # Tenta obter o ID do usuário criado
-            if r.status_code in [200, 201]:
-                try:
-                    response_data = r.json()
-                    user_id = response_data.get("id")
-                    
-                    # Se não conseguiu o ID diretamente, tenta buscar
-                    if not user_id:
-                        search_params = {
-                            "criteria[0][field]": "1",
-                            "criteria[0][searchtype]": "equals",
-                            "criteria[0][value]": login
-                        }
-                        search_response = requests.get(f"{GLPI_URL}/search/User", headers=headers, params=search_params)
-                        if search_response.status_code in [200, 206]:
-                            search_data = search_response.json()
-                            if search_data.get("totalcount", 0) > 0:
-                                user_id = int(search_data["data"][0].get("2", 0))
-                    
-                    if not user_id:
-                        print(c("❌ Não foi possível obter ID do usuário", 'red'))
-                        return None
-                        
-                except Exception as e:
-                    print(c(f"❌ Erro ao processar resposta: {str(e)}", 'red'))
-                    return None
-            else:
-                print(c("❌ Falha ao criar usuário", 'red'))
-                return None
-                
-        except Exception as e:
-            print(c(f"❌ Erro ao criar usuário: {str(e)}", 'red'))
+        # Cria usuário com dados básicos
+        r = requests.post(f"{GLPI_URL}/User", headers=headers, json={"input": user_data})
+        
+        # Tenta obter o ID do usuário criado
+        if r.status_code in [200, 201]:
+            response_data = r.json()
+            user_id = response_data.get("id")
+        else:
+            print(c("❌ Falha ao criar usuário", 'red'))
             return None
+
 
     if user_id:
         # Vincula o usuário ao perfil
@@ -132,6 +82,7 @@ def create_user(session_token, name, group, profile_id, entity_id, cpf=None):
                 "is_recursive": 0
             }
         }
+
         r_profile = requests.post(f"{GLPI_URL}/Profile_User", headers=headers, json=profile_payload)
         if r_profile.status_code not in [200, 201]:
             print(c("⚠️ Erro ao vincular perfil", 'yellow'))
@@ -151,8 +102,8 @@ def create_user(session_token, name, group, profile_id, entity_id, cpf=None):
                 print(c("⚠️ Erro ao vincular grupo", 'yellow'))
 
         # Adiciona ou atualiza o email
-        if group and group.startswith("@"):
-            email = group.lstrip("@")
+        if email and email.startswith("@"):
+            email = email.lstrip("@")
             if email and "@" in email:
                 # Tenta os diferentes métodos de vinculação de email
                 email_payload = {
