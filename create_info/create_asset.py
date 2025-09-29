@@ -1,6 +1,6 @@
 
 import requests
-import time
+from time import sleep
 from helper.read_config import GLPI_URL, HEADERS
 from helper.colors import c
 
@@ -43,60 +43,24 @@ def create_asset(session_token, asset_type, payload):
             return asset_id
         
         # Se não encontrou, cria
-        r = requests.post(f"{GLPI_URL}/{asset_type}", headers=headers, json={"input": payload})
-        
-        # Se a criação foi bem sucedida
-        if r.status_code in [200, 201]:
-            try:
-                # Tenta pegar o ID da resposta
+        else:
+            r = requests.post(f"{GLPI_URL}/{asset_type}", headers=headers, json={"input": payload})
+
+            # verifica criação
+            re_try = 3
+            while re_try > 0:
+                print(c(f"⏳ Verificando criação de {asset_type}, tentativa {4 - re_try}/3...", 'yellow'))
+                sleep(3)
                 asset_id = r.json().get("id")
                 if asset_id:
                     print(c(f"✅ {asset_type} criado", 'green'))
                     return asset_id
+                re_try -= 1
                 
-                # Se não conseguiu o ID, verifica se foi criado
-                time.sleep(2)  # Aguarda um pouco para o GLPI processar
-                verify = requests.get(f"{GLPI_URL}/search/{asset_type}", headers=headers, params=search_params)
-                verify_resp = verify.json()
-                
-                if verify_resp.get("totalcount", 0) > 0:
-                    asset_id = int(verify_resp["data"][0].get("id", verify_resp["data"][0].get("2", 0)))
-                    print(c(f"✅ {asset_type} criado", 'green'))
-                    return asset_id
-                    
-            except Exception as e:
-                # Se houver erro ao processar a resposta mas o status foi 200/201
-                # provavelmente o ativo foi criado mesmo assim
-                if "Duplicate entry" in str(r.text):
-                    print(c(f"✅ {asset_type} processado", 'green'))
-                    return True
-                    
-        # Se chegou aqui, faz uma última verificação
-        time.sleep(3)  # Aguarda um pouco mais
-        final_verify = requests.get(f"{GLPI_URL}/search/{asset_type}", headers=headers, params=search_params)
-        
-        try:
-            final_resp = final_verify.json()
-            if final_resp.get("totalcount", 0) > 0:
-                print(c(f"✅ {asset_type} processado", 'green'))
-                return True
-        except:
-            pass
-            
-        # Se realmente não encontrou, então houve erro
-        if asset_type == "Computer":  # Tratamento especial para computadores devido ao delay maior
-            print(c(f"ℹ️ Aguarde, processando {asset_type}...", 'blue'))
-            return True
-        else:
-            print(c(f"❌ Erro ao processar {asset_type}", 'red'))
-            return None
+        return None
         
     except Exception as e:
         if "Duplicate entry" in str(e) or "already exists" in str(e):
-            print(c(f"✅ {asset_type} processado", 'green'))
-            return True
-            
-        if asset_type == "Computer":  # Tratamento especial para computadores
             print(c(f"✅ {asset_type} processado", 'green'))
             return True
             
