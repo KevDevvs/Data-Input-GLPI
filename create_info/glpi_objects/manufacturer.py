@@ -14,7 +14,6 @@ def get_or_create_manufacturer(session_token, manufacturer_name):
         int: ID do fabricante encontrado ou criado
         None: Se não foi possível encontrar ou criar o fabricante
     """
-    print(c(f"🔍 [BUSCA] Procurando fabricante: '{manufacturer_name}'...", 'cyan'))
     headers = {
         "App-Token": APP_TOKEN,
         "Authorization": f"user_token {USER_TOKEN}",
@@ -31,7 +30,6 @@ def get_or_create_manufacturer(session_token, manufacturer_name):
             for item in items_list:
                 if item.get("name") == manufacturer_name:
                     item_id = int(item["id"])
-                    print(c(f"✅ [OK] Fabricante '{manufacturer_name}' encontrado (ID: {item_id})", 'green'))
                     return item_id
         
         # Se não encontrou, tenta via search
@@ -50,7 +48,6 @@ def get_or_create_manufacturer(session_token, manufacturer_name):
             return item_id
             
         # Se não encontrou, cria novo
-        print(c(f"🆕 [CRIANDO] Novo fabricante: '{manufacturer_name}'...", 'blue'))
         payload = {
             "input": {
                 "name": manufacturer_name
@@ -64,7 +61,6 @@ def get_or_create_manufacturer(session_token, manufacturer_name):
         if isinstance(response_data, dict):
             item_id = response_data.get("id")
             if item_id:
-                print(c(f"✅ [OK] Fabricante '{manufacturer_name}' criado com sucesso (ID: {item_id})", 'green'))
                 return item_id
         
         print(c(f"❌ [ERRO] Resposta inesperada ao criar fabricante: {r.text}", 'red'))

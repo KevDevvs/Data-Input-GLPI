@@ -16,7 +16,6 @@ def get_or_create_model(session_token, model_name, model_type):
         None: Se não foi possível encontrar ou criar o modelo
     """
     model_endpoint = f"{model_type}Model"  # PhoneModel ou ComputerModel
-    print(c(f"🔍 [BUSCA] Procurando modelo de {model_type}: '{model_name}'...", 'cyan'))
     headers = {
         "App-Token": APP_TOKEN,
         "Authorization": f"user_token {USER_TOKEN}",
@@ -33,7 +32,6 @@ def get_or_create_model(session_token, model_name, model_type):
             for item in items_list:
                 if item.get("name") == model_name:
                     item_id = int(item["id"])
-                    print(c(f"✅ [OK] Modelo '{model_name}' encontrado (ID: {item_id})", 'green'))
                     return item_id
         
         # Se não encontrou, tenta via search
@@ -48,11 +46,9 @@ def get_or_create_model(session_token, model_name, model_type):
         
         if isinstance(resp, dict) and resp.get("totalcount", 0) > 0:
             item_id = int(resp["data"][0].get("2", 0))
-            print(c(f"✅ [OK] Modelo '{model_name}' encontrado via busca (ID: {item_id})", 'green'))
             return item_id
             
         # Se não encontrou, cria novo
-        print(c(f"🆕 [CRIANDO] Novo modelo de {model_type}: '{model_name}'...", 'blue'))
         payload = {
             "input": {
                 "name": model_name
@@ -66,7 +62,6 @@ def get_or_create_model(session_token, model_name, model_type):
         if isinstance(response_data, dict):
             item_id = response_data.get("id")
             if item_id:
-                print(c(f"✅ [OK] Modelo '{model_name}' criado com sucesso (ID: {item_id})", 'green'))
                 return item_id
         
         print(c(f"❌ [ERRO] Resposta inesperada ao criar modelo: {r.text}", 'red'))

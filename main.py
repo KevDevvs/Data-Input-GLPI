@@ -1,5 +1,6 @@
 
 import requests
+from create_info.glpi_objects.component import link_component
 from remove_data.remove_data import reset_glpi
 from helper.colors import c
 from create_info.create_entity_hierarchy import create_entity_hierarchy
@@ -45,8 +46,8 @@ def main():
     for idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
         print(c(f"\n📄 Processando linha {idx}...", 'blue'))
         try:
-            # Desempacota os campos da linha (incluindo número de ativo do notebook)
-            nome, email, cpf, ent_a, ent_b, ent_c, ent_d, linha, linha_operadora, cel_marca, cel_modelo, cel_imei, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo = row
+            # Desempacota os campos da linha (incluindo componentes do notebook)
+            nome, email, cpf, ent_a, ent_b, ent_c, ent_d, linha, linha_operadora, line_type, line_status, cel_marca, cel_modelo, cel_imei, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria = row
 
             
             # Cria entidades em cascata e pega o ID do último nível preenchido
@@ -99,24 +100,7 @@ def main():
                         if operator.get("name") == str(linha_operadora).strip():
                             operator_id = operator.get("id")
                             break
-                
-                # Se não encontrou via busca direta, tenta via search API
-                if not operator_id:
-                    operator_id = get_or_create(
-                        session, 
-                        "LineOperator", 
-                        "name", 
-                        str(linha_operadora).strip(),
-                        payload_extra={
-                            "is_recursive": 1,
-                            "entities_id": 0,
-                        },
-                        search_options={
-                            "is_recursive": True,
-                            "parent_entities": True
-                        }
-                    )
-                
+                                
                 if operator_id and operator_id > 0:  # Garante que o ID é válido
                     print(c(f"✅ [OK] Operadora '{linha_operadora}' vinculada com sucesso", 'green'))
 
@@ -124,7 +108,9 @@ def main():
                     "name": linha,
                     "entities_id": entidade_final_id,
                     "users_id": user_id if user_id else 0,  # Usa 0 como fallback
-                    "lineoperators_id": operator_id
+                    "lineoperators_id": operator_id,
+                    "linetypes_id": line_type,
+                    "status": line_status
                     }
 
                     create_asset(session, "Line", line_data)
@@ -194,11 +180,16 @@ def main():
                 "manufacturers_id": manufacturer_id,
                 "serial": nb_serial,
                 "otherserial": nb_ativo,
-                "computertypes_id": nb_type,  # Define como Notebook
+                "computertypes_id": nb_type
                 }
 
                 # Cria o computador
-                create_asset(session, "Computer", computer_data)
+                computer_id = create_asset(session, "Computer", computer_data)
+
+                # Linka componentes ao computador
+                link_component(computer_id, nb_armazenamento, nb_processador, nb_memoria, session)
+
+                print(c(f"✅ Notebook e componentes processados com sucesso", 'green'))  
 
             print(c(f"✅ Linha {idx} processada", 'green'))
             total_processado += 1
