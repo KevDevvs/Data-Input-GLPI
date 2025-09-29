@@ -56,14 +56,7 @@ def main():
                 continue
             
             entidade_final_id = None
-            if ent_d:
-                entidade_final_id = create_entity_hierarchy(session, ent_a, ent_b, ent_c, ent_d)
-            elif ent_c:
-                entidade_final_id = create_entity_hierarchy(session, ent_a, ent_b, ent_c)
-            elif ent_b:
-                entidade_final_id = create_entity_hierarchy(session, ent_a, ent_b)
-            else:
-                entidade_final_id = create_entity_hierarchy(session, ent_a)
+            entidade_final_id = create_entity_hierarchy(session, ent_a, ent_b, ent_c, ent_d)
 
             if not entidade_final_id:
                 print(c(f"❌ Falha ao criar hierarquia de entidades na linha {idx}", 'red'))
@@ -72,19 +65,15 @@ def main():
             # Cria usuário e vincula sempre ao grupo 'User' e ao perfil Self-Service
             user_id = None
             if nome:
-                # Validação de CPF obrigatório
-                if not cpf:
-                    print(c(f"❌ CPF obrigatório para '{nome}'", 'red'))
-                    continue
-                
                 perfil_id = 1  # ID do perfil a ser vinculado
                 
                 # Verifica se temos um email válido
                 email_param = f"@{email}" if email and '@' in email else 'User'
                 
                 # Tratamento de CPF
-                cpf_formatado = str(cpf).zfill(11)
-                user_id = create_user(session, nome, email_param, perfil_id, entidade_final_id, cpf_formatado, status_user)
+                if cpf:
+                    cpf_formatado = str(cpf).zfill(11)
+                user_id = create_user(session, nome, email_param, perfil_id, entidade_final_id, status_user, cpf_formatado)
 
             # Cria ativos vinculados à entidade/usuário (apenas se campo preenchido)
             if linha:

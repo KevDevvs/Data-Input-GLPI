@@ -1,6 +1,6 @@
 
 import requests
-from helper.read_config import GLPI_URL, APP_TOKEN, USER_TOKEN, GROUP_ID, HEADERS
+from helper.read_config import GLPI_URL, GROUP_ID, HEADERS
 from helper.colors import c
 
 
@@ -41,7 +41,7 @@ def create_user(session_token, name, email, profile_id, entity_id, status_user, 
             user_id = int(search_data["data"][0].get("2", search_data["data"][0].get("id")))
             print(c(f"✅ [OK] Usuário encontrado (ID: {user_id})", 'green'))
     else:
-        print(c(f"⚠️ [AVISO] Erro ao processar resposta da busca: {e}", 'yellow'))
+        print(c(f"⚠️ [AVISO] Erro ao processar resposta da busca", 'yellow'))
     
     if not user_id:
         # Prepara os dados do usuário

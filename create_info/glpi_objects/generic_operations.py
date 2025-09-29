@@ -1,4 +1,4 @@
-from helper.read_config import APP_TOKEN, USER_TOKEN, GLPI_URL
+from helper.read_config import APP_TOKEN, USER_TOKEN, GLPI_URL, HEADERS
 import requests
 from helper.colors import c
 
@@ -19,11 +19,6 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
         int: ID do item encontrado ou criado
         None: Se não foi possível encontrar ou criar o item
     """
-
-    HEADERS = {
-        "App-Token": APP_TOKEN,
-        "Authorization": f"user_token {USER_TOKEN}"
-    }
     
     headers = {**HEADERS, "Session-Token": session_token}
     
@@ -54,20 +49,12 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
         params["criteria[1][field]"] = 80  # entities_id
         params["criteria[1][searchtype]"] = "equals"
         params["criteria[1][value]"] = payload_extra["entities_id"]
-        
-    # Se necessário buscar em entidades pai
-    if search_options and search_options.get("parent_entities"):
-        params["criteria[2][link]"] = "OR"
-        params["criteria[2][criteria][0][field]"] = 80  # entities_id
-        params["criteria[2][criteria][0][searchtype]"] = "equals"
-        params["criteria[2][criteria][0][value]"] = 0  # Root entity
     
     search = requests.get(f"{GLPI_URL}/search/{endpoint}", headers=headers, params=params)
     resp = search.json()
     
     # Corrige caso a resposta seja uma lista inesperada
     if isinstance(resp, list):
-        print(c(f"⚠️ [AVISO] Resposta inesperada da API (lista) ao buscar {endpoint} '{search_value}'. Buscando manualmente...", 'yellow'))
         for item in resp:
             if isinstance(item, dict):
                 if (str(item.get("1", "")) == str(search_value)) or (item.get("name", "") == str(search_value)):
@@ -86,13 +73,11 @@ def get_or_create(session_token, endpoint, search_field, search_value, payload_e
         try:
             entities_list = requests.get(f"{GLPI_URL}/Entity", headers=headers).json()
             if isinstance(entities_list, list):
-                print(c(f"[DEBUG] Verificando na lista de {len(entities_list)} entidades antes de criar...", 'yellow'))
                 for entity in entities_list:
                     if entity.get("name") == search_value:
                         parent_id = entity.get("entities_id", "") or entity.get("parent_id", "")
                         if not payload_extra or not payload_extra.get("entities_id") or str(parent_id) == str(payload_extra.get("entities_id")):
                             found_id = int(entity.get("id"))
-                            print(c(f"✅ [OK] {endpoint} '{search_value}' já existe (ID: {found_id})", 'green'))
                             return found_id
         except Exception as e:
             print(c(f"[DEBUG] Erro na verificação prévia: {e}", 'yellow'))
