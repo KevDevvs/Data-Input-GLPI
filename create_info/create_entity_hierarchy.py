@@ -5,7 +5,7 @@ from helper.read_config import GLPI_URL, APP_TOKEN, USER_TOKEN, HEADERS
 from helper.colors import c
 
 
-def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade_c=None, entidade_d=None):
+def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade_c=None, entidade_d=None, comment=None):
     """
     Cria entidades em cascata (até 4 níveis) e retorna o ID da entidade mais profunda criada.
     """
@@ -37,6 +37,18 @@ def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade
             print(c(f"❌ Falha ao criar/encontrar '{entidade_d}'", 'red'))
             return eid_c if eid_c is not None else (eid_b if eid_b is not None else eid_a)
 
-    # Retorna o ID da entidade mais profunda criada
-    return eid_d or eid_c or eid_b or eid_a
+    # Adiciona o comentário à última entidade criada
+    final_entity_id = eid_d or eid_c or eid_b or eid_a
+    
+    if comment and final_entity_id:
+        comment_data = {"comment": comment}
+        response = requests.put(
+            f"{GLPI_URL}/Entity/{final_entity_id}",
+            headers={**HEADERS, "Session-Token": session_token},
+            json=comment_data
+        )
+        if not response.status_code == 200:
+            print(c("⚠️ Não foi possível adicionar o comentário à entidade", 'yellow'))
+
+    return final_entity_id
 

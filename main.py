@@ -47,7 +47,7 @@ def main():
         print(c(f"\n📄 Processando linha {idx}...", 'blue'))
         try:
             # Desempacota os campos da linha (incluindo componentes do notebook)
-            nome, email, cpf, status_user, ent_a, ent_b, ent_c, ent_d, linha, linha_operadora, line_type, line_status, cel_type, cel_marca, cel_modelo, cel_imei, cel_coment, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria, nb_coment = row
+            nome, email, cpf, status_user, ent_a, ent_b, ent_c, ent_d, ent_comment, linha, linha_operadora, line_type, line_status, cel_type, cel_marca, cel_modelo, cel_imei, cel_coment, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria, nb_coment = row
 
             
             # Cria entidades em cascata e pega o ID do último nível preenchido
@@ -56,7 +56,7 @@ def main():
                 continue
             
             entidade_final_id = None
-            entidade_final_id = create_entity_hierarchy(session, ent_a, ent_b, ent_c, ent_d)
+            entidade_final_id = create_entity_hierarchy(session, ent_a, ent_b, ent_c, ent_d, ent_comment)
 
             if not entidade_final_id:
                 print(c(f"❌ Falha ao criar hierarquia de entidades na linha {idx}", 'red'))
