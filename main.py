@@ -8,6 +8,7 @@ from create_info.create_users import create_user
 from glpi_session.glpi_session import init_session, kill_session
 from create_info.create_asset import create_asset
 from create_info.get_or_create import get_or_create_manufacturer, get_or_create_model, get_or_create
+from create_info.management import get_or_create_contract, link_contract_to_asset, create_management_info, get_or_create_supplier
 from helper.read_config import GLPI_URL, HEADERS
 import openpyxl
 import openpyxl
@@ -46,8 +47,8 @@ def main():
     for idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
         print(c(f"\n📄 Processando linha {idx}...", 'blue'))
         try:
-            # Desempacota os campos da linha (incluindo componentes do notebook)
-            nome, email, cpf, status_user, ent_a, ent_b, ent_c, ent_d, ent_comment, linha, linha_operadora, line_type, line_status, cel_type, cel_marca, cel_modelo, cel_imei, cel_coment, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria, nb_coment = row
+            # Desempacota os campos da linha (incluindo componentes do notebook, campos de Management e fornecedores)
+            nome, email, cpf, status_user, ent_a, ent_b, ent_c, ent_d, ent_comment, linha, linha_operadora, contrato_linha, line_status, line_type, fornecedor_linha, data_inicial_linha, valor_linha, cel_type, cel_marca, cel_modelo, cel_imei, cel_status, cel_coment, nb_marca, nb_modelo, nb_type, nb_serial, nb_ativo, nb_armazenamento, nb_processador, nb_memoria, contrato_notebook, comprado_em_notebook, fornecedor_notebook, nb_coment, nb_status = row
 
             
             # Cria entidades em cascata e pega o ID do último nível preenchido
@@ -102,7 +103,39 @@ def main():
                     "status": line_status
                     }
 
-                    create_asset(session, "Line", line_data)
+                    # Cria a linha primeiro
+                    line_id = create_asset(session, "Line", line_data)
+                    
+                    # Se a linha foi criada com sucesso, processa informações adicionais
+                    if line_id:
+                        # Processa contrato da linha
+                        if contrato_linha and str(contrato_linha).strip():
+                            supplier_id = None
+                            
+                            # Primeiro cria/busca o fornecedor se fornecido (na entidade raiz)
+                            if fornecedor_linha and str(fornecedor_linha).strip():
+                                supplier_id = get_or_create_supplier(session, str(fornecedor_linha).strip())
+                            
+                            # Cria/busca o contrato com o fornecedor (na entidade raiz)
+                            contract_id = get_or_create_contract(session, str(contrato_linha).strip(), supplier_id=supplier_id)
+                            if contract_id:
+                                link_contract_to_asset(session, "Line", line_id, contract_id)
+                        
+                        # Adiciona informações de Management
+                        if data_inicial_linha or valor_linha:
+                            create_management_info(
+                                session, 
+                                "Line", 
+                                line_id,
+                                buy_date=data_inicial_linha if data_inicial_linha and str(data_inicial_linha).strip() else None,
+                                value=valor_linha if valor_linha and str(valor_linha).strip() else None,
+                                supplier_id=supplier_id
+                            )
+                        
+                        # Processa fornecedor da linha (caso não tenha contrato mas tenha fornecedor)
+                        if not contrato_linha and fornecedor_linha and str(fornecedor_linha).strip():
+                            supplier_id = get_or_create_supplier(session, str(fornecedor_linha).strip())
+                            # Fornecedor criado na entidade raiz para uso futuro ou outros propósitos
                 else:
                     print(c(f"❌ [ERRO] Não foi possível encontrar a operadora '{linha_operadora}'", 'red'))
                     continue                
@@ -120,7 +153,8 @@ def main():
                     "name": phone_name,
                     "entities_id": entidade_final_id,
                     "users_id": user_id if user_id else 0,  # Usa 0 como fallback
-                    "phonetypes_id": cel_type
+                    "phonetypes_id": cel_type,
+                    "status": cel_status  # 
                 }
 
                 # Busca ou cria o modelo
@@ -173,7 +207,8 @@ def main():
                 "manufacturers_id": manufacturer_id,
                 "serial": nb_serial,
                 "otherserial": nb_ativo,
-                "computertypes_id": nb_type
+                "computertypes_id": nb_type,
+                "status": nb_status
                 }
 
                 if nb_coment and str(nb_coment).strip():
@@ -181,9 +216,41 @@ def main():
 
                 # Cria o computador
                 computer_id = create_asset(session, "Computer", computer_data)
+                
+                # Se o computador foi criado com sucesso
+                if computer_id:
+                    # Processa contrato do notebook
+                    if contrato_notebook and str(contrato_notebook).strip():
+                        supplier_id = None
+                        
+                        # Primeiro cria/busca o fornecedor se fornecido (na entidade raiz)
+                        if fornecedor_notebook and str(fornecedor_notebook).strip():
+                            supplier_id = get_or_create_supplier(session, str(fornecedor_notebook).strip())
+                        
+                        # Cria/busca o contrato com o fornecedor (na entidade raiz)
+                        contract_id = get_or_create_contract(session, str(contrato_notebook).strip(), supplier_id=supplier_id)
+                        if contract_id:
+                            link_contract_to_asset(session, "Computer", computer_id, contract_id)
+                    
+                    # Processa informações de Management
+                    if comprado_em_notebook and str(comprado_em_notebook).strip():
+                        # Pegar o supplier_id do contrato do notebook
+                        notebook_supplier_id = None
+                        if contrato_notebook and str(contrato_notebook).strip():
+                            # Buscar o supplier do contrato do notebook
+                            if fornecedor_notebook and str(fornecedor_notebook).strip():
+                                notebook_supplier_id = get_or_create_supplier(session, str(fornecedor_notebook).strip())
+                        
+                        create_management_info(
+                            session,
+                            "Computer", 
+                            computer_id,
+                            buy_date=comprado_em_notebook,
+                            supplier_id=notebook_supplier_id
+                        )
 
-                # Linka componentes ao computador
-                link_component(computer_id, nb_armazenamento, nb_processador, nb_memoria, session)
+                    # Linka componentes ao computador
+                    link_component(computer_id, nb_armazenamento, nb_processador, nb_memoria, session)
 
                 print(c(f"✅ Notebook e componentes processados com sucesso", 'green'))  
 
