@@ -200,8 +200,22 @@ def main():
                         "users_id": user_id if user_id else 0,  # Usa 0 como fallback
                         "lineoperators_id": operator_id,
                         "linetypes_id": line_type,
-                        "status": line_status
+                        "states_id": line_status  # Para linhas, o campo correto é states_id
                         }
+                        
+                        # Adiciona data inicial se fornecida
+                        if data_inicial_linha and str(data_inicial_linha).strip():
+                            # Converte data do formato DD/MM/YYYY para YYYY-MM-DD se necessário
+                            data_formatada = str(data_inicial_linha).strip()
+                            if '/' in data_formatada:
+                                try:
+                                    from datetime import datetime
+                                    data_obj = datetime.strptime(data_formatada, '%d/%m/%Y')
+                                    data_formatada = data_obj.strftime('%Y-%m-%d')
+                                except:
+                                    print(c(f"⚠️ Formato de data inválido: {data_formatada}", 'yellow'))
+                            line_data["buy_date"] = data_formatada
+                            print(c(f"📅 Data inicial adicionada: {data_formatada}", 'cyan'))
 
                         # Cria a linha primeiro
                         line_id, line_error = create_asset(session, "Line", line_data)

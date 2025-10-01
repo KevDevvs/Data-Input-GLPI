@@ -144,13 +144,27 @@ def create_user(session_token, name, email, profile_id, entity_id, status_user, 
             else:
                 print(c(f"⚠️ Falha ao criar/vincular cargo: {str(posicao).strip()}", 'yellow'))
         
+        # Gera senha temporária baseada no CPF
+        senha_temp = "Ch@nge.me123"  # Senha padrão
+        if cpf and str(cpf).strip():
+            # Remove caracteres especiais do CPF e pega os 3 primeiros dígitos
+            cpf_limpo = ''.join(filter(str.isdigit, str(cpf).strip()))
+            if len(cpf_limpo) >= 3:
+                primeiros_digitos = cpf_limpo[:3]
+                senha_temp = f"senhatemp{primeiros_digitos}"
+                print(c(f"🔑 Senha temporária gerada: senhatemp{primeiros_digitos}", 'cyan'))
+            else:
+                print(c(f"⚠️ CPF com menos de 3 dígitos, usando senha padrão", 'yellow'))
+        else:
+            print(c(f"🔑 CPF não fornecido, usando senha padrão", 'cyan'))
+        
         # Prepara os dados do usuário
         user_data = {
             "name": login,
             "firstname": name_parts[0],
             "realname": ' '.join(name_parts[1:]) if len(name_parts) > 1 else "",
-            "password": "Ch@nge.me123",
-            "password2": "Ch@nge.me123",
+            "password": senha_temp,
+            "password2": senha_temp,
             "entities_id": entity_id,
             "profiles_id": profile_id,
             "is_active": 1,
