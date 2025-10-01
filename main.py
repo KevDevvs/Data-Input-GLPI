@@ -203,19 +203,9 @@ def main():
                         "states_id": line_status  # Para linhas, o campo correto é states_id
                         }
                         
-                        # Adiciona data inicial se fornecida
-                        if data_inicial_linha and str(data_inicial_linha).strip():
-                            # Converte data do formato DD/MM/YYYY para YYYY-MM-DD se necessário
-                            data_formatada = str(data_inicial_linha).strip()
-                            if '/' in data_formatada:
-                                try:
-                                    from datetime import datetime
-                                    data_obj = datetime.strptime(data_formatada, '%d/%m/%Y')
-                                    data_formatada = data_obj.strftime('%Y-%m-%d')
-                                except:
-                                    print(c(f"⚠️ Formato de data inválido: {data_formatada}", 'yellow'))
-                            line_data["buy_date"] = data_formatada
-                            print(c(f"📅 Data inicial adicionada: {data_formatada}", 'cyan'))
+                        # Remove o buy_date do payload da linha (será adicionado no Infocom)
+                        if "buy_date" in line_data:
+                            data_inicial_formatada = line_data.pop("buy_date")
 
                         # Cria a linha primeiro
                         line_id, line_error = create_asset(session, "Line", line_data)
@@ -224,6 +214,31 @@ def main():
                         if line_id:
                             update_status_column(wb, idx, 42, "OK")  # Coluna 42 = Input Line
                             logger.item_created("Line", line_id, linha)
+                            
+                            # Adiciona data inicial no Infocom (Management) da linha
+                            if data_inicial_linha and str(data_inicial_linha).strip():
+                                from create_info.line_infocom import create_or_update_line_infocom
+                                
+                                # Converte data se necessário
+                                data_formatada = str(data_inicial_linha).strip()
+                                if '/' in data_formatada:
+                                    try:
+                                        from datetime import datetime
+                                        data_obj = datetime.strptime(data_formatada, '%d/%m/%Y')
+                                        data_formatada = data_obj.strftime('%Y-%m-%d')
+                                    except:
+                                        print(c(f"⚠️ Formato de data inválido: {data_formatada}", 'yellow'))
+                                        data_formatada = None
+                                
+                                if data_formatada:
+                                    infocom_success = create_or_update_line_infocom(
+                                        session, line_id, buy_date=data_formatada, 
+                                        entities_id=entidade_final_id
+                                    )
+                                    if infocom_success:
+                                        print(c(f"📅 Data inicial salva no Management: {data_formatada}", 'green'))
+                                    else:
+                                        print(c(f"⚠️ Falha ao salvar data inicial no Management", 'yellow'))
                         else:
                             error_msg = line_error if line_error else "Falha ao criar linha"
                             update_status_column(wb, idx, 42, "ERRO", error_msg)
