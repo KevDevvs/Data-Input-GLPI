@@ -294,11 +294,17 @@ def main():
                     phone_name = f"Celular - {str(cel_imei).strip()}"
                 
                 # Prepara os dados do telefone
+                # Garante que cel_type seja um valor válido (1=Celular por padrão)
+                phone_type_id = cel_type if cel_type and cel_type in [1, 2] else 1
+                
+                if not cel_type or cel_type not in [1, 2]:
+                    print(c(f"📱 Tipo de celular corrigido: {cel_type} → {phone_type_id} (Celular)", 'cyan'))
+                
                 phone_data = {
                     "name": phone_name,
                     "entities_id": entidade_final_id,
                     "users_id": user_id if user_id else 0,  # Usa 0 como fallback
-                    "phonetypes_id": cel_type,
+                    "phonetypes_id": phone_type_id,
                     "states_id": cel_status  # Corrigido: states_id ao invés de status
                 }
 

@@ -1,0 +1,206 @@
+2025-10-01 04:36:44 | INFO     | ============================================================
+2025-10-01 04:36:44 | INFO     | INÍCIO DO LOG - GLPI Data Input System
+2025-10-01 04:36:44 | INFO     | ============================================================
+2025-10-01 04:36:44 | INFO     | 🚀 INICIANDO: Reset do GLPI
+2025-10-01 04:36:44 | INFO     | 🚀 INICIANDO: Processo de Input de dados no GLPI
+2025-10-01 04:36:44 | INFO     | 📄 Processando linha 2...
+2025-10-01 04:36:47 | DEBUG    | 🔍 CPF fornecido e formatado: 416.091.558-23
+2025-10-01 04:36:47 | DEBUG    | 🔍 Celular pessoal fornecido: 11988936281
+2025-10-01 04:36:47 | DEBUG    | 🔍 Posição fornecida: ASSISTENTE FACILITIES
+2025-10-01 04:36:47 | DEBUG    | 🔍 Comentário fornecido: 200-020-072041
+2025-10-01 04:36:50 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-10-01 04:36:50 | DEBUG    | 🔍 Sem linha para processar na linha 2
+2025-10-01 04:36:51 | INFO     | ✅ Phone criado (ID: 1155) - Celular Samsung - 353101860319093
+2025-10-01 04:36:51 | DEBUG    | 🔍 Sem notebook para processar na linha 2
+2025-10-01 04:36:51 | INFO     | ✅ Linha 2 processada com sucesso
+2025-10-01 04:36:51 | INFO     | 📄 Processando linha 3...
+2025-10-01 04:36:53 | DEBUG    | 🔍 CPF fornecido e formatado: 416.091.558-23
+2025-10-01 04:36:53 | DEBUG    | 🔍 Celular pessoal fornecido: 11988936281
+2025-10-01 04:36:53 | DEBUG    | 🔍 Posição fornecida: ASSISTENTE FACILITIES
+2025-10-01 04:36:53 | DEBUG    | 🔍 Comentário fornecido: 200-020-072041
+2025-10-01 04:36:57 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-10-01 04:36:58 | INFO     | ✅ Line criado (ID: 1019) - 11931353089
+2025-10-01 04:37:02 | INFO     | ✅ Phone criado (ID: 1156) - Celular Samsung - 353101861936481
+2025-10-01 04:37:02 | DEBUG    | 🔍 Sem notebook para processar na linha 3
+2025-10-01 04:37:02 | INFO     | ✅ Linha 3 processada com sucesso
+2025-10-01 04:37:02 | INFO     | 📄 Processando linha 4...
+2025-10-01 04:37:05 | DEBUG    | 🔍 CPF fornecido e formatado: 416.091.558-23
+2025-10-01 04:37:05 | DEBUG    | 🔍 Celular pessoal fornecido: 11988936281
+2025-10-01 04:37:05 | DEBUG    | 🔍 Posição fornecida: ASSISTENTE FACILITIES
+2025-10-01 04:37:05 | DEBUG    | 🔍 Comentário fornecido: 200-020-072041
+2025-10-01 04:37:08 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-10-01 04:37:10 | INFO     | ✅ Line criado (ID: 1020) - 11931351245
+2025-10-01 04:37:14 | INFO     | ✅ Phone criado (ID: 1157) - Celular Samsung - 353101862158416
+2025-10-01 04:37:14 | DEBUG    | 🔍 Sem notebook para processar na linha 4
+2025-10-01 04:37:14 | INFO     | ✅ Linha 4 processada com sucesso
+2025-10-01 04:37:14 | INFO     | 📄 Processando linha 5...
+2025-10-01 04:37:17 | DEBUG    | 🔍 CPF fornecido e formatado: 009.513.099-35
+2025-10-01 04:37:17 | DEBUG    | 🔍 Celular pessoal fornecido: 48991311985
+2025-10-01 04:37:17 | DEBUG    | 🔍 Posição fornecida: COORDENADOR OPERACOES BPO
+2025-10-01 04:37:17 | DEBUG    | 🔍 Comentário fornecido: 600-400-082553
+2025-10-01 04:37:19 | INFO     | ✅ Usuário criado (ID: 7) - Status atualizado: OK
+2025-10-01 04:37:21 | INFO     | ✅ Line criado (ID: 1021) - 11959626890
+2025-10-01 04:37:25 | INFO     | ✅ Phone criado (ID: 1158) - Celular Samsung - 354494169396519
+2025-10-01 04:37:25 | DEBUG    | 🔍 Sem notebook para processar na linha 5
+2025-10-01 04:37:25 | INFO     | ✅ Linha 5 processada com sucesso
+2025-10-01 04:37:25 | INFO     | 📄 Processando linha 6...
+2025-10-01 04:37:28 | DEBUG    | 🔍 CPF fornecido e formatado: 186.777.478-00
+2025-10-01 04:37:28 | DEBUG    | 🔍 Celular pessoal fornecido: 11998195064
+2025-10-01 04:37:28 | DEBUG    | 🔍 Posição fornecida: ANALISTA ADMINISTRATIVO SENIOR I
+2025-10-01 04:37:28 | DEBUG    | 🔍 Comentário fornecido: 600-400-081434
+2025-10-01 04:37:31 | INFO     | ✅ Usuário criado (ID: 8) - Status atualizado: OK
+2025-10-01 04:37:32 | INFO     | ✅ Line criado (ID: 1022) - 11931353370
+2025-10-01 04:37:37 | INFO     | ✅ Phone criado (ID: 1159) - Celular Samsung - 353101860995504
+2025-10-01 04:37:37 | DEBUG    | 🔍 Sem notebook para processar na linha 6
+2025-10-01 04:37:37 | INFO     | ✅ Linha 6 processada com sucesso
+2025-10-01 04:37:37 | INFO     | 📄 Processando linha 7...
+2025-10-01 04:37:41 | DEBUG    | 🔍 CPF fornecido e formatado: 406.986.918-22
+2025-10-01 04:37:41 | DEBUG    | 🔍 Celular pessoal fornecido: 32991497017
+2025-10-01 04:37:41 | DEBUG    | 🔍 Posição fornecida: AUXILIAR DE MERCHANDISING JUNIOR
+2025-10-01 04:37:41 | DEBUG    | 🔍 Comentário fornecido: 270-021-080808
+2025-10-01 04:37:43 | INFO     | ✅ Usuário criado (ID: 9) - Status atualizado: OK
+2025-10-01 04:37:44 | INFO     | ✅ Line criado (ID: 1023) - 32991610028
+2025-10-01 04:37:49 | INFO     | ✅ Phone criado (ID: 1160) - Celular Samsung - 353291453651000
+2025-10-01 04:37:49 | DEBUG    | 🔍 Sem notebook para processar na linha 7
+2025-10-01 04:37:49 | INFO     | ✅ Linha 7 processada com sucesso
+2025-10-01 04:37:49 | INFO     | 📄 Processando linha 8...
+2025-10-01 04:37:51 | DEBUG    | 🔍 CPF fornecido e formatado: 355.438.738-08
+2025-10-01 04:37:51 | DEBUG    | 🔍 Celular pessoal fornecido: 12981066309
+2025-10-01 04:37:51 | DEBUG    | 🔍 Posição fornecida: DIRETOR DE ARTE JUNIOR
+2025-10-01 04:37:51 | DEBUG    | 🔍 Comentário fornecido: 270-400-080454
+2025-10-01 04:37:54 | INFO     | ✅ Usuário criado (ID: 10) - Status atualizado: OK
+2025-10-01 04:37:54 | DEBUG    | 🔍 Sem linha para processar na linha 8
+2025-10-01 04:37:54 | DEBUG    | 🔍 Sem celular para processar na linha 8
+2025-10-01 04:37:56 | INFO     | ✅ Computer criado (ID: 1) - Notebook APPLE - 09VT9QBR500646
+2025-10-01 04:37:56 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:37:56 | INFO     | ✅ Linha 8 processada com sucesso
+2025-10-01 04:37:56 | INFO     | 📄 Processando linha 9...
+2025-10-01 04:37:58 | DEBUG    | 🔍 CPF fornecido e formatado: 227.774.048-95
+2025-10-01 04:37:58 | DEBUG    | 🔍 Celular pessoal fornecido: 11933200543
+2025-10-01 04:37:58 | DEBUG    | 🔍 Posição fornecida: DESIGNER PLENO
+2025-10-01 04:37:58 | DEBUG    | 🔍 Comentário fornecido: 270-401-080804
+2025-10-01 04:38:01 | INFO     | ✅ Usuário criado (ID: 11) - Status atualizado: OK
+2025-10-01 04:38:01 | DEBUG    | 🔍 Sem linha para processar na linha 9
+2025-10-01 04:38:01 | DEBUG    | 🔍 Sem celular para processar na linha 9
+2025-10-01 04:38:03 | INFO     | ✅ Computer criado (ID: 2) - Notebook DELL - 0A249QARA00921
+2025-10-01 04:38:09 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:38:09 | INFO     | ✅ Linha 9 processada com sucesso
+2025-10-01 04:38:09 | INFO     | 📄 Processando linha 10...
+2025-10-01 04:38:11 | DEBUG    | 🔍 CPF fornecido e formatado: 387.198.378-01
+2025-10-01 04:38:11 | DEBUG    | 🔍 Celular pessoal fornecido: 11986726211
+2025-10-01 04:38:11 | DEBUG    | 🔍 Posição fornecida: DESIGNER JUNIOR
+2025-10-01 04:38:11 | DEBUG    | 🔍 Comentário fornecido: 270-401-080757
+2025-10-01 04:38:14 | INFO     | ✅ Usuário criado (ID: 12) - Status atualizado: OK
+2025-10-01 04:38:14 | DEBUG    | 🔍 Sem linha para processar na linha 10
+2025-10-01 04:38:14 | DEBUG    | 🔍 Sem celular para processar na linha 10
+2025-10-01 04:38:16 | INFO     | ✅ Computer criado (ID: 3) - Notebook APPLE - 0A5B9QAT100257
+2025-10-01 04:38:21 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:38:21 | INFO     | ✅ Linha 10 processada com sucesso
+2025-10-01 04:38:21 | INFO     | 📄 Processando linha 11...
+2025-10-01 04:38:24 | DEBUG    | 🔍 CPF fornecido e formatado: 453.556.878-22
+2025-10-01 04:38:24 | DEBUG    | 🔍 Celular pessoal fornecido: 15996316660
+2025-10-01 04:38:24 | DEBUG    | 🔍 Posição fornecida: ANALISTA DE MARKETING PLENO
+2025-10-01 04:38:24 | DEBUG    | 🔍 Comentário fornecido: 270-003-080686
+2025-10-01 04:38:27 | INFO     | ✅ Usuário criado (ID: 13) - Status atualizado: OK
+2025-10-01 04:38:27 | DEBUG    | 🔍 Sem linha para processar na linha 11
+2025-10-01 04:38:27 | DEBUG    | 🔍 Sem celular para processar na linha 11
+2025-10-01 04:38:28 | INFO     | ✅ Computer criado (ID: 4) - Notebook LENOVO - 09VT9QBR500275
+2025-10-01 04:38:34 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:38:34 | INFO     | ✅ Linha 11 processada com sucesso
+2025-10-01 04:38:34 | INFO     | 📄 Processando linha 12...
+2025-10-01 04:38:36 | DEBUG    | 🔍 CPF fornecido e formatado: 469.480.858-30
+2025-10-01 04:38:36 | DEBUG    | 🔍 Celular pessoal fornecido: 11999375811
+2025-10-01 04:38:36 | DEBUG    | 🔍 Posição fornecida: ANALISTA DE CONTEUDO PLENO
+2025-10-01 04:38:36 | DEBUG    | 🔍 Comentário fornecido: 270-400-000562
+2025-10-01 04:38:38 | INFO     | ✅ Usuário criado (ID: 14) - Status atualizado: OK
+2025-10-01 04:38:38 | DEBUG    | 🔍 Sem linha para processar na linha 12
+2025-10-01 04:38:38 | DEBUG    | 🔍 Sem celular para processar na linha 12
+2025-10-01 04:38:40 | INFO     | ✅ Computer criado (ID: 5) - Notebook HP - BRJ2310S52
+2025-10-01 04:38:45 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:38:45 | INFO     | ✅ Linha 12 processada com sucesso
+2025-10-01 04:38:45 | INFO     | 📄 Processando linha 13...
+2025-10-01 04:38:48 | DEBUG    | 🔍 CPF fornecido e formatado: 446.188.798-74
+2025-10-01 04:38:48 | DEBUG    | 🔍 Celular pessoal fornecido: 11999320294
+2025-10-01 04:38:48 | DEBUG    | 🔍 Posição fornecida: ANALISTA DE MARKETING JR
+2025-10-01 04:38:48 | DEBUG    | 🔍 Comentário fornecido: 270-400-000572
+2025-10-01 04:38:51 | INFO     | ✅ Usuário criado (ID: 15) - Status atualizado: OK
+2025-10-01 04:38:51 | DEBUG    | 🔍 Sem linha para processar na linha 13
+2025-10-01 04:38:51 | DEBUG    | 🔍 Sem celular para processar na linha 13
+2025-10-01 04:38:53 | INFO     | ✅ Computer criado (ID: 6) - Notebook HP - BRJ2310S58
+2025-10-01 04:38:59 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:38:59 | INFO     | ✅ Linha 13 processada com sucesso
+2025-10-01 04:38:59 | INFO     | 📄 Processando linha 14...
+2025-10-01 04:39:02 | DEBUG    | 🔍 CPF fornecido e formatado: 205.828.327-99
+2025-10-01 04:39:02 | DEBUG    | 🔍 Celular pessoal fornecido: 21970270501
+2025-10-01 04:39:02 | DEBUG    | 🔍 Posição fornecida: ASSISTENTE DE MARKETING
+2025-10-01 04:39:02 | DEBUG    | 🔍 Comentário fornecido: 270-401-080795
+2025-10-01 04:39:05 | INFO     | ✅ Usuário criado (ID: 16) - Status atualizado: OK
+2025-10-01 04:39:05 | DEBUG    | 🔍 Sem linha para processar na linha 14
+2025-10-01 04:39:05 | DEBUG    | 🔍 Sem celular para processar na linha 14
+2025-10-01 04:39:07 | INFO     | ✅ Computer criado (ID: 7) - Notebook HP - BRJ2310RYG
+2025-10-01 04:39:14 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:39:14 | INFO     | ✅ Linha 14 processada com sucesso
+2025-10-01 04:39:14 | INFO     | 📄 Processando linha 15...
+2025-10-01 04:39:16 | DEBUG    | 🔍 CPF fornecido e formatado: 450.646.068-50
+2025-10-01 04:39:16 | DEBUG    | 🔍 Celular pessoal fornecido: 14996460746
+2025-10-01 04:39:16 | DEBUG    | 🔍 Posição fornecida: ANALISTA DE MARKETING PLENO
+2025-10-01 04:39:16 | DEBUG    | 🔍 Comentário fornecido: 270-401-080759
+2025-10-01 04:39:19 | INFO     | ✅ Usuário criado (ID: 17) - Status atualizado: OK
+2025-10-01 04:39:19 | DEBUG    | 🔍 Sem linha para processar na linha 15
+2025-10-01 04:39:19 | DEBUG    | 🔍 Sem celular para processar na linha 15
+2025-10-01 04:39:20 | INFO     | ✅ Computer criado (ID: 8) - Notebook HP - BRJ2310RYZ
+2025-10-01 04:39:26 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:39:26 | INFO     | ✅ Linha 15 processada com sucesso
+2025-10-01 04:39:26 | INFO     | 📄 Processando linha 16...
+2025-10-01 04:39:27 | DEBUG    | 🔍 CPF fornecido e formatado: 398.047.498-40
+2025-10-01 04:39:27 | DEBUG    | 🔍 Celular pessoal fornecido: 11984096367
+2025-10-01 04:39:27 | DEBUG    | 🔍 Posição fornecida: DIRETOR DE ARTE JUNIOR
+2025-10-01 04:39:27 | DEBUG    | 🔍 Comentário fornecido: 270-003-080659
+2025-10-01 04:39:30 | INFO     | ✅ Usuário criado (ID: 18) - Status atualizado: OK
+2025-10-01 04:39:30 | DEBUG    | 🔍 Sem linha para processar na linha 16
+2025-10-01 04:39:30 | DEBUG    | 🔍 Sem celular para processar na linha 16
+2025-10-01 04:39:32 | INFO     | ✅ Computer criado (ID: 9) - Notebook APPLE - SHKPWMD2MVC
+2025-10-01 04:39:38 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:39:38 | INFO     | ✅ Linha 16 processada com sucesso
+2025-10-01 04:39:38 | INFO     | 📄 Processando linha 17...
+2025-10-01 04:39:41 | DEBUG    | 🔍 Sem usuário para processar na linha 17
+2025-10-01 04:39:41 | DEBUG    | 🔍 Sem linha para processar na linha 17
+2025-10-01 04:39:41 | DEBUG    | 🔍 Sem celular para processar na linha 17
+2025-10-01 04:39:43 | INFO     | ✅ Computer criado (ID: 10) - Notebook Samsung - 09VT9QBR500898
+2025-10-01 04:39:48 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:39:48 | INFO     | ✅ Linha 17 processada com sucesso
+2025-10-01 04:39:48 | INFO     | 📄 Processando linha 18...
+2025-10-01 04:39:50 | DEBUG    | 🔍 Sem usuário para processar na linha 18
+2025-10-01 04:39:50 | DEBUG    | 🔍 Sem linha para processar na linha 18
+2025-10-01 04:39:50 | DEBUG    | 🔍 Sem celular para processar na linha 18
+2025-10-01 04:39:52 | INFO     | ✅ Computer criado (ID: 11) - Notebook DELL - 920J7T3
+2025-10-01 04:39:55 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-10-01 04:39:55 | INFO     | ✅ Linha 18 processada com sucesso
+2025-10-01 04:39:55 | INFO     | 📄 Processando linha 19...
+2025-10-01 04:39:58 | DEBUG    | 🔍 Sem usuário para processar na linha 19
+2025-10-01 04:39:58 | DEBUG    | 🔍 Sem linha para processar na linha 19
+2025-10-01 04:39:59 | INFO     | ✅ Phone criado (ID: 1161) - Celular Samsung - 353291453708552
+2025-10-01 04:39:59 | DEBUG    | 🔍 Sem notebook para processar na linha 19
+2025-10-01 04:39:59 | INFO     | ✅ Linha 19 processada com sucesso
+2025-10-01 04:39:59 | INFO     | 📄 Processando linha 20...
+2025-10-01 04:40:02 | DEBUG    | 🔍 Sem usuário para processar na linha 20
+2025-10-01 04:40:02 | DEBUG    | 🔍 Sem linha para processar na linha 20
+2025-10-01 04:40:04 | INFO     | ✅ Phone criado (ID: 1162) - Celular Samsung - 353600816356026
+2025-10-01 04:40:04 | DEBUG    | 🔍 Sem notebook para processar na linha 20
+2025-10-01 04:40:04 | INFO     | ✅ Linha 20 processada com sucesso
+2025-10-01 04:40:04 | INFO     | 📄 Processando linha 21...
+2025-10-01 04:40:07 | DEBUG    | 🔍 Sem usuário para processar na linha 21
+2025-10-01 04:40:07 | DEBUG    | 🔍 Sem linha para processar na linha 21
+2025-10-01 04:40:09 | INFO     | ✅ Phone criado (ID: 1163) - Celular Samsung - 353291453639617
+2025-10-01 04:40:09 | DEBUG    | 🔍 Sem notebook para processar na linha 21
+2025-10-01 04:40:09 | INFO     | ✅ Linha 21 processada com sucesso
+2025-10-01 04:40:09 | INFO     | ✅ Planilha salva com status atualizados!
+2025-10-01 04:40:09 | INFO     | --- ESTATÍSTICAS FINAIS ---
+2025-10-01 04:40:09 | INFO     | 📊 Total processado: 20
+2025-10-01 04:40:09 | INFO     | ✅ Sucessos: 20
+2025-10-01 04:40:09 | INFO     | ❌ Erros: 0
+2025-10-01 04:40:09 | INFO     | 📈 Taxa de sucesso: 100.0%
+2025-10-01 04:40:09 | INFO     | 🏁 CONCLUÍDO: Processo de Input de dados no GLPI
+2025-10-01 04:40:09 | INFO     | Taxa de sucesso: 100.0%
+2025-10-01 04:40:09 | INFO     | --- FIM DO LOG ---
+2025-10-01 04:40:09 | INFO     | Log salvo em: logs\glpi_input_20251001_043644.log
