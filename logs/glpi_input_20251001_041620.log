@@ -1,5 +1,0 @@
-2025-10-01 04:16:20 | INFO     | ============================================================
-2025-10-01 04:16:20 | INFO     | INÍCIO DO LOG - GLPI Data Input System
-2025-10-01 04:16:20 | INFO     | ============================================================
-2025-10-01 04:16:20 | INFO     | 🚀 INICIANDO: Reset do GLPI
-2025-10-01 04:16:20 | CRITICAL | 🚨 Erro fatal: 'charmap' codec can't encode character '\U0001f680' in position 5: character maps to <undefined>
