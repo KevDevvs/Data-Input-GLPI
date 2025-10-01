@@ -11,9 +11,6 @@ def create_asset(session_token, asset_type, payload):
     """
     headers = {**HEADERS, "Session-Token": session_token}
     print(c(f"💻 Processando {asset_type}...", 'yellow'))
-    
-    # Log de debug para verificar o payload
-    print(c(f"🔍 DEBUG - Payload para {asset_type}: {payload}", 'cyan'))
     search_value = payload.get("name")
     
     try:

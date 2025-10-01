@@ -4,9 +4,80 @@ from helper.read_config import GLPI_URL, GROUP_ID, HEADERS
 from helper.colors import c
 
 
-def create_user(session_token, name, email, profile_id, entity_id, status_user, cpf=None):
+def get_or_create_user_title(session_token, title_name):
+    """
+    Busca ou cria um UserTitle (cargo/posição) no GLPI
+    
+    Args:
+        session_token: Token da sessão GLPI
+        title_name: Nome do cargo/posição
+        
+    Returns:
+        int: ID do UserTitle ou None em caso de erro
+    """
+    if not title_name or not str(title_name).strip():
+        return None
+        
+    headers = {**HEADERS, "Session-Token": session_token}
+    title_clean = str(title_name).strip()
+    
+    try:
+        # Busca se o título já existe
+        search_params = {
+            "criteria[0][field]": "1",  # campo name
+            "criteria[0][searchtype]": "equals",
+            "criteria[0][value]": title_clean
+        }
+        
+        search_response = requests.get(f"{GLPI_URL}/search/UserTitle", headers=headers, params=search_params)
+        
+        if search_response.status_code in [200, 206]:
+            search_data = search_response.json()
+            if isinstance(search_data, dict) and search_data.get("totalcount", 0) > 0:
+                title_data = search_data["data"][0]
+                title_id = title_data.get("2") or title_data.get("id")
+                if title_id:
+                    print(c(f"✅ Cargo '{title_clean}' encontrado (ID: {title_id})", 'green'))
+                    return int(title_id)
+        
+        # Se não encontrou, cria novo
+        title_payload = {
+            "name": title_clean,
+            "entities_id": 0  # Entidade raiz para ser compartilhado
+        }
+        
+        create_response = requests.post(f"{GLPI_URL}/UserTitle", headers=headers, json={"input": title_payload})
+        
+        if create_response.status_code in [200, 201]:
+            response_data = create_response.json()
+            title_id = response_data.get("id")
+            if title_id:
+                print(c(f"✅ Cargo '{title_clean}' criado (ID: {title_id})", 'green'))
+                return int(title_id)
+                
+        print(c(f"❌ Falha ao criar cargo '{title_clean}'", 'red'))
+        return None
+        
+    except Exception as e:
+        print(c(f"❌ Erro ao processar cargo '{title_clean}': {e}", 'red'))
+        return None
+
+
+def create_user(session_token, name, email, profile_id, entity_id, status_user, cpf=None, celular_pessoal=None, posicao=None, comentario=None):
     """
     Cria usuário no GLPI
+    
+    Args:
+        session_token: Token da sessão GLPI
+        name: Nome completo do usuário
+        email: Email do usuário (será usado como login)
+        profile_id: ID do perfil do usuário
+        entity_id: ID da entidade
+        status_user: Status do usuário (categoria)
+        cpf: CPF do usuário (opcional)
+        celular_pessoal: Celular pessoal do usuário (opcional)
+        posicao: Posição/cargo do usuário (opcional)
+        comentario: Comentário sobre o usuário (opcional)
     
     Returns:
         tuple: (user_id, error_message) onde user_id é None se houve erro
@@ -64,6 +135,15 @@ def create_user(session_token, name, email, profile_id, entity_id, status_user, 
         print(c(f"⚠️ [AVISO] Erro ao buscar usuário (Status: {search_response.status_code})", 'yellow'))
     
     if not user_id:
+        # Processa cargo/posição se fornecido
+        title_id = None
+        if posicao and str(posicao).strip():
+            title_id = get_or_create_user_title(session_token, str(posicao).strip())
+            if title_id:
+                print(c(f"📋 Cargo/Posição vinculado: {str(posicao).strip()} (ID: {title_id})", 'cyan'))
+            else:
+                print(c(f"⚠️ Falha ao criar/vincular cargo: {str(posicao).strip()}", 'yellow'))
+        
         # Prepara os dados do usuário
         user_data = {
             "name": login,
@@ -85,6 +165,20 @@ def create_user(session_token, name, email, profile_id, entity_id, status_user, 
             print(c(f"📋 CPF adicionado: {str(cpf).strip()}", 'cyan'))
         else:
             print(c(f"📋 CPF não fornecido (campo opcional)", 'cyan'))
+        
+        # Adiciona celular pessoal se fornecido
+        if celular_pessoal and str(celular_pessoal).strip():
+            user_data["mobile"] = str(celular_pessoal).strip()
+            print(c(f"📱 Celular pessoal adicionado: {str(celular_pessoal).strip()}", 'cyan'))
+        
+        # Adiciona cargo/posição se encontrado
+        if title_id:
+            user_data["usertitles_id"] = title_id
+            
+        # Adiciona comentário se fornecido
+        if comentario and str(comentario).strip():
+            user_data["comment"] = str(comentario).strip()
+            print(c(f"💬 Comentário adicionado: {str(comentario).strip()[:50]}...", 'cyan'))
 
         # Cria usuário com dados básicos
         r = requests.post(f"{GLPI_URL}/User", headers=headers, json={"input": user_data})
