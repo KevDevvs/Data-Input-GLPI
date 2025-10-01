@@ -1,0 +1,41 @@
+2025-09-30 10:57:52 | INFO     | ============================================================
+2025-09-30 10:57:52 | INFO     | INÍCIO DO LOG - GLPI Data Input System
+2025-09-30 10:57:52 | INFO     | ============================================================
+2025-09-30 10:57:52 | INFO     | 🚀 INICIANDO: Reset do GLPI
+2025-09-30 10:57:53 | INFO     | 🚀 INICIANDO: Processo de Input de dados no GLPI
+2025-09-30 10:57:53 | INFO     | 📄 Processando linha 2...
+2025-09-30 10:57:57 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 10:58:00 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-09-30 10:58:00 | DEBUG    | 🔍 Sem linha para processar na linha 2
+2025-09-30 10:58:05 | INFO     | ✅ Phone criado (ID: 609) - Celular Samsung - 353101860319093
+2025-09-30 10:58:05 | DEBUG    | 🔍 Sem notebook para processar na linha 2
+2025-09-30 10:58:05 | INFO     | ✅ Linha 2 processada com sucesso
+2025-09-30 10:58:05 | INFO     | 📄 Processando linha 3...
+2025-09-30 10:58:07 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 10:58:08 | ERROR    | ❌ Falha ao criar usuário: Falha na criação no GLPI (Status: 400) - ["ERROR_GLPI_ADD","Unable to add. The user already exists."] - Status atualizado: Falha na criação no GLPI (Status: 400) - ["ERROR_GLPI_ADD","Unable to add. The user already exists."]
+2025-09-30 10:58:12 | INFO     | ✅ Line criado (ID: 616) - 11931353089
+2025-09-30 10:58:19 | INFO     | ✅ Phone criado (ID: 610) - Celular Samsung - 353101861936481
+2025-09-30 10:58:19 | DEBUG    | 🔍 Sem notebook para processar na linha 3
+2025-09-30 10:58:19 | INFO     | ✅ Linha 3 processada com sucesso
+2025-09-30 10:58:19 | INFO     | 📄 Processando linha 4...
+2025-09-30 10:58:21 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 10:58:23 | ERROR    | ❌ Falha ao criar usuário: Falha na criação no GLPI (Status: 400) - ["ERROR_GLPI_ADD","Unable to add. The user already exists."] - Status atualizado: Falha na criação no GLPI (Status: 400) - ["ERROR_GLPI_ADD","Unable to add. The user already exists."]
+2025-09-30 10:58:27 | INFO     | ✅ Line criado (ID: 617) - 11931351245
+2025-09-30 10:58:34 | INFO     | ✅ Phone criado (ID: 611) - Celular Samsung - 353101862158416
+2025-09-30 10:58:34 | DEBUG    | 🔍 Sem notebook para processar na linha 4
+2025-09-30 10:58:34 | INFO     | ✅ Linha 4 processada com sucesso
+2025-09-30 10:58:34 | INFO     | 📄 Processando linha 5...
+2025-09-30 10:58:37 | DEBUG    | 🔍 CPF fornecido e formatado: 00951309935
+2025-09-30 10:58:39 | INFO     | ✅ Usuário criado (ID: 7) - Status atualizado: OK
+2025-09-30 10:58:43 | INFO     | ✅ Line criado (ID: 618) - 11959626890
+2025-09-30 10:58:50 | INFO     | ✅ Phone criado (ID: 612) - Celular Samsung - 354494169396519
+2025-09-30 10:58:50 | DEBUG    | 🔍 Sem notebook para processar na linha 5
+2025-09-30 10:58:50 | INFO     | ✅ Linha 5 processada com sucesso
+2025-09-30 10:58:51 | INFO     | 📄 Processando linha 6...
+2025-09-30 10:58:53 | DEBUG    | 🔍 CPF fornecido e formatado: 29451216898
+2025-09-30 10:58:56 | INFO     | ✅ Usuário criado (ID: 8) - Status atualizado: OK
+2025-09-30 10:59:00 | INFO     | ✅ Line criado (ID: 619) - 11931351451
+2025-09-30 10:59:07 | INFO     | ✅ Phone criado (ID: 613) - Celular Samsung - 353101862162327
+2025-09-30 10:59:07 | DEBUG    | 🔍 Sem notebook para processar na linha 6
+2025-09-30 10:59:07 | INFO     | ✅ Linha 6 processada com sucesso
+2025-09-30 10:59:07 | INFO     | 📄 Processando linha 7...

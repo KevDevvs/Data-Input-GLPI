@@ -15,8 +15,8 @@ Script para input automatizado de dados no GLPI via API.
 A planilha deve conter as seguintes colunas (ordem importa):
 
 1. **Nome do User** - Nome completo do usuário
-2. **email** - Email do usuário  
-3. **CPF** - CPF do usuário (obrigatório)
+2. **email** - Email do usuário (obrigatório)
+3. **CPF** - CPF do usuário
 4. **Entidade A** - Primeira entidade (obrigatória)
 5. **Entidade B** - Segunda entidade (opcional)
 6. **Entidade C** - Terceira entidade (opcional)

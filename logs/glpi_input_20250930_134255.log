@@ -1,0 +1,9 @@
+2025-09-30 13:42:55 | INFO     | ============================================================
+2025-09-30 13:42:55 | INFO     | INÍCIO DO LOG - GLPI Data Input System
+2025-09-30 13:42:55 | INFO     | ============================================================
+2025-09-30 13:42:55 | INFO     | 🚀 INICIANDO: Reset do GLPI
+2025-09-30 13:42:55 | INFO     | 🚀 INICIANDO: Processo de Input de dados no GLPI
+2025-09-30 13:42:56 | INFO     | 📄 Processando linha 2...
+2025-09-30 13:42:59 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 13:43:02 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-09-30 13:43:02 | DEBUG    | 🔍 Sem linha para processar na linha 2

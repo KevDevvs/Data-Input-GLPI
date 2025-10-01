@@ -23,7 +23,8 @@ def get_or_create_supplier(session_token, supplier_name, entities_id=0):
         supplier_data = {
             "name": supplier_name,
             "entities_id": 0,  # Sempre entidade raiz
-            "is_recursive": 1
+            "is_recursive": 1,
+            "is_active": 1  # Criar supplier como ativo
         }
         
         create_response = requests.post(f"{GLPI_URL}/Supplier", headers=headers, json={"input": supplier_data})

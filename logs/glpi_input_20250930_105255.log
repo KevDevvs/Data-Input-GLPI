@@ -1,0 +1,29 @@
+2025-09-30 10:52:55 | INFO     | ============================================================
+2025-09-30 10:52:55 | INFO     | INÍCIO DO LOG - GLPI Data Input System
+2025-09-30 10:52:55 | INFO     | ============================================================
+2025-09-30 10:52:55 | INFO     | 🚀 INICIANDO: Reset do GLPI
+2025-09-30 10:52:56 | INFO     | 🚀 INICIANDO: Processo de Input de dados no GLPI
+2025-09-30 10:52:56 | INFO     | 📄 Processando linha 2...
+2025-09-30 10:52:59 | DEBUG    | 🔍 🔍 Debug - Email original: 'Ana.Carolina@gigroupholding.com', limpo: 'Ana.Carolina@gigroupholding.com'
+2025-09-30 10:52:59 | DEBUG    | 🔍 🔍 Debug - Email preparado para função: '@Ana.Carolina@gigroupholding.com'
+2025-09-30 10:52:59 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 10:53:00 | ERROR    | ❌ Falha ao criar usuário: Falha na criação no GLPI - Status atualizado: Falha na criação no GLPI
+2025-09-30 10:53:00 | DEBUG    | 🔍 Sem linha para processar na linha 2
+2025-09-30 10:53:05 | INFO     | ✅ Phone criado (ID: 597) - Celular Samsung - 353101860319093
+2025-09-30 10:53:05 | DEBUG    | 🔍 Sem notebook para processar na linha 2
+2025-09-30 10:53:05 | INFO     | ✅ Linha 2 processada com sucesso
+2025-09-30 10:53:05 | INFO     | 📄 Processando linha 3...
+2025-09-30 10:53:07 | DEBUG    | 🔍 🔍 Debug - Email original: 'Ana.Carolina@gigroupholding.com', limpo: 'Ana.Carolina@gigroupholding.com'
+2025-09-30 10:53:07 | DEBUG    | 🔍 🔍 Debug - Email preparado para função: '@Ana.Carolina@gigroupholding.com'
+2025-09-30 10:53:07 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 10:53:08 | ERROR    | ❌ Falha ao criar usuário: Falha na criação no GLPI - Status atualizado: Falha na criação no GLPI
+2025-09-30 10:53:12 | INFO     | ✅ Line criado (ID: 605) - 11931353089
+2025-09-30 10:53:19 | INFO     | ✅ Phone criado (ID: 598) - Celular Samsung - 353101861936481
+2025-09-30 10:53:19 | DEBUG    | 🔍 Sem notebook para processar na linha 3
+2025-09-30 10:53:19 | INFO     | ✅ Linha 3 processada com sucesso
+2025-09-30 10:53:19 | INFO     | 📄 Processando linha 4...
+2025-09-30 10:53:22 | DEBUG    | 🔍 🔍 Debug - Email original: 'Ana.Carolina@gigroupholding.com', limpo: 'Ana.Carolina@gigroupholding.com'
+2025-09-30 10:53:22 | DEBUG    | 🔍 🔍 Debug - Email preparado para função: '@Ana.Carolina@gigroupholding.com'
+2025-09-30 10:53:22 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 10:53:22 | ERROR    | ❌ Falha ao criar usuário: Falha na criação no GLPI - Status atualizado: Falha na criação no GLPI
+2025-09-30 10:53:26 | INFO     | ✅ Line criado (ID: 606) - 11931351245

@@ -1,0 +1,829 @@
+2025-09-30 11:12:15 | INFO     | ============================================================
+2025-09-30 11:12:15 | INFO     | INÍCIO DO LOG - GLPI Data Input System
+2025-09-30 11:12:15 | INFO     | ============================================================
+2025-09-30 11:12:15 | INFO     | 🚀 INICIANDO: Reset do GLPI
+2025-09-30 11:12:15 | INFO     | 🚀 INICIANDO: Processo de Input de dados no GLPI
+2025-09-30 11:12:16 | INFO     | 📄 Processando linha 2...
+2025-09-30 11:12:19 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:12:21 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-09-30 11:12:21 | DEBUG    | 🔍 Sem linha para processar na linha 2
+2025-09-30 11:12:26 | INFO     | ✅ Phone criado (ID: 624) - Celular Samsung - 353101860319093
+2025-09-30 11:12:26 | DEBUG    | 🔍 Sem notebook para processar na linha 2
+2025-09-30 11:12:26 | INFO     | ✅ Linha 2 processada com sucesso
+2025-09-30 11:12:26 | INFO     | 📄 Processando linha 3...
+2025-09-30 11:12:28 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:12:31 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-09-30 11:12:35 | INFO     | ✅ Line criado (ID: 629) - 11931353089
+2025-09-30 11:12:43 | INFO     | ✅ Phone criado (ID: 625) - Celular Samsung - 353101861936481
+2025-09-30 11:12:43 | DEBUG    | 🔍 Sem notebook para processar na linha 3
+2025-09-30 11:12:43 | INFO     | ✅ Linha 3 processada com sucesso
+2025-09-30 11:12:43 | INFO     | 📄 Processando linha 4...
+2025-09-30 11:12:45 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:12:48 | INFO     | ✅ Usuário criado (ID: 6) - Status atualizado: OK
+2025-09-30 11:12:52 | INFO     | ✅ Line criado (ID: 630) - 11931351245
+2025-09-30 11:12:59 | INFO     | ✅ Phone criado (ID: 626) - Celular Samsung - 353101862158416
+2025-09-30 11:12:59 | DEBUG    | 🔍 Sem notebook para processar na linha 4
+2025-09-30 11:12:59 | INFO     | ✅ Linha 4 processada com sucesso
+2025-09-30 11:12:59 | INFO     | 📄 Processando linha 5...
+2025-09-30 11:13:02 | DEBUG    | 🔍 CPF fornecido e formatado: 00951309935
+2025-09-30 11:13:04 | INFO     | ✅ Usuário criado (ID: 7) - Status atualizado: OK
+2025-09-30 11:13:08 | INFO     | ✅ Line criado (ID: 631) - 11959626890
+2025-09-30 11:13:15 | INFO     | ✅ Phone criado (ID: 627) - Celular Samsung - 354494169396519
+2025-09-30 11:13:15 | DEBUG    | 🔍 Sem notebook para processar na linha 5
+2025-09-30 11:13:15 | INFO     | ✅ Linha 5 processada com sucesso
+2025-09-30 11:13:15 | INFO     | 📄 Processando linha 6...
+2025-09-30 11:13:17 | DEBUG    | 🔍 CPF fornecido e formatado: 29451216898
+2025-09-30 11:13:20 | INFO     | ✅ Usuário criado (ID: 8) - Status atualizado: OK
+2025-09-30 11:13:24 | INFO     | ✅ Line criado (ID: 632) - 11931351451
+2025-09-30 11:13:30 | INFO     | ✅ Phone criado (ID: 628) - Celular Samsung - 353101862162327
+2025-09-30 11:13:30 | DEBUG    | 🔍 Sem notebook para processar na linha 6
+2025-09-30 11:13:30 | INFO     | ✅ Linha 6 processada com sucesso
+2025-09-30 11:13:31 | INFO     | 📄 Processando linha 7...
+2025-09-30 11:13:33 | DEBUG    | 🔍 CPF fornecido e formatado: 37339552855
+2025-09-30 11:13:35 | INFO     | ✅ Usuário criado (ID: 9) - Status atualizado: OK
+2025-09-30 11:13:39 | INFO     | ✅ Line criado (ID: 633) - 11951530095
+2025-09-30 11:13:46 | INFO     | ✅ Phone criado (ID: 629) - Celular Samsung - 353101863514138
+2025-09-30 11:13:46 | DEBUG    | 🔍 Sem notebook para processar na linha 7
+2025-09-30 11:13:46 | INFO     | ✅ Linha 7 processada com sucesso
+2025-09-30 11:13:46 | INFO     | 📄 Processando linha 8...
+2025-09-30 11:13:48 | DEBUG    | 🔍 CPF fornecido e formatado: 39429160885
+2025-09-30 11:13:51 | INFO     | ✅ Usuário criado (ID: 10) - Status atualizado: OK
+2025-09-30 11:13:55 | INFO     | ✅ Line criado (ID: 634) - 11930160138
+2025-09-30 11:14:02 | INFO     | ✅ Phone criado (ID: 630) - Celular Samsung - 354494169394183
+2025-09-30 11:14:02 | DEBUG    | 🔍 Sem notebook para processar na linha 8
+2025-09-30 11:14:02 | INFO     | ✅ Linha 8 processada com sucesso
+2025-09-30 11:14:02 | INFO     | 📄 Processando linha 9...
+2025-09-30 11:14:04 | DEBUG    | 🔍 CPF fornecido e formatado: 42691539890
+2025-09-30 11:14:07 | INFO     | ✅ Usuário criado (ID: 11) - Status atualizado: OK
+2025-09-30 11:14:11 | INFO     | ✅ Line criado (ID: 635) - 11991921043
+2025-09-30 11:14:17 | INFO     | ✅ Phone criado (ID: 631) - Celular Samsung - 353101863515325
+2025-09-30 11:14:17 | DEBUG    | 🔍 Sem notebook para processar na linha 9
+2025-09-30 11:14:17 | INFO     | ✅ Linha 9 processada com sucesso
+2025-09-30 11:14:18 | INFO     | 📄 Processando linha 10...
+2025-09-30 11:14:19 | DEBUG    | 🔍 CPF fornecido e formatado: 41488275807
+2025-09-30 11:14:21 | INFO     | ✅ Usuário criado (ID: 12) - Status atualizado: OK
+2025-09-30 11:14:25 | INFO     | ✅ Line criado (ID: 636) - 11931351793
+2025-09-30 11:14:32 | INFO     | ✅ Phone criado (ID: 632) - Celular Samsung - 353101860370583
+2025-09-30 11:14:32 | DEBUG    | 🔍 Sem notebook para processar na linha 10
+2025-09-30 11:14:32 | INFO     | ✅ Linha 10 processada com sucesso
+2025-09-30 11:14:32 | INFO     | 📄 Processando linha 11...
+2025-09-30 11:14:34 | DEBUG    | 🔍 CPF fornecido e formatado: 49268122820
+2025-09-30 11:14:36 | INFO     | ✅ Usuário criado (ID: 13) - Status atualizado: OK
+2025-09-30 11:14:40 | INFO     | ✅ Line criado (ID: 637) - 11954471801
+2025-09-30 11:14:47 | INFO     | ✅ Phone criado (ID: 633) - Celular Samsung - 353101860372696
+2025-09-30 11:14:47 | DEBUG    | 🔍 Sem notebook para processar na linha 11
+2025-09-30 11:14:47 | INFO     | ✅ Linha 11 processada com sucesso
+2025-09-30 11:14:47 | INFO     | 📄 Processando linha 12...
+2025-09-30 11:14:49 | DEBUG    | 🔍 CPF fornecido e formatado: 44668590860
+2025-09-30 11:14:51 | INFO     | ✅ Usuário criado (ID: 14) - Status atualizado: OK
+2025-09-30 11:14:51 | ERROR    | ❌ Linha '11931350116' não pode ser criada: Operadora não informada
+2025-09-30 11:14:56 | INFO     | ✅ Phone criado (ID: 634) - Celular Samsung - 351989275163334
+2025-09-30 11:14:56 | DEBUG    | 🔍 Sem notebook para processar na linha 12
+2025-09-30 11:14:56 | INFO     | ✅ Linha 12 processada com sucesso
+2025-09-30 11:14:57 | INFO     | 📄 Processando linha 13...
+2025-09-30 11:14:59 | DEBUG    | 🔍 CPF fornecido e formatado: 32181364826
+2025-09-30 11:15:01 | INFO     | ✅ Usuário criado (ID: 15) - Status atualizado: OK
+2025-09-30 11:15:05 | INFO     | ✅ Line criado (ID: 638) - 11958950073
+2025-09-30 11:15:11 | INFO     | ✅ Phone criado (ID: 635) - Celular Samsung - 353101861936606
+2025-09-30 11:15:11 | DEBUG    | 🔍 Sem notebook para processar na linha 13
+2025-09-30 11:15:11 | INFO     | ✅ Linha 13 processada com sucesso
+2025-09-30 11:15:12 | INFO     | 📄 Processando linha 14...
+2025-09-30 11:15:14 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:15:16 | INFO     | ✅ Usuário criado (ID: 16) - Status atualizado: OK
+2025-09-30 11:15:16 | DEBUG    | 🔍 Sem linha para processar na linha 14
+2025-09-30 11:15:20 | INFO     | ✅ Phone criado (ID: 636) - Celular Samsung - 353101862158655
+2025-09-30 11:15:20 | DEBUG    | 🔍 Sem notebook para processar na linha 14
+2025-09-30 11:15:20 | INFO     | ✅ Linha 14 processada com sucesso
+2025-09-30 11:15:20 | INFO     | 📄 Processando linha 15...
+2025-09-30 11:15:23 | DEBUG    | 🔍 CPF fornecido e formatado: 09356728429
+2025-09-30 11:15:25 | INFO     | ✅ Usuário criado (ID: 17) - Status atualizado: OK
+2025-09-30 11:15:29 | INFO     | ✅ Line criado (ID: 639) - 87999050012
+2025-09-30 11:15:36 | INFO     | ✅ Phone criado (ID: 637) - Celular Samsung - 353291453630400
+2025-09-30 11:15:36 | DEBUG    | 🔍 Sem notebook para processar na linha 15
+2025-09-30 11:15:36 | INFO     | ✅ Linha 15 processada com sucesso
+2025-09-30 11:15:36 | INFO     | 📄 Processando linha 16...
+2025-09-30 11:15:38 | DEBUG    | 🔍 CPF fornecido e formatado: 02515633161
+2025-09-30 11:15:40 | INFO     | ✅ Usuário criado (ID: 18) - Status atualizado: OK
+2025-09-30 11:15:44 | INFO     | ✅ Line criado (ID: 640) - 64981620127
+2025-09-30 11:15:51 | INFO     | ✅ Phone criado (ID: 638) - Celular Samsung - 353291451032500
+2025-09-30 11:15:51 | DEBUG    | 🔍 Sem notebook para processar na linha 16
+2025-09-30 11:15:51 | INFO     | ✅ Linha 16 processada com sucesso
+2025-09-30 11:15:51 | INFO     | 📄 Processando linha 17...
+2025-09-30 11:15:53 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:15:56 | INFO     | ✅ Usuário criado (ID: 19) - Status atualizado: OK
+2025-09-30 11:16:00 | INFO     | ✅ Line criado (ID: 641) - 11931353370
+2025-09-30 11:16:08 | INFO     | ✅ Phone criado (ID: 639) - Celular Samsung - 353101860995504
+2025-09-30 11:16:08 | DEBUG    | 🔍 Sem notebook para processar na linha 17
+2025-09-30 11:16:08 | INFO     | ✅ Linha 17 processada com sucesso
+2025-09-30 11:16:08 | INFO     | 📄 Processando linha 18...
+2025-09-30 11:16:10 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:16:13 | INFO     | ✅ Usuário criado (ID: 20) - Status atualizado: OK
+2025-09-30 11:16:13 | DEBUG    | 🔍 Sem linha para processar na linha 18
+2025-09-30 11:16:18 | INFO     | ✅ Phone criado (ID: 640) - Celular Samsung - 353101862158200
+2025-09-30 11:16:18 | DEBUG    | 🔍 Sem notebook para processar na linha 18
+2025-09-30 11:16:18 | INFO     | ✅ Linha 18 processada com sucesso
+2025-09-30 11:16:18 | INFO     | 📄 Processando linha 19...
+2025-09-30 11:16:20 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:16:23 | INFO     | ✅ Usuário criado (ID: 21) - Status atualizado: OK
+2025-09-30 11:16:27 | INFO     | ✅ Line criado (ID: 642) - 11983675627
+2025-09-30 11:16:35 | INFO     | ✅ Phone criado (ID: 641) - Celular Samsung - 355510911783529
+2025-09-30 11:16:35 | DEBUG    | 🔍 Sem notebook para processar na linha 19
+2025-09-30 11:16:35 | INFO     | ✅ Linha 19 processada com sucesso
+2025-09-30 11:16:35 | INFO     | 📄 Processando linha 20...
+2025-09-30 11:16:37 | DEBUG    | 🔍 CPF fornecido e formatado: 05062005159
+2025-09-30 11:16:39 | INFO     | ✅ Usuário criado (ID: 22) - Status atualizado: OK
+2025-09-30 11:16:43 | INFO     | ✅ Line criado (ID: 643) - 63981550088
+2025-09-30 11:16:50 | INFO     | ✅ Phone criado (ID: 642) - Celular Samsung - 355510915134117
+2025-09-30 11:16:50 | DEBUG    | 🔍 Sem notebook para processar na linha 20
+2025-09-30 11:16:50 | INFO     | ✅ Linha 20 processada com sucesso
+2025-09-30 11:16:50 | INFO     | 📄 Processando linha 21...
+2025-09-30 11:16:52 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:16:54 | INFO     | ✅ Usuário criado (ID: 23) - Status atualizado: OK
+2025-09-30 11:16:58 | INFO     | ✅ Line criado (ID: 644) - 11964430007
+2025-09-30 11:17:05 | INFO     | ✅ Phone criado (ID: 643) - Celular Samsung - 350844818602267
+2025-09-30 11:17:05 | DEBUG    | 🔍 Sem notebook para processar na linha 21
+2025-09-30 11:17:05 | INFO     | ✅ Linha 21 processada com sucesso
+2025-09-30 11:17:06 | INFO     | 📄 Processando linha 22...
+2025-09-30 11:17:08 | DEBUG    | 🔍 CPF fornecido e formatado: 12002822646
+2025-09-30 11:17:10 | INFO     | ✅ Usuário criado (ID: 24) - Status atualizado: OK
+2025-09-30 11:17:14 | INFO     | ✅ Line criado (ID: 645) - 35991430016
+2025-09-30 11:17:21 | INFO     | ✅ Phone criado (ID: 644) - Celular Samsung - 353101861938594
+2025-09-30 11:17:21 | DEBUG    | 🔍 Sem notebook para processar na linha 22
+2025-09-30 11:17:21 | INFO     | ✅ Linha 22 processada com sucesso
+2025-09-30 11:17:21 | INFO     | 📄 Processando linha 23...
+2025-09-30 11:17:23 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:17:25 | INFO     | ✅ Usuário criado (ID: 25) - Status atualizado: OK
+2025-09-30 11:17:25 | DEBUG    | 🔍 Sem linha para processar na linha 23
+2025-09-30 11:17:29 | INFO     | ✅ Phone criado (ID: 645) - Celular Samsung - 353101862158010
+2025-09-30 11:17:29 | DEBUG    | 🔍 Sem notebook para processar na linha 23
+2025-09-30 11:17:29 | INFO     | ✅ Linha 23 processada com sucesso
+2025-09-30 11:17:29 | INFO     | 📄 Processando linha 24...
+2025-09-30 11:17:32 | DEBUG    | 🔍 CPF fornecido e formatado: 47562078807
+2025-09-30 11:17:34 | INFO     | ✅ Usuário criado (ID: 26) - Status atualizado: OK
+2025-09-30 11:17:38 | INFO     | ✅ Line criado (ID: 646) - 21980940505
+2025-09-30 11:17:45 | INFO     | ✅ Phone criado (ID: 646) - Celular Samsung - 353101863519582
+2025-09-30 11:17:45 | DEBUG    | 🔍 Sem notebook para processar na linha 24
+2025-09-30 11:17:45 | INFO     | ✅ Linha 24 processada com sucesso
+2025-09-30 11:17:45 | INFO     | 📄 Processando linha 25...
+2025-09-30 11:17:47 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:17:49 | INFO     | ✅ Usuário criado (ID: 27) - Status atualizado: OK
+2025-09-30 11:17:49 | DEBUG    | 🔍 Sem linha para processar na linha 25
+2025-09-30 11:17:54 | INFO     | ✅ Phone criado (ID: 647) - Celular Motorola - 357584204381836
+2025-09-30 11:17:54 | DEBUG    | 🔍 Sem notebook para processar na linha 25
+2025-09-30 11:17:54 | INFO     | ✅ Linha 25 processada com sucesso
+2025-09-30 11:17:54 | INFO     | 📄 Processando linha 26...
+2025-09-30 11:17:56 | DEBUG    | 🔍 CPF fornecido e formatado: 09356728429
+2025-09-30 11:17:59 | INFO     | ✅ Usuário criado (ID: 17) - Status atualizado: OK
+2025-09-30 11:17:59 | ERROR    | ❌ Linha '11963638513' não pode ser criada: Operadora não informada
+2025-09-30 11:18:04 | INFO     | ✅ Phone criado (ID: 648) - Celular Samsung - 353291450462385
+2025-09-30 11:18:04 | DEBUG    | 🔍 Sem notebook para processar na linha 26
+2025-09-30 11:18:04 | INFO     | ✅ Linha 26 processada com sucesso
+2025-09-30 11:18:04 | INFO     | 📄 Processando linha 27...
+2025-09-30 11:18:06 | DEBUG    | 🔍 CPF fornecido e formatado: 30342225804
+2025-09-30 11:18:08 | INFO     | ✅ Usuário criado (ID: 28) - Status atualizado: OK
+2025-09-30 11:18:12 | INFO     | ✅ Line criado (ID: 647) - 62982880432
+2025-09-30 11:18:19 | INFO     | ✅ Phone criado (ID: 649) - Celular Samsung - 353101862157830
+2025-09-30 11:18:19 | DEBUG    | 🔍 Sem notebook para processar na linha 27
+2025-09-30 11:18:19 | INFO     | ✅ Linha 27 processada com sucesso
+2025-09-30 11:18:19 | INFO     | 📄 Processando linha 28...
+2025-09-30 11:18:21 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:18:23 | INFO     | ✅ Usuário criado (ID: 29) - Status atualizado: OK
+2025-09-30 11:18:27 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:18:31 | INFO     | ✅ Phone criado (ID: 650) - Celular Samsung - 353101865897960
+2025-09-30 11:18:31 | DEBUG    | 🔍 Sem notebook para processar na linha 28
+2025-09-30 11:18:31 | INFO     | ✅ Linha 28 processada com sucesso
+2025-09-30 11:18:32 | INFO     | 📄 Processando linha 29...
+2025-09-30 11:18:34 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:18:36 | INFO     | ✅ Usuário criado (ID: 30) - Status atualizado: OK
+2025-09-30 11:18:40 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:18:44 | INFO     | ✅ Phone criado (ID: 651) - Celular Samsung - 353291451035149
+2025-09-30 11:18:44 | DEBUG    | 🔍 Sem notebook para processar na linha 29
+2025-09-30 11:18:44 | INFO     | ✅ Linha 29 processada com sucesso
+2025-09-30 11:18:44 | INFO     | 📄 Processando linha 30...
+2025-09-30 11:18:46 | DEBUG    | 🔍 CPF fornecido e formatado: 06977433493
+2025-09-30 11:18:48 | INFO     | ✅ Usuário criado (ID: 31) - Status atualizado: OK
+2025-09-30 11:18:48 | ERROR    | ❌ Linha '87981329533' não pode ser criada: Operadora não informada
+2025-09-30 11:18:53 | INFO     | ✅ Phone criado (ID: 652) - Celular Samsung - 353291451008575
+2025-09-30 11:18:53 | DEBUG    | 🔍 Sem notebook para processar na linha 30
+2025-09-30 11:18:53 | INFO     | ✅ Linha 30 processada com sucesso
+2025-09-30 11:18:53 | INFO     | 📄 Processando linha 31...
+2025-09-30 11:18:55 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:18:57 | INFO     | ✅ Usuário criado (ID: 32) - Status atualizado: OK
+2025-09-30 11:19:01 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:19:05 | INFO     | ✅ Phone criado (ID: 653) - Celular Samsung - 353101865898943
+2025-09-30 11:19:05 | DEBUG    | 🔍 Sem notebook para processar na linha 31
+2025-09-30 11:19:05 | INFO     | ✅ Linha 31 processada com sucesso
+2025-09-30 11:19:06 | INFO     | 📄 Processando linha 32...
+2025-09-30 11:19:08 | DEBUG    | 🔍 CPF fornecido e formatado: 05930593604
+2025-09-30 11:19:10 | INFO     | ✅ Usuário criado (ID: 33) - Status atualizado: OK
+2025-09-30 11:19:14 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:19:18 | INFO     | ✅ Phone criado (ID: 654) - Celular Samsung - 353291451032468
+2025-09-30 11:19:18 | DEBUG    | 🔍 Sem notebook para processar na linha 32
+2025-09-30 11:19:18 | INFO     | ✅ Linha 32 processada com sucesso
+2025-09-30 11:19:18 | INFO     | 📄 Processando linha 33...
+2025-09-30 11:19:20 | DEBUG    | 🔍 CPF fornecido e formatado: 46195638897
+2025-09-30 11:19:22 | INFO     | ✅ Usuário criado (ID: 34) - Status atualizado: OK
+2025-09-30 11:19:26 | INFO     | ✅ Line criado (ID: 648) - 11963630670
+2025-09-30 11:19:33 | INFO     | ✅ Phone criado (ID: 655) - Celular Samsung - 353101860371938
+2025-09-30 11:19:33 | DEBUG    | 🔍 Sem notebook para processar na linha 33
+2025-09-30 11:19:33 | INFO     | ✅ Linha 33 processada com sucesso
+2025-09-30 11:19:33 | INFO     | 📄 Processando linha 34...
+2025-09-30 11:19:35 | DEBUG    | 🔍 CPF fornecido e formatado: 08384356459
+2025-09-30 11:19:37 | INFO     | ✅ Usuário criado (ID: 35) - Status atualizado: OK
+2025-09-30 11:19:41 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:19:45 | INFO     | ✅ Phone criado (ID: 656) - Celular Samsung - 353101863519673
+2025-09-30 11:19:45 | DEBUG    | 🔍 Sem notebook para processar na linha 34
+2025-09-30 11:19:45 | INFO     | ✅ Linha 34 processada com sucesso
+2025-09-30 11:19:46 | INFO     | 📄 Processando linha 35...
+2025-09-30 11:19:49 | DEBUG    | 🔍 CPF fornecido e formatado: 40698691822
+2025-09-30 11:19:51 | INFO     | ✅ Usuário criado (ID: 36) - Status atualizado: OK
+2025-09-30 11:19:55 | INFO     | ✅ Line criado (ID: 649) - 32991610028
+2025-09-30 11:20:02 | INFO     | ✅ Phone criado (ID: 657) - Celular Samsung - 353291453651000
+2025-09-30 11:20:02 | DEBUG    | 🔍 Sem notebook para processar na linha 35
+2025-09-30 11:20:02 | INFO     | ✅ Linha 35 processada com sucesso
+2025-09-30 11:20:02 | INFO     | 📄 Processando linha 36...
+2025-09-30 11:20:04 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:20:06 | INFO     | ✅ Usuário criado (ID: 37) - Status atualizado: OK
+2025-09-30 11:20:10 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:20:14 | INFO     | ✅ Phone criado (ID: 658) - Celular Samsung - 353291451574311
+2025-09-30 11:20:14 | DEBUG    | 🔍 Sem notebook para processar na linha 36
+2025-09-30 11:20:14 | INFO     | ✅ Linha 36 processada com sucesso
+2025-09-30 11:20:15 | INFO     | 📄 Processando linha 37...
+2025-09-30 11:20:17 | DEBUG    | 🔍 CPF fornecido e formatado: 03748508018
+2025-09-30 11:20:19 | INFO     | ✅ Usuário criado (ID: 38) - Status atualizado: OK
+2025-09-30 11:20:23 | INFO     | ✅ Line criado (ID: 650) - 54981060845
+2025-09-30 11:20:29 | INFO     | ✅ Phone criado (ID: 659) - Celular Samsung - 353101862111548
+2025-09-30 11:20:29 | DEBUG    | 🔍 Sem notebook para processar na linha 37
+2025-09-30 11:20:29 | INFO     | ✅ Linha 37 processada com sucesso
+2025-09-30 11:20:30 | INFO     | 📄 Processando linha 38...
+2025-09-30 11:20:32 | DEBUG    | 🔍 CPF fornecido e formatado: 10340923407
+2025-09-30 11:20:34 | INFO     | ✅ Usuário criado (ID: 39) - Status atualizado: OK
+2025-09-30 11:20:38 | ERROR    | ❌ Falha ao criar Line - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:20:42 | INFO     | ✅ Phone criado (ID: 660) - Celular Samsung - 353101862158424
+2025-09-30 11:20:42 | DEBUG    | 🔍 Sem notebook para processar na linha 38
+2025-09-30 11:20:42 | INFO     | ✅ Linha 38 processada com sucesso
+2025-09-30 11:20:42 | INFO     | 📄 Processando linha 39...
+2025-09-30 11:20:44 | DEBUG    | 🔍 CPF fornecido e formatado: 12061705499
+2025-09-30 11:20:46 | INFO     | ✅ Usuário criado (ID: 40) - Status atualizado: OK
+2025-09-30 11:20:46 | ERROR    | ❌ Linha '81982016239' não pode ser criada: Operadora não informada
+2025-09-30 11:20:51 | INFO     | ✅ Phone criado (ID: 661) - Celular Samsung - 353101861938750
+2025-09-30 11:20:51 | DEBUG    | 🔍 Sem notebook para processar na linha 39
+2025-09-30 11:20:51 | INFO     | ✅ Linha 39 processada com sucesso
+2025-09-30 11:20:51 | INFO     | 📄 Processando linha 40...
+2025-09-30 11:20:54 | DEBUG    | 🔍 CPF fornecido e formatado: 50216276861
+2025-09-30 11:20:55 | INFO     | ✅ Usuário criado (ID: 41) - Status atualizado: OK
+2025-09-30 11:20:59 | INFO     | ✅ Line criado (ID: 651) - 11981686780
+2025-09-30 11:21:06 | INFO     | ✅ Phone criado (ID: 662) - Celular Samsung - 353101860379279
+2025-09-30 11:21:06 | DEBUG    | 🔍 Sem notebook para processar na linha 40
+2025-09-30 11:21:06 | INFO     | ✅ Linha 40 processada com sucesso
+2025-09-30 11:21:06 | INFO     | 📄 Processando linha 41...
+2025-09-30 11:21:09 | DEBUG    | 🔍 CPF fornecido e formatado: 06067316447
+2025-09-30 11:21:10 | INFO     | ✅ Usuário criado (ID: 42) - Status atualizado: OK
+2025-09-30 11:21:10 | ERROR    | ❌ Linha '85982133112' não pode ser criada: Operadora não informada
+2025-09-30 11:21:15 | INFO     | ✅ Phone criado (ID: 663) - Celular Samsung - 353101860355857
+2025-09-30 11:21:15 | DEBUG    | 🔍 Sem notebook para processar na linha 41
+2025-09-30 11:21:15 | INFO     | ✅ Linha 41 processada com sucesso
+2025-09-30 11:21:15 | INFO     | 📄 Processando linha 42...
+2025-09-30 11:21:18 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:21:20 | INFO     | ✅ Usuário criado (ID: 43) - Status atualizado: OK
+2025-09-30 11:21:20 | ERROR    | ❌ Linha '62998680856' não pode ser criada: Operadora não informada
+2025-09-30 11:21:25 | INFO     | ✅ Phone criado (ID: 664) - Celular Samsung - 353101863683602
+2025-09-30 11:21:25 | DEBUG    | 🔍 Sem notebook para processar na linha 42
+2025-09-30 11:21:25 | INFO     | ✅ Linha 42 processada com sucesso
+2025-09-30 11:21:25 | INFO     | 📄 Processando linha 43...
+2025-09-30 11:21:28 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:21:30 | INFO     | ✅ Usuário criado (ID: 44) - Status atualizado: OK
+2025-09-30 11:21:30 | ERROR    | ❌ Linha '87981329307' não pode ser criada: Operadora não informada
+2025-09-30 11:21:35 | INFO     | ✅ Phone criado (ID: 665) - Celular Samsung - 353291451018103
+2025-09-30 11:21:35 | DEBUG    | 🔍 Sem notebook para processar na linha 43
+2025-09-30 11:21:35 | INFO     | ✅ Linha 43 processada com sucesso
+2025-09-30 11:21:35 | INFO     | 📄 Processando linha 44...
+2025-09-30 11:21:38 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:21:40 | INFO     | ✅ Usuário criado (ID: 45) - Status atualizado: OK
+2025-09-30 11:21:40 | ERROR    | ❌ Linha '87981390499' não pode ser criada: Operadora não informada
+2025-09-30 11:21:45 | INFO     | ✅ Phone criado (ID: 666) - Celular Samsung - 353291451009771
+2025-09-30 11:21:45 | DEBUG    | 🔍 Sem notebook para processar na linha 44
+2025-09-30 11:21:45 | INFO     | ✅ Linha 44 processada com sucesso
+2025-09-30 11:21:46 | INFO     | 📄 Processando linha 45...
+2025-09-30 11:21:48 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:21:50 | INFO     | ✅ Usuário criado (ID: 46) - Status atualizado: OK
+2025-09-30 11:21:50 | ERROR    | ❌ Linha '87981389942' não pode ser criada: Operadora não informada
+2025-09-30 11:21:54 | INFO     | ✅ Phone criado (ID: 667) - Celular Samsung - 357337541803990
+2025-09-30 11:21:54 | DEBUG    | 🔍 Sem notebook para processar na linha 45
+2025-09-30 11:21:54 | INFO     | ✅ Linha 45 processada com sucesso
+2025-09-30 11:21:54 | INFO     | 📄 Processando linha 46...
+2025-09-30 11:21:56 | DEBUG    | 🔍 CPF fornecido e formatado: 45246175820
+2025-09-30 11:21:58 | INFO     | ✅ Usuário criado (ID: 47) - Status atualizado: OK
+2025-09-30 11:22:02 | INFO     | ✅ Line criado (ID: 652) - 34992360157
+2025-09-30 11:22:09 | INFO     | ✅ Phone criado (ID: 668) - Celular Samsung - 353291453633354
+2025-09-30 11:22:09 | DEBUG    | 🔍 Sem notebook para processar na linha 46
+2025-09-30 11:22:09 | INFO     | ✅ Linha 46 processada com sucesso
+2025-09-30 11:22:09 | INFO     | 📄 Processando linha 47...
+2025-09-30 11:22:11 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:22:13 | INFO     | ✅ Usuário criado (ID: 48) - Status atualizado: OK
+2025-09-30 11:22:13 | ERROR    | ❌ Linha '87981330289' não pode ser criada: Operadora não informada
+2025-09-30 11:22:18 | INFO     | ✅ Phone criado (ID: 669) - Celular Samsung - 353291451035479
+2025-09-30 11:22:18 | DEBUG    | 🔍 Sem notebook para processar na linha 47
+2025-09-30 11:22:18 | INFO     | ✅ Linha 47 processada com sucesso
+2025-09-30 11:22:18 | INFO     | 📄 Processando linha 48...
+2025-09-30 11:22:20 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:22:22 | INFO     | ✅ Usuário criado (ID: 49) - Status atualizado: OK
+2025-09-30 11:22:22 | ERROR    | ❌ Linha '87981391262' não pode ser criada: Operadora não informada
+2025-09-30 11:22:26 | INFO     | ✅ Phone criado (ID: 670) - Celular Samsung - 353291451020661
+2025-09-30 11:22:26 | DEBUG    | 🔍 Sem notebook para processar na linha 48
+2025-09-30 11:22:26 | INFO     | ✅ Linha 48 processada com sucesso
+2025-09-30 11:22:26 | INFO     | 📄 Processando linha 49...
+2025-09-30 11:22:28 | DEBUG    | 🔍 CPF fornecido e formatado: 04195702500
+2025-09-30 11:22:30 | INFO     | ✅ Usuário criado (ID: 50) - Status atualizado: OK
+2025-09-30 11:22:30 | ERROR    | ❌ Linha '87981325443' não pode ser criada: Operadora não informada
+2025-09-30 11:22:35 | INFO     | ✅ Phone criado (ID: 671) - Celular Samsung - 353101862162020
+2025-09-30 11:22:35 | DEBUG    | 🔍 Sem notebook para processar na linha 49
+2025-09-30 11:22:35 | INFO     | ✅ Linha 49 processada com sucesso
+2025-09-30 11:22:35 | INFO     | 📄 Processando linha 50...
+2025-09-30 11:22:37 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:22:39 | INFO     | ✅ Usuário criado (ID: 51) - Status atualizado: OK
+2025-09-30 11:22:39 | ERROR    | ❌ Linha '87981758591' não pode ser criada: Operadora não informada
+2025-09-30 11:22:43 | INFO     | ✅ Phone criado (ID: 672) - Celular Samsung - 353291451018038
+2025-09-30 11:22:43 | DEBUG    | 🔍 Sem notebook para processar na linha 50
+2025-09-30 11:22:43 | INFO     | ✅ Linha 50 processada com sucesso
+2025-09-30 11:22:43 | INFO     | 📄 Processando linha 51...
+2025-09-30 11:22:45 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:22:47 | INFO     | ✅ Usuário criado (ID: 52) - Status atualizado: OK
+2025-09-30 11:22:47 | ERROR    | ❌ Linha '87981266689' não pode ser criada: Operadora não informada
+2025-09-30 11:22:52 | INFO     | ✅ Phone criado (ID: 673) - Celular Apple - 352484689563211
+2025-09-30 11:22:52 | DEBUG    | 🔍 Sem notebook para processar na linha 51
+2025-09-30 11:22:52 | INFO     | ✅ Linha 51 processada com sucesso
+2025-09-30 11:22:52 | INFO     | 📄 Processando linha 52...
+2025-09-30 11:22:54 | DEBUG    | 🔍 CPF fornecido e formatado: 09081368460
+2025-09-30 11:22:56 | INFO     | ✅ Usuário criado (ID: 53) - Status atualizado: OK
+2025-09-30 11:22:56 | ERROR    | ❌ Linha '87981330134' não pode ser criada: Operadora não informada
+2025-09-30 11:23:01 | INFO     | ✅ Phone criado (ID: 674) - Celular Samsung - 356722917291014
+2025-09-30 11:23:01 | DEBUG    | 🔍 Sem notebook para processar na linha 52
+2025-09-30 11:23:01 | INFO     | ✅ Linha 52 processada com sucesso
+2025-09-30 11:23:02 | INFO     | 📄 Processando linha 53...
+2025-09-30 11:23:04 | DEBUG    | 🔍 CPF fornecido e formatado: 50967324874
+2025-09-30 11:23:06 | INFO     | ✅ Usuário criado (ID: 54) - Status atualizado: OK
+2025-09-30 11:23:10 | INFO     | ✅ Line criado (ID: 653) - 11963639637
+2025-09-30 11:23:17 | INFO     | ✅ Phone criado (ID: 675) - Celular Samsung - 353101860372589
+2025-09-30 11:23:17 | DEBUG    | 🔍 Sem notebook para processar na linha 53
+2025-09-30 11:23:17 | INFO     | ✅ Linha 53 processada com sucesso
+2025-09-30 11:23:17 | INFO     | 📄 Processando linha 54...
+2025-09-30 11:23:19 | DEBUG    | 🔍 CPF fornecido e formatado: 11261046633
+2025-09-30 11:23:21 | INFO     | ✅ Usuário criado (ID: 55) - Status atualizado: OK
+2025-09-30 11:23:25 | INFO     | ✅ Line criado (ID: 654) - 21965071166
+2025-09-30 11:23:32 | INFO     | ✅ Phone criado (ID: 676) - Celular Samsung - 354468910104026
+2025-09-30 11:23:32 | DEBUG    | 🔍 Sem notebook para processar na linha 54
+2025-09-30 11:23:32 | INFO     | ✅ Linha 54 processada com sucesso
+2025-09-30 11:23:32 | INFO     | 📄 Processando linha 55...
+2025-09-30 11:23:35 | DEBUG    | 🔍 CPF fornecido e formatado: 79349897504
+2025-09-30 11:23:37 | INFO     | ✅ Usuário criado (ID: 56) - Status atualizado: OK
+2025-09-30 11:23:41 | INFO     | ✅ Line criado (ID: 655) - 71993550012
+2025-09-30 11:23:47 | INFO     | ✅ Phone criado (ID: 677) - Celular Samsung - 353101863513437
+2025-09-30 11:23:47 | DEBUG    | 🔍 Sem notebook para processar na linha 55
+2025-09-30 11:23:47 | INFO     | ✅ Linha 55 processada com sucesso
+2025-09-30 11:23:48 | INFO     | 📄 Processando linha 56...
+2025-09-30 11:23:49 | DEBUG    | 🔍 CPF fornecido e formatado: 01974571696
+2025-09-30 11:23:51 | INFO     | ✅ Usuário criado (ID: 57) - Status atualizado: OK
+2025-09-30 11:23:55 | INFO     | ✅ Line criado (ID: 656) - 11946860649
+2025-09-30 11:24:02 | INFO     | ✅ Phone criado (ID: 678) - Celular Samsung - 353101860372175
+2025-09-30 11:24:02 | DEBUG    | 🔍 Sem notebook para processar na linha 56
+2025-09-30 11:24:02 | INFO     | ✅ Linha 56 processada com sucesso
+2025-09-30 11:24:02 | INFO     | 📄 Processando linha 57...
+2025-09-30 11:24:05 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:24:07 | INFO     | ✅ Usuário criado (ID: 58) - Status atualizado: OK
+2025-09-30 11:24:11 | INFO     | ✅ Line criado (ID: 657) - 21980140094
+2025-09-30 11:24:17 | INFO     | ✅ Phone criado (ID: 679) - Celular Samsung - 353101860356475
+2025-09-30 11:24:17 | DEBUG    | 🔍 Sem notebook para processar na linha 57
+2025-09-30 11:24:17 | INFO     | ✅ Linha 57 processada com sucesso
+2025-09-30 11:24:17 | INFO     | 📄 Processando linha 58...
+2025-09-30 11:24:20 | DEBUG    | 🔍 CPF fornecido e formatado: 40378044842
+2025-09-30 11:24:22 | INFO     | ✅ Usuário criado (ID: 59) - Status atualizado: OK
+2025-09-30 11:24:26 | INFO     | ✅ Line criado (ID: 658) - 11946861099
+2025-09-30 11:24:32 | INFO     | ✅ Phone criado (ID: 680) - Celular Samsung - 353101863520515
+2025-09-30 11:24:32 | DEBUG    | 🔍 Sem notebook para processar na linha 58
+2025-09-30 11:24:32 | INFO     | ✅ Linha 58 processada com sucesso
+2025-09-30 11:24:32 | INFO     | 📄 Processando linha 59...
+2025-09-30 11:24:35 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:24:37 | INFO     | ✅ Usuário criado (ID: 60) - Status atualizado: OK
+2025-09-30 11:24:41 | INFO     | ✅ Line criado (ID: 659) - 13982170336
+2025-09-30 11:24:47 | INFO     | ✅ Phone criado (ID: 681) - Celular Samsung - 353101860370773
+2025-09-30 11:24:47 | DEBUG    | 🔍 Sem notebook para processar na linha 59
+2025-09-30 11:24:47 | INFO     | ✅ Linha 59 processada com sucesso
+2025-09-30 11:24:48 | INFO     | 📄 Processando linha 60...
+2025-09-30 11:24:50 | DEBUG    | 🔍 CPF fornecido e formatado: 41781506850
+2025-09-30 11:24:51 | INFO     | ✅ Usuário criado (ID: 61) - Status atualizado: OK
+2025-09-30 11:24:56 | INFO     | ✅ Line criado (ID: 660) - 11946140510
+2025-09-30 11:25:02 | INFO     | ✅ Phone criado (ID: 682) - Celular Samsung - 353101860370179
+2025-09-30 11:25:02 | DEBUG    | 🔍 Sem notebook para processar na linha 60
+2025-09-30 11:25:02 | INFO     | ✅ Linha 60 processada com sucesso
+2025-09-30 11:25:03 | INFO     | 📄 Processando linha 61...
+2025-09-30 11:25:05 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:25:07 | INFO     | ✅ Usuário criado (ID: 62) - Status atualizado: OK
+2025-09-30 11:25:11 | INFO     | ✅ Line criado (ID: 661) - 21983710240
+2025-09-30 11:25:17 | INFO     | ✅ Phone criado (ID: 683) - Celular Samsung - 354468910104240
+2025-09-30 11:25:17 | DEBUG    | 🔍 Sem notebook para processar na linha 61
+2025-09-30 11:25:17 | INFO     | ✅ Linha 61 processada com sucesso
+2025-09-30 11:25:18 | INFO     | 📄 Processando linha 62...
+2025-09-30 11:25:20 | DEBUG    | 🔍 CPF fornecido e formatado: 43574630840
+2025-09-30 11:25:22 | INFO     | ✅ Usuário criado (ID: 63) - Status atualizado: OK
+2025-09-30 11:27:26 | ERROR    | ❌ Falha ao criar Line - Erro: Expecting value: line 1 column 1 (char 0)
+2025-09-30 11:29:30 | ERROR    | ❌ Falha ao criar Phone - Erro: Expecting value: line 1 column 1 (char 0)
+2025-09-30 11:29:30 | DEBUG    | 🔍 Sem notebook para processar na linha 62
+2025-09-30 11:29:30 | INFO     | ✅ Linha 62 processada com sucesso
+2025-09-30 11:29:31 | INFO     | 📄 Processando linha 63...
+2025-09-30 11:29:33 | DEBUG    | 🔍 CPF fornecido e formatado: 04824034540
+2025-09-30 11:29:35 | INFO     | ✅ Usuário criado (ID: 64) - Status atualizado: OK
+2025-09-30 11:29:39 | INFO     | ✅ Line criado (ID: 663) - 75991130010
+2025-09-30 11:29:46 | INFO     | ✅ Phone criado (ID: 685) - Celular Samsung - 350844818598416
+2025-09-30 11:29:46 | DEBUG    | 🔍 Sem notebook para processar na linha 63
+2025-09-30 11:29:46 | INFO     | ✅ Linha 63 processada com sucesso
+2025-09-30 11:29:46 | INFO     | 📄 Processando linha 64...
+2025-09-30 11:29:48 | DEBUG    | 🔍 CPF fornecido e formatado: 22777404895
+2025-09-30 11:29:50 | INFO     | ✅ Usuário criado (ID: 65) - Status atualizado: OK
+2025-09-30 11:29:54 | INFO     | ✅ Line criado (ID: 664) - 11931352144
+2025-09-30 11:30:00 | INFO     | ✅ Phone criado (ID: 686) - Celular Samsung - 353101860957033
+2025-09-30 11:30:00 | DEBUG    | 🔍 Sem notebook para processar na linha 64
+2025-09-30 11:30:00 | INFO     | ✅ Linha 64 processada com sucesso
+2025-09-30 11:30:01 | INFO     | 📄 Processando linha 65...
+2025-09-30 11:30:03 | DEBUG    | 🔍 CPF fornecido e formatado: 03272880518
+2025-09-30 11:30:05 | INFO     | ✅ Usuário criado (ID: 66) - Status atualizado: OK
+2025-09-30 11:30:09 | INFO     | ✅ Line criado (ID: 665) - 62983370829
+2025-09-30 11:30:16 | INFO     | ✅ Phone criado (ID: 687) - Celular Samsung - 353101863243944
+2025-09-30 11:30:16 | DEBUG    | 🔍 Sem notebook para processar na linha 65
+2025-09-30 11:30:16 | INFO     | ✅ Linha 65 processada com sucesso
+2025-09-30 11:30:16 | INFO     | 📄 Processando linha 66...
+2025-09-30 11:30:18 | DEBUG    | 🔍 CPF fornecido e formatado: 36811453850
+2025-09-30 11:30:20 | INFO     | ✅ Usuário criado (ID: 67) - Status atualizado: OK
+2025-09-30 11:30:24 | INFO     | ✅ Line criado (ID: 666) - 11946141492
+2025-09-30 11:30:30 | INFO     | ✅ Phone criado (ID: 688) - Celular Samsung - 353101860376374
+2025-09-30 11:30:30 | DEBUG    | 🔍 Sem notebook para processar na linha 66
+2025-09-30 11:30:30 | INFO     | ✅ Linha 66 processada com sucesso
+2025-09-30 11:30:31 | INFO     | 📄 Processando linha 67...
+2025-09-30 11:30:33 | DEBUG    | 🔍 CPF fornecido e formatado: 04878119330
+2025-09-30 11:30:35 | INFO     | ✅ Usuário criado (ID: 68) - Status atualizado: OK
+2025-09-30 11:30:39 | INFO     | ✅ Line criado (ID: 667) - 85997180086
+2025-09-30 11:30:46 | INFO     | ✅ Phone criado (ID: 689) - Celular Samsung - 353291453639393
+2025-09-30 11:30:46 | DEBUG    | 🔍 Sem notebook para processar na linha 67
+2025-09-30 11:30:46 | INFO     | ✅ Linha 67 processada com sucesso
+2025-09-30 11:30:46 | INFO     | 📄 Processando linha 68...
+2025-09-30 11:30:48 | DEBUG    | 🔍 CPF fornecido e formatado: 38649409822
+2025-09-30 11:30:49 | INFO     | ✅ Usuário criado (ID: 69) - Status atualizado: OK
+2025-09-30 11:30:53 | INFO     | ✅ Line criado (ID: 668) - 11931351930
+2025-09-30 11:31:00 | INFO     | ✅ Phone criado (ID: 690) - Celular Samsung - 353101863547831
+2025-09-30 11:31:00 | DEBUG    | 🔍 Sem notebook para processar na linha 68
+2025-09-30 11:31:00 | INFO     | ✅ Linha 68 processada com sucesso
+2025-09-30 11:31:00 | INFO     | 📄 Processando linha 69...
+2025-09-30 11:31:02 | DEBUG    | 🔍 CPF fornecido e formatado: 39804749840
+2025-09-30 11:31:04 | INFO     | ✅ Usuário criado (ID: 70) - Status atualizado: OK
+2025-09-30 11:31:08 | INFO     | ✅ Line criado (ID: 669) - 11931353904
+2025-09-30 11:31:15 | INFO     | ✅ Phone criado (ID: 691) - Celular Samsung - 353101860371201
+2025-09-30 11:31:15 | DEBUG    | 🔍 Sem notebook para processar na linha 69
+2025-09-30 11:31:15 | INFO     | ✅ Linha 69 processada com sucesso
+2025-09-30 11:31:15 | INFO     | 📄 Processando linha 70...
+2025-09-30 11:31:18 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:31:20 | INFO     | ✅ Usuário criado (ID: 71) - Status atualizado: OK
+2025-09-30 11:31:24 | INFO     | ✅ Line criado (ID: 670) - 21980140129
+2025-09-30 11:31:30 | INFO     | ✅ Phone criado (ID: 692) - Celular Samsung - 353101861932779
+2025-09-30 11:31:30 | DEBUG    | 🔍 Sem notebook para processar na linha 70
+2025-09-30 11:31:30 | INFO     | ✅ Linha 70 processada com sucesso
+2025-09-30 11:31:31 | INFO     | 📄 Processando linha 71...
+2025-09-30 11:31:33 | DEBUG    | 🔍 CPF fornecido e formatado: 41818842874
+2025-09-30 11:31:34 | INFO     | ✅ Usuário criado (ID: 72) - Status atualizado: OK
+2025-09-30 11:31:39 | INFO     | ✅ Line criado (ID: 671) - 51981969709
+2025-09-30 11:31:45 | INFO     | ✅ Phone criado (ID: 693) - Celular Samsung - 353101860371565
+2025-09-30 11:31:45 | DEBUG    | 🔍 Sem notebook para processar na linha 71
+2025-09-30 11:31:45 | INFO     | ✅ Linha 71 processada com sucesso
+2025-09-30 11:31:45 | INFO     | 📄 Processando linha 72...
+2025-09-30 11:31:48 | DEBUG    | 🔍 CPF fornecido e formatado: 06842117003
+2025-09-30 11:31:50 | INFO     | ✅ Usuário criado (ID: 73) - Status atualizado: OK
+2025-09-30 11:31:54 | INFO     | ✅ Line criado (ID: 672) - 65981330118
+2025-09-30 11:32:00 | INFO     | ✅ Phone criado (ID: 694) - Celular Samsung - 353101861814274
+2025-09-30 11:32:00 | DEBUG    | 🔍 Sem notebook para processar na linha 72
+2025-09-30 11:32:00 | INFO     | ✅ Linha 72 processada com sucesso
+2025-09-30 11:32:01 | INFO     | 📄 Processando linha 73...
+2025-09-30 11:32:03 | DEBUG    | 🔍 CPF fornecido e formatado: 20582832799
+2025-09-30 11:32:04 | INFO     | ✅ Usuário criado (ID: 74) - Status atualizado: OK
+2025-09-30 11:32:09 | INFO     | ✅ Line criado (ID: 673) - 11931352691
+2025-09-30 11:32:15 | INFO     | ✅ Phone criado (ID: 695) - Celular Samsung - 353101860378453
+2025-09-30 11:32:15 | DEBUG    | 🔍 Sem notebook para processar na linha 73
+2025-09-30 11:32:15 | INFO     | ✅ Linha 73 processada com sucesso
+2025-09-30 11:32:15 | INFO     | 📄 Processando linha 74...
+2025-09-30 11:32:17 | DEBUG    | 🔍 CPF fornecido e formatado: 45064606850
+2025-09-30 11:32:19 | INFO     | ✅ Usuário criado (ID: 75) - Status atualizado: OK
+2025-09-30 11:32:23 | INFO     | ✅ Line criado (ID: 674) - 11946140192
+2025-09-30 11:32:30 | INFO     | ✅ Phone criado (ID: 696) - Celular Samsung - 353101860994119
+2025-09-30 11:32:30 | DEBUG    | 🔍 Sem notebook para processar na linha 74
+2025-09-30 11:32:30 | INFO     | ✅ Linha 74 processada com sucesso
+2025-09-30 11:32:31 | INFO     | 📄 Processando linha 75...
+2025-09-30 11:32:34 | DEBUG    | 🔍 CPF fornecido e formatado: 02731453125
+2025-09-30 11:32:37 | INFO     | ✅ Usuário criado (ID: 76) - Status atualizado: OK
+2025-09-30 11:32:41 | INFO     | ✅ Line criado (ID: 675) - 11931352758
+2025-09-30 11:32:48 | INFO     | ✅ Phone criado (ID: 697) - Celular Samsung - 353101861937539
+2025-09-30 11:32:48 | DEBUG    | 🔍 Sem notebook para processar na linha 75
+2025-09-30 11:32:48 | INFO     | ✅ Linha 75 processada com sucesso
+2025-09-30 11:32:48 | INFO     | 📄 Processando linha 76...
+2025-09-30 11:32:51 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:32:53 | INFO     | ✅ Usuário criado (ID: 77) - Status atualizado: OK
+2025-09-30 11:32:57 | INFO     | ✅ Line criado (ID: 676) - 11931352640
+2025-09-30 11:33:04 | INFO     | ✅ Phone criado (ID: 698) - Celular Samsung - 353291454621655
+2025-09-30 11:33:04 | DEBUG    | 🔍 Sem notebook para processar na linha 76
+2025-09-30 11:33:04 | INFO     | ✅ Linha 76 processada com sucesso
+2025-09-30 11:33:04 | INFO     | 📄 Processando linha 77...
+2025-09-30 11:33:07 | DEBUG    | 🔍 CPF fornecido e formatado: 09984374416
+2025-09-30 11:33:09 | INFO     | ✅ Usuário criado (ID: 78) - Status atualizado: OK
+2025-09-30 11:33:13 | INFO     | ✅ Line criado (ID: 677) - 82999760059
+2025-09-30 11:33:20 | INFO     | ✅ Phone criado (ID: 699) - Celular Samsung - 353101863561428
+2025-09-30 11:33:20 | DEBUG    | 🔍 Sem notebook para processar na linha 77
+2025-09-30 11:33:20 | INFO     | ✅ Linha 77 processada com sucesso
+2025-09-30 11:33:20 | INFO     | 📄 Processando linha 78...
+2025-09-30 11:33:23 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:33:26 | INFO     | ✅ Usuário criado (ID: 79) - Status atualizado: OK
+2025-09-30 11:33:30 | INFO     | ✅ Line criado (ID: 678) - 11977857161
+2025-09-30 11:33:37 | INFO     | ✅ Phone criado (ID: 700) - Celular Samsung - 353101860370781
+2025-09-30 11:33:37 | DEBUG    | 🔍 Sem notebook para processar na linha 78
+2025-09-30 11:33:37 | INFO     | ✅ Linha 78 processada com sucesso
+2025-09-30 11:33:37 | INFO     | 📄 Processando linha 79...
+2025-09-30 11:33:40 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:33:43 | INFO     | ✅ Usuário criado (ID: 80) - Status atualizado: OK
+2025-09-30 11:33:47 | INFO     | ✅ Line criado (ID: 679) - 11952972732
+2025-09-30 11:33:55 | INFO     | ✅ Phone criado (ID: 701) - Celular Samsung - 353101860318889
+2025-09-30 11:33:55 | DEBUG    | 🔍 Sem notebook para processar na linha 79
+2025-09-30 11:33:55 | INFO     | ✅ Linha 79 processada com sucesso
+2025-09-30 11:33:55 | INFO     | 📄 Processando linha 80...
+2025-09-30 11:33:58 | DEBUG    | 🔍 CPF fornecido e formatado: 04381927532
+2025-09-30 11:34:00 | INFO     | ✅ Usuário criado (ID: 81) - Status atualizado: OK
+2025-09-30 11:34:04 | INFO     | ✅ Line criado (ID: 680) - 79991390022
+2025-09-30 11:34:11 | INFO     | ✅ Phone criado (ID: 702) - Celular Samsung - 350844814039209
+2025-09-30 11:34:11 | DEBUG    | 🔍 Sem notebook para processar na linha 80
+2025-09-30 11:34:11 | INFO     | ✅ Linha 80 processada com sucesso
+2025-09-30 11:34:11 | INFO     | 📄 Processando linha 81...
+2025-09-30 11:34:14 | DEBUG    | 🔍 CPF fornecido e formatado: 03012738126
+2025-09-30 11:34:16 | INFO     | ✅ Usuário criado (ID: 82) - Status atualizado: OK
+2025-09-30 11:34:20 | INFO     | ✅ Line criado (ID: 681) - 31991560250
+2025-09-30 11:34:28 | INFO     | ✅ Phone criado (ID: 703) - Celular Samsung - 353101863512025
+2025-09-30 11:34:28 | DEBUG    | 🔍 Sem notebook para processar na linha 81
+2025-09-30 11:34:28 | INFO     | ✅ Linha 81 processada com sucesso
+2025-09-30 11:34:29 | INFO     | 📄 Processando linha 82...
+2025-09-30 11:34:32 | DEBUG    | 🔍 CPF fornecido e formatado: 02731453125
+2025-09-30 11:34:35 | INFO     | ✅ Usuário criado (ID: 83) - Status atualizado: OK
+2025-09-30 11:34:39 | INFO     | ✅ Line criado (ID: 682) - 11964686517
+2025-09-30 11:34:46 | INFO     | ✅ Phone criado (ID: 704) - Celular Samsung - 353291453711127
+2025-09-30 11:34:46 | DEBUG    | 🔍 Sem notebook para processar na linha 82
+2025-09-30 11:34:46 | INFO     | ✅ Linha 82 processada com sucesso
+2025-09-30 11:34:46 | INFO     | 📄 Processando linha 83...
+2025-09-30 11:34:49 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:34:51 | INFO     | ✅ Usuário criado (ID: 84) - Status atualizado: OK
+2025-09-30 11:34:55 | INFO     | ✅ Line criado (ID: 683) - 11963631886
+2025-09-30 11:35:02 | INFO     | ✅ Phone criado (ID: 705) - Celular Samsung - 353101860370286
+2025-09-30 11:35:02 | DEBUG    | 🔍 Sem notebook para processar na linha 83
+2025-09-30 11:35:02 | INFO     | ✅ Linha 83 processada com sucesso
+2025-09-30 11:35:02 | INFO     | 📄 Processando linha 84...
+2025-09-30 11:35:05 | DEBUG    | 🔍 CPF fornecido e formatado: 02866791088
+2025-09-30 11:35:07 | INFO     | ✅ Usuário criado (ID: 85) - Status atualizado: OK
+2025-09-30 11:35:11 | INFO     | ✅ Line criado (ID: 684) - 65981000417
+2025-09-30 11:35:17 | INFO     | ✅ Phone criado (ID: 706) - Celular Motorola - 357584204187639
+2025-09-30 11:35:17 | DEBUG    | 🔍 Sem notebook para processar na linha 84
+2025-09-30 11:35:17 | INFO     | ✅ Linha 84 processada com sucesso
+2025-09-30 11:35:17 | INFO     | 📄 Processando linha 85...
+2025-09-30 11:35:20 | DEBUG    | 🔍 CPF fornecido e formatado: 03135821579
+2025-09-30 11:35:22 | INFO     | ✅ Usuário criado (ID: 86) - Status atualizado: OK
+2025-09-30 11:35:26 | INFO     | ✅ Line criado (ID: 685) - 11931353681
+2025-09-30 11:35:32 | INFO     | ✅ Phone criado (ID: 707) - Celular Samsung - 353101863939301
+2025-09-30 11:35:32 | DEBUG    | 🔍 Sem notebook para processar na linha 85
+2025-09-30 11:35:32 | INFO     | ✅ Linha 85 processada com sucesso
+2025-09-30 11:35:33 | INFO     | 📄 Processando linha 86...
+2025-09-30 11:35:35 | DEBUG    | 🔍 CPF fornecido e formatado: 10084249943
+2025-09-30 11:35:37 | INFO     | ✅ Usuário criado (ID: 87) - Status atualizado: OK
+2025-09-30 11:35:41 | INFO     | ✅ Line criado (ID: 686) - 48998570394
+2025-09-30 11:35:48 | INFO     | ✅ Phone criado (ID: 708) - Celular Samsung - 353101862161857
+2025-09-30 11:35:48 | DEBUG    | 🔍 Sem notebook para processar na linha 86
+2025-09-30 11:35:48 | INFO     | ✅ Linha 86 processada com sucesso
+2025-09-30 11:35:48 | INFO     | 📄 Processando linha 87...
+2025-09-30 11:35:51 | DEBUG    | 🔍 CPF fornecido e formatado: 07222626395
+2025-09-30 11:35:53 | INFO     | ✅ Usuário criado (ID: 88) - Status atualizado: OK
+2025-09-30 11:35:57 | INFO     | ✅ Line criado (ID: 687) - 85997180159
+2025-09-30 11:36:03 | INFO     | ✅ Phone criado (ID: 709) - Celular Samsung - 353101860379113
+2025-09-30 11:36:03 | DEBUG    | 🔍 Sem notebook para processar na linha 87
+2025-09-30 11:36:03 | INFO     | ✅ Linha 87 processada com sucesso
+2025-09-30 11:36:03 | INFO     | 📄 Processando linha 88...
+2025-09-30 11:36:06 | DEBUG    | 🔍 CPF fornecido e formatado: 04616041598
+2025-09-30 11:36:08 | INFO     | ✅ Usuário criado (ID: 89) - Status atualizado: OK
+2025-09-30 11:36:12 | INFO     | ✅ Line criado (ID: 688) - 71993120081
+2025-09-30 11:36:18 | INFO     | ✅ Phone criado (ID: 710) - Celular Samsung - 353291453631739
+2025-09-30 11:36:18 | DEBUG    | 🔍 Sem notebook para processar na linha 88
+2025-09-30 11:36:18 | INFO     | ✅ Linha 88 processada com sucesso
+2025-09-30 11:36:19 | INFO     | 📄 Processando linha 89...
+2025-09-30 11:36:21 | DEBUG    | 🔍 CPF fornecido e formatado: 69102384191
+2025-09-30 11:36:23 | INFO     | ✅ Usuário criado (ID: 90) - Status atualizado: OK
+2025-09-30 11:36:23 | ERROR    | ❌ Linha '11930005619' não pode ser criada: Operadora não informada
+2025-09-30 11:36:27 | INFO     | ✅ Phone criado (ID: 711) - Celular Samsung - 353291454950526
+2025-09-30 11:36:27 | DEBUG    | 🔍 Sem notebook para processar na linha 89
+2025-09-30 11:36:27 | INFO     | ✅ Linha 89 processada com sucesso
+2025-09-30 11:36:28 | INFO     | 📄 Processando linha 90...
+2025-09-30 11:36:30 | DEBUG    | 🔍 CPF fornecido e formatado: 54700596856
+2025-09-30 11:36:32 | INFO     | ✅ Usuário criado (ID: 91) - Status atualizado: OK
+2025-09-30 11:36:36 | INFO     | ✅ Line criado (ID: 689) - 11931353092
+2025-09-30 11:36:43 | INFO     | ✅ Phone criado (ID: 712) - Celular Samsung - 353101861935301
+2025-09-30 11:36:43 | DEBUG    | 🔍 Sem notebook para processar na linha 90
+2025-09-30 11:36:43 | INFO     | ✅ Linha 90 processada com sucesso
+2025-09-30 11:36:43 | INFO     | 📄 Processando linha 91...
+2025-09-30 11:36:45 | DEBUG    | 🔍 CPF fornecido e formatado: 52184958832
+2025-09-30 11:36:47 | INFO     | ✅ Usuário criado (ID: 92) - Status atualizado: OK
+2025-09-30 11:36:47 | ERROR    | ❌ Linha '47996219865' não pode ser criada: Operadora não informada
+2025-09-30 11:36:52 | INFO     | ✅ Phone criado (ID: 713) - Celular Samsung - 353101863712286
+2025-09-30 11:36:52 | DEBUG    | 🔍 Sem notebook para processar na linha 91
+2025-09-30 11:36:52 | INFO     | ✅ Linha 91 processada com sucesso
+2025-09-30 11:36:52 | INFO     | 📄 Processando linha 92...
+2025-09-30 11:36:55 | DEBUG    | 🔍 CPF fornecido e formatado: 50669756830
+2025-09-30 11:36:56 | INFO     | ✅ Usuário criado (ID: 93) - Status atualizado: OK
+2025-09-30 11:37:00 | INFO     | ✅ Line criado (ID: 690) - 11953636692
+2025-09-30 11:37:07 | INFO     | ✅ Phone criado (ID: 714) - Celular Samsung - 353101862180238
+2025-09-30 11:37:07 | DEBUG    | 🔍 Sem notebook para processar na linha 92
+2025-09-30 11:37:07 | INFO     | ✅ Linha 92 processada com sucesso
+2025-09-30 11:37:07 | INFO     | 📄 Processando linha 93...
+2025-09-30 11:37:10 | DEBUG    | 🔍 CPF fornecido e formatado: 08537906123
+2025-09-30 11:37:12 | INFO     | ✅ Usuário criado (ID: 94) - Status atualizado: OK
+2025-09-30 11:37:16 | INFO     | ✅ Line criado (ID: 691) - 61981100398
+2025-09-30 11:37:22 | INFO     | ✅ Phone criado (ID: 715) - Celular Samsung - 353101860371177
+2025-09-30 11:37:22 | DEBUG    | 🔍 Sem notebook para processar na linha 93
+2025-09-30 11:37:22 | INFO     | ✅ Linha 93 processada com sucesso
+2025-09-30 11:37:22 | INFO     | 📄 Processando linha 94...
+2025-09-30 11:37:25 | DEBUG    | 🔍 CPF fornecido e formatado: 31008506885
+2025-09-30 11:37:27 | INFO     | ✅ Usuário criado (ID: 95) - Status atualizado: OK
+2025-09-30 11:37:31 | INFO     | ✅ Line criado (ID: 692) - 11931353198
+2025-09-30 11:37:37 | INFO     | ✅ Phone criado (ID: 716) - Celular Samsung - 353101863243548
+2025-09-30 11:37:37 | DEBUG    | 🔍 Sem notebook para processar na linha 94
+2025-09-30 11:37:37 | INFO     | ✅ Linha 94 processada com sucesso
+2025-09-30 11:37:38 | INFO     | 📄 Processando linha 95...
+2025-09-30 11:37:40 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:37:42 | INFO     | ✅ Usuário criado (ID: 96) - Status atualizado: OK
+2025-09-30 11:37:46 | INFO     | ✅ Line criado (ID: 693) - 21980140086
+2025-09-30 11:37:53 | INFO     | ✅ Phone criado (ID: 717) - Celular Samsung - 353291453700500
+2025-09-30 11:37:53 | DEBUG    | 🔍 Sem notebook para processar na linha 95
+2025-09-30 11:37:53 | INFO     | ✅ Linha 95 processada com sucesso
+2025-09-30 11:37:53 | INFO     | 📄 Processando linha 96...
+2025-09-30 11:37:56 | DEBUG    | 🔍 CPF fornecido e formatado: 69622710000
+2025-09-30 11:37:57 | INFO     | ✅ Usuário criado (ID: 97) - Status atualizado: OK
+2025-09-30 11:38:01 | INFO     | ✅ Line criado (ID: 694) - 51982580249
+2025-09-30 11:38:08 | INFO     | ✅ Phone criado (ID: 718) - Celular Samsung - 353101863234356
+2025-09-30 11:38:08 | DEBUG    | 🔍 Sem notebook para processar na linha 96
+2025-09-30 11:38:08 | INFO     | ✅ Linha 96 processada com sucesso
+2025-09-30 11:38:08 | INFO     | 📄 Processando linha 97...
+2025-09-30 11:38:11 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:38:13 | INFO     | ✅ Usuário criado (ID: 98) - Status atualizado: OK
+2025-09-30 11:38:17 | INFO     | ✅ Line criado (ID: 695) - 11964686568
+2025-09-30 11:38:23 | INFO     | ✅ Phone criado (ID: 719) - Celular Samsung - 353101861936655
+2025-09-30 11:38:23 | DEBUG    | 🔍 Sem notebook para processar na linha 97
+2025-09-30 11:38:23 | INFO     | ✅ Linha 97 processada com sucesso
+2025-09-30 11:38:23 | INFO     | 📄 Processando linha 98...
+2025-09-30 11:38:26 | DEBUG    | 🔍 CPF fornecido e formatado: 86283713548
+2025-09-30 11:38:28 | INFO     | ✅ Usuário criado (ID: 99) - Status atualizado: OK
+2025-09-30 11:38:32 | INFO     | ✅ Line criado (ID: 696) - 71993120208
+2025-09-30 11:38:38 | INFO     | ✅ Phone criado (ID: 720) - Celular Samsung - 353101865898612
+2025-09-30 11:38:38 | DEBUG    | 🔍 Sem notebook para processar na linha 98
+2025-09-30 11:38:38 | INFO     | ✅ Linha 98 processada com sucesso
+2025-09-30 11:38:39 | INFO     | 📄 Processando linha 99...
+2025-09-30 11:38:41 | DEBUG    | 🔍 CPF fornecido e formatado: 00994528124
+2025-09-30 11:38:43 | INFO     | ✅ Usuário criado (ID: 100) - Status atualizado: OK
+2025-09-30 11:38:47 | INFO     | ✅ Line criado (ID: 697) - 61983660057
+2025-09-30 11:38:54 | INFO     | ✅ Phone criado (ID: 721) - Celular Samsung - 353101860370161
+2025-09-30 11:38:54 | DEBUG    | 🔍 Sem notebook para processar na linha 99
+2025-09-30 11:38:54 | INFO     | ✅ Linha 99 processada com sucesso
+2025-09-30 11:38:54 | INFO     | 📄 Processando linha 100...
+2025-09-30 11:38:56 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:38:58 | INFO     | ✅ Usuário criado (ID: 101) - Status atualizado: OK
+2025-09-30 11:39:02 | INFO     | ✅ Line criado (ID: 698) - 31992290066
+2025-09-30 11:39:09 | INFO     | ✅ Phone criado (ID: 722) - Celular Samsung - 353101860370799
+2025-09-30 11:39:09 | DEBUG    | 🔍 Sem notebook para processar na linha 100
+2025-09-30 11:39:09 | INFO     | ✅ Linha 100 processada com sucesso
+2025-09-30 11:39:09 | INFO     | 📄 Processando linha 101...
+2025-09-30 11:39:12 | DEBUG    | 🔍 CPF fornecido e formatado: 46888755843
+2025-09-30 11:39:14 | INFO     | ✅ Usuário criado (ID: 102) - Status atualizado: OK
+2025-09-30 11:39:18 | INFO     | ✅ Line criado (ID: 699) - 11931354126
+2025-09-30 11:39:25 | INFO     | ✅ Phone criado (ID: 723) - Celular Samsung - 353101860379097
+2025-09-30 11:39:25 | DEBUG    | 🔍 Sem notebook para processar na linha 101
+2025-09-30 11:39:25 | INFO     | ✅ Linha 101 processada com sucesso
+2025-09-30 11:39:25 | INFO     | 📄 Processando linha 102...
+2025-09-30 11:39:28 | DEBUG    | 🔍 CPF fornecido e formatado: 04074779935
+2025-09-30 11:39:30 | INFO     | ✅ Usuário criado (ID: 103) - Status atualizado: OK
+2025-09-30 11:39:34 | INFO     | ✅ Line criado (ID: 700) - 47996215128
+2025-09-30 11:39:41 | INFO     | ✅ Phone criado (ID: 724) - Celular Samsung - 353101863520028
+2025-09-30 11:39:41 | DEBUG    | 🔍 Sem notebook para processar na linha 102
+2025-09-30 11:39:41 | INFO     | ✅ Linha 102 processada com sucesso
+2025-09-30 11:39:41 | INFO     | 📄 Processando linha 103...
+2025-09-30 11:39:44 | DEBUG    | 🔍 CPF fornecido e formatado: 00927985195
+2025-09-30 11:39:46 | INFO     | ✅ Usuário criado (ID: 104) - Status atualizado: OK
+2025-09-30 11:39:50 | INFO     | ✅ Line criado (ID: 701) - 11931352674
+2025-09-30 11:39:57 | INFO     | ✅ Phone criado (ID: 725) - Celular Samsung - 353291456193901
+2025-09-30 11:39:57 | DEBUG    | 🔍 Sem notebook para processar na linha 103
+2025-09-30 11:39:57 | INFO     | ✅ Linha 103 processada com sucesso
+2025-09-30 11:39:58 | INFO     | 📄 Processando linha 104...
+2025-09-30 11:40:01 | DEBUG    | 🔍 CPF fornecido e formatado: 16313987764
+2025-09-30 11:40:03 | INFO     | ✅ Usuário criado (ID: 105) - Status atualizado: OK
+2025-09-30 11:40:07 | INFO     | ✅ Line criado (ID: 702) - 21983710583
+2025-09-30 11:40:15 | INFO     | ✅ Phone criado (ID: 726) - Celular Samsung - 353101860994218
+2025-09-30 11:40:15 | DEBUG    | 🔍 Sem notebook para processar na linha 104
+2025-09-30 11:40:15 | INFO     | ✅ Linha 104 processada com sucesso
+2025-09-30 11:40:15 | INFO     | 📄 Processando linha 105...
+2025-09-30 11:40:18 | DEBUG    | 🔍 CPF fornecido e formatado: 47926388874
+2025-09-30 11:40:20 | INFO     | ✅ Usuário criado (ID: 106) - Status atualizado: OK
+2025-09-30 11:40:25 | INFO     | ✅ Line criado (ID: 703) - 11931352029
+2025-09-30 11:40:32 | INFO     | ✅ Phone criado (ID: 727) - Celular Samsung - 353101862111159
+2025-09-30 11:40:32 | DEBUG    | 🔍 Sem notebook para processar na linha 105
+2025-09-30 11:40:32 | INFO     | ✅ Linha 105 processada com sucesso
+2025-09-30 11:40:32 | INFO     | 📄 Processando linha 106...
+2025-09-30 11:40:34 | DEBUG    | 🔍 CPF fornecido e formatado: 12717461906
+2025-09-30 11:40:36 | INFO     | ✅ Usuário criado (ID: 107) - Status atualizado: OK
+2025-09-30 11:40:40 | INFO     | ✅ Line criado (ID: 704) - 41996060001
+2025-09-30 11:40:47 | INFO     | ✅ Phone criado (ID: 728) - Celular Samsung - 353101861937760
+2025-09-30 11:40:47 | DEBUG    | 🔍 Sem notebook para processar na linha 106
+2025-09-30 11:40:47 | INFO     | ✅ Linha 106 processada com sucesso
+2025-09-30 11:40:47 | INFO     | 📄 Processando linha 107...
+2025-09-30 11:40:50 | DEBUG    | 🔍 CPF fornecido e formatado: 52605246833
+2025-09-30 11:40:52 | INFO     | ✅ Usuário criado (ID: 108) - Status atualizado: OK
+2025-09-30 11:40:56 | INFO     | ✅ Line criado (ID: 705) - 11948895366
+2025-09-30 11:41:02 | INFO     | ✅ Phone criado (ID: 729) - Celular Samsung - 353101861936416
+2025-09-30 11:41:02 | DEBUG    | 🔍 Sem notebook para processar na linha 107
+2025-09-30 11:41:02 | INFO     | ✅ Linha 107 processada com sucesso
+2025-09-30 11:41:03 | INFO     | 📄 Processando linha 108...
+2025-09-30 11:41:05 | DEBUG    | 🔍 CPF fornecido e formatado: 50084279893
+2025-09-30 11:41:07 | INFO     | ✅ Usuário criado (ID: 109) - Status atualizado: OK
+2025-09-30 11:41:11 | INFO     | ✅ Line criado (ID: 706) - 11946860508
+2025-09-30 11:41:18 | INFO     | ✅ Phone criado (ID: 730) - Celular Samsung - 353101862163002
+2025-09-30 11:41:18 | DEBUG    | 🔍 Sem notebook para processar na linha 108
+2025-09-30 11:41:18 | INFO     | ✅ Linha 108 processada com sucesso
+2025-09-30 11:41:18 | INFO     | 📄 Processando linha 109...
+2025-09-30 11:41:20 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:41:22 | INFO     | ✅ Usuário criado (ID: 110) - Status atualizado: OK
+2025-09-30 11:41:26 | INFO     | ✅ Line criado (ID: 707) - 21982651763
+2025-09-30 11:41:33 | INFO     | ✅ Phone criado (ID: 731) - Celular Samsung - 353101860363299
+2025-09-30 11:41:33 | DEBUG    | 🔍 Sem notebook para processar na linha 109
+2025-09-30 11:41:33 | INFO     | ✅ Linha 109 processada com sucesso
+2025-09-30 11:41:33 | INFO     | 📄 Processando linha 110...
+2025-09-30 11:41:35 | DEBUG    | 🔍 CPF fornecido e formatado: 39429160885
+2025-09-30 11:41:38 | INFO     | ✅ Usuário criado (ID: 10) - Status atualizado: OK
+2025-09-30 11:41:38 | DEBUG    | 🔍 Sem linha para processar na linha 110
+2025-09-30 11:41:38 | DEBUG    | 🔍 Sem celular para processar na linha 110
+2025-09-30 11:41:44 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:41:44 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:41:44 | INFO     | ✅ Linha 110 processada com sucesso
+2025-09-30 11:41:44 | INFO     | 📄 Processando linha 111...
+2025-09-30 11:41:46 | DEBUG    | 🔍 Sem usuário para processar na linha 111
+2025-09-30 11:41:46 | DEBUG    | 🔍 Sem linha para processar na linha 111
+2025-09-30 11:41:46 | DEBUG    | 🔍 Sem celular para processar na linha 111
+2025-09-30 11:41:51 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:41:51 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:41:51 | INFO     | ✅ Linha 111 processada com sucesso
+2025-09-30 11:41:51 | INFO     | 📄 Processando linha 112...
+2025-09-30 11:41:53 | DEBUG    | 🔍 CPF fornecido e formatado: 00951309935
+2025-09-30 11:41:56 | INFO     | ✅ Usuário criado (ID: 7) - Status atualizado: OK
+2025-09-30 11:41:56 | DEBUG    | 🔍 Sem linha para processar na linha 112
+2025-09-30 11:41:56 | DEBUG    | 🔍 Sem celular para processar na linha 112
+2025-09-30 11:42:01 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:42:01 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:42:01 | INFO     | ✅ Linha 112 processada com sucesso
+2025-09-30 11:42:01 | INFO     | 📄 Processando linha 113...
+2025-09-30 11:42:03 | DEBUG    | 🔍 CPF fornecido e formatado: 48184508808
+2025-09-30 11:42:05 | INFO     | ✅ Usuário criado (ID: 111) - Status atualizado: OK
+2025-09-30 11:42:05 | DEBUG    | 🔍 Sem linha para processar na linha 113
+2025-09-30 11:42:05 | DEBUG    | 🔍 Sem celular para processar na linha 113
+2025-09-30 11:42:10 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:42:10 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:42:10 | INFO     | ✅ Linha 113 processada com sucesso
+2025-09-30 11:42:10 | INFO     | 📄 Processando linha 114...
+2025-09-30 11:42:12 | DEBUG    | 🔍 CPF fornecido e formatado: 29451216898
+2025-09-30 11:42:15 | INFO     | ✅ Usuário criado (ID: 8) - Status atualizado: OK
+2025-09-30 11:42:15 | DEBUG    | 🔍 Sem linha para processar na linha 114
+2025-09-30 11:42:15 | DEBUG    | 🔍 Sem celular para processar na linha 114
+2025-09-30 11:42:20 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:42:20 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:42:20 | INFO     | ✅ Linha 114 processada com sucesso
+2025-09-30 11:42:21 | INFO     | 📄 Processando linha 115...
+2025-09-30 11:42:23 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:42:25 | INFO     | ✅ Usuário criado (ID: 112) - Status atualizado: OK
+2025-09-30 11:42:25 | DEBUG    | 🔍 Sem linha para processar na linha 115
+2025-09-30 11:42:25 | DEBUG    | 🔍 Sem celular para processar na linha 115
+2025-09-30 11:42:29 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:42:29 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:42:29 | INFO     | ✅ Linha 115 processada com sucesso
+2025-09-30 11:42:29 | INFO     | 📄 Processando linha 116...
+2025-09-30 11:42:31 | DEBUG    | 🔍 CPF não fornecido - campo opcional
+2025-09-30 11:42:33 | INFO     | ✅ Usuário criado (ID: 113) - Status atualizado: OK
+2025-09-30 11:42:33 | DEBUG    | 🔍 Sem linha para processar na linha 116
+2025-09-30 11:42:33 | DEBUG    | 🔍 Sem celular para processar na linha 116
+2025-09-30 11:42:38 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:42:38 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:42:38 | INFO     | ✅ Linha 116 processada com sucesso
+2025-09-30 11:42:38 | INFO     | 📄 Processando linha 117...
+2025-09-30 11:42:40 | DEBUG    | 🔍 CPF fornecido e formatado: 33244338860
+2025-09-30 11:42:42 | INFO     | ✅ Usuário criado (ID: 114) - Status atualizado: OK
+2025-09-30 11:42:42 | DEBUG    | 🔍 Sem linha para processar na linha 117
+2025-09-30 11:42:42 | DEBUG    | 🔍 Sem celular para processar na linha 117
+2025-09-30 11:42:47 | ERROR    | ❌ Falha ao criar Computer - Erro: 'list' object has no attribute 'get'
+2025-09-30 11:42:47 | INFO     | ✅ Notebook e componentes processados com sucesso
+2025-09-30 11:42:47 | INFO     | ✅ Linha 117 processada com sucesso
+2025-09-30 11:42:47 | INFO     | 📄 Processando linha 118...
+2025-09-30 11:42:49 | DEBUG    | 🔍 CPF fornecido e formatado: 49268122820
+2025-09-30 11:42:52 | INFO     | ✅ Usuário criado (ID: 13) - Status atualizado: OK
+2025-09-30 11:42:52 | DEBUG    | 🔍 Sem linha para processar na linha 118
+2025-09-30 11:42:52 | DEBUG    | 🔍 Sem celular para processar na linha 118

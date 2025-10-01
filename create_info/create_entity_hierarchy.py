@@ -47,9 +47,7 @@ def create_entity_hierarchy(session_token, entidade_a, entidade_b=None, entidade
             headers={**HEADERS, "Session-Token": session_token},
             json=comment_data
         )
-        if response.status_code == 200:
-            print(c(f"✅ Comentário adicionado à entidade com sucesso", 'green'))
-        else:
+        if not response.status_code == 200:
             print(c(f"⚠️ Não foi possível adicionar o comentário à entidade - Status: {response.status_code}", 'yellow'))
             print(c(f"⚠️ Resposta: {response.text}", 'yellow'))
 

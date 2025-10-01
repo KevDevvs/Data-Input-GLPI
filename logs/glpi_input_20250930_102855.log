@@ -1,0 +1,31 @@
+2025-09-30 10:28:55 | INFO     | ============================================================
+2025-09-30 10:28:55 | INFO     | INÍCIO DO LOG - GLPI Data Input System
+2025-09-30 10:28:55 | INFO     | ============================================================
+2025-09-30 10:28:55 | INFO     | 🚀 INICIANDO: Teste do sistema de logging
+2025-09-30 10:28:55 | INFO     | Esta é uma mensagem informativa
+2025-09-30 10:28:55 | INFO     | ✅ Operação realizada com sucesso
+2025-09-30 10:28:55 | WARNING  | ⚠️ Este é um aviso importante
+2025-09-30 10:28:55 | ERROR    | ❌ Este é um erro de exemplo
+2025-09-30 10:28:55 | DEBUG    | 🔍 Mensagem de debug (não aparece no terminal por padrão)
+2025-09-30 10:28:55 | DEBUG    | 🔍 Mensagem de debug forçada no terminal
+2025-09-30 10:28:55 | INFO     | --- TESTE DE PROCESSAMENTO ---
+2025-09-30 10:28:55 | INFO     | 📄 Processando linha 1...
+2025-09-30 10:28:55 | INFO     | ✅ User criado (ID: 123) - João Silva
+2025-09-30 10:28:55 | INFO     | ✅ Computer criado (ID: 456) - Notebook Dell
+2025-09-30 10:28:55 | INFO     | ✅ Status Input User: OK
+2025-09-30 10:28:55 | INFO     | ✅ Status Input Notebook: OK
+2025-09-30 10:28:55 | INFO     | 📄 Processando linha 2...
+2025-09-30 10:28:55 | ERROR    | ❌ Falha ao criar Phone - Modelo não encontrado
+2025-09-30 10:28:55 | INFO     | ❌ Status Input Mobile: ERRO
+2025-09-30 10:28:55 | INFO     | 📄 Processando linha 3...
+2025-09-30 10:28:55 | INFO     | ✅ Line criado (ID: 789) - 11999887766
+2025-09-30 10:28:55 | INFO     | ✅ Status Input Line: OK
+2025-09-30 10:28:55 | INFO     | --------------------------------------------------
+2025-09-30 10:28:55 | INFO     | --- ESTATÍSTICAS FINAIS ---
+2025-09-30 10:28:55 | INFO     | 📊 Total processado: 3
+2025-09-30 10:28:55 | INFO     | ✅ Sucessos: 2
+2025-09-30 10:28:55 | INFO     | ❌ Erros: 1
+2025-09-30 10:28:55 | INFO     | 📈 Taxa de sucesso: 66.7%
+2025-09-30 10:28:55 | INFO     | 🏁 CONCLUÍDO: Teste do sistema de logging
+2025-09-30 10:28:55 | INFO     | --- FIM DO LOG ---
+2025-09-30 10:28:55 | INFO     | Log salvo em: logs\glpi_input_20250930_102855.log
